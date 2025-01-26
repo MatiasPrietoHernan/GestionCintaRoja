@@ -28,32 +28,46 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            dataGridView1 = new DataGridView();
+            lblTituloPacientes = new Label();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // dataGridView1
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(350, 179);
-            label1.Name = "label1";
-            label1.Size = new Size(90, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Form Consultas";
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(44, 52);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(577, 314);
+            dataGridView1.TabIndex = 1;
+            // 
+            // lblTituloPacientes
+            // 
+            lblTituloPacientes.AutoSize = true;
+            lblTituloPacientes.Font = new Font("Roboto", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            lblTituloPacientes.Location = new Point(44, 24);
+            lblTituloPacientes.Name = "lblTituloPacientes";
+            lblTituloPacientes.Size = new Size(183, 25);
+            lblTituloPacientes.TabIndex = 2;
+            lblTituloPacientes.Text = "Lista de pacientes";
             // 
             // FConsultas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(label1);
+            Controls.Add(lblTituloPacientes);
+            Controls.Add(dataGridView1);
             Name = "FConsultas";
             Text = "FConsultas";
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private DataGridView dataGridView1;
+        private Label lblTituloPacientes;
     }
 }
