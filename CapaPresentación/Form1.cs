@@ -8,13 +8,14 @@ namespace CapaPresentación
         {
             InitializeComponent();
             this.Icon = new Icon("Resources/Icons/cinta-de-cancer-de-mama.ico");
+            this.FormClosing += new FormClosingEventHandler(MainForm_FormClosing);
         }
 
         private void btnExit_Click(object sender, EventArgs e)
         {
             Application.Exit();
-        }
 
+        }
         private void btnPacientes_Click(object sender, EventArgs e)
         {
             AbrirFormulario<FPacientes>();
@@ -63,6 +64,20 @@ namespace CapaPresentación
             else
             {
                 formulario.BringToFront();
+            }
+        }
+        
+        private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            var resultado = MessageBox.Show(
+                "¿Estás seguro de que deseas cerrar la aplicación?",
+                "Confirmar cierre",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning);
+
+            if (resultado == DialogResult.No)
+            {
+                e.Cancel = true;
             }
         }
     }
