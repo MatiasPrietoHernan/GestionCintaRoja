@@ -28,32 +28,62 @@
         /// </summary>
         private void InitializeComponent()
         {
-            label1 = new Label();
+            panelTratamientos = new Panel();
+            panelClose = new Panel();
+            pictureBox1 = new PictureBox();
+            panelTratamientos.SuspendLayout();
+            panelClose.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // label1
+            // panelTratamientos
             // 
-            label1.AutoSize = true;
-            label1.Location = new Point(311, 220);
-            label1.Name = "label1";
-            label1.Size = new Size(153, 15);
-            label1.TabIndex = 0;
-            label1.Text = "Formulario de Tratamientos";
+            panelTratamientos.Controls.Add(panelClose);
+            panelTratamientos.Dock = DockStyle.Fill;
+            panelTratamientos.Location = new Point(0, 0);
+            panelTratamientos.Name = "panelTratamientos";
+            panelTratamientos.Size = new Size(800, 450);
+            panelTratamientos.TabIndex = 0;
+            // 
+            // panelClose
+            // 
+            panelClose.Controls.Add(pictureBox1);
+            panelClose.Dock = DockStyle.Top;
+            panelClose.Location = new Point(0, 0);
+            panelClose.Name = "panelClose";
+            panelClose.Size = new Size(800, 39);
+            panelClose.TabIndex = 0;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Dock = DockStyle.Right;
+            pictureBox1.Image = Properties.Resources.circle_xmark_solid1;
+            pictureBox1.Location = new Point(767, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(33, 39);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
             // 
             // FTratamientos
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(label1);
+            Controls.Add(panelTratamientos);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FTratamientos";
             Text = "FTratamientos";
+            panelTratamientos.ResumeLayout(false);
+            panelClose.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private Label label1;
+        private Panel panelTratamientos;
+        private Panel panelClose;
+        private PictureBox pictureBox1;
     }
 }

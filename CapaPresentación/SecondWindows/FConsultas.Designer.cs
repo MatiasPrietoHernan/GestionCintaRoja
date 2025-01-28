@@ -28,46 +28,79 @@
         /// </summary>
         private void InitializeComponent()
         {
-            dataGridView1 = new DataGridView();
-            lblTituloPacientes = new Label();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panelConsultas = new Panel();
+            panelClose = new Panel();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
+            panelConsultas.SuspendLayout();
+            panelClose.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
-            // dataGridView1
+            // panelConsultas
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(44, 52);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(577, 314);
-            dataGridView1.TabIndex = 1;
+            panelConsultas.Controls.Add(panelClose);
+            panelConsultas.Dock = DockStyle.Fill;
+            panelConsultas.Location = new Point(0, 0);
+            panelConsultas.Name = "panelConsultas";
+            panelConsultas.Size = new Size(800, 450);
+            panelConsultas.TabIndex = 0;
             // 
-            // lblTituloPacientes
+            // panelClose
             // 
-            lblTituloPacientes.AutoSize = true;
-            lblTituloPacientes.Font = new Font("Roboto", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTituloPacientes.Location = new Point(44, 24);
-            lblTituloPacientes.Name = "lblTituloPacientes";
-            lblTituloPacientes.Size = new Size(183, 25);
-            lblTituloPacientes.TabIndex = 2;
-            lblTituloPacientes.Text = "Lista de pacientes";
+            panelClose.Controls.Add(pictureBox2);
+            panelClose.Controls.Add(pictureBox1);
+            panelClose.Dock = DockStyle.Top;
+            panelClose.Location = new Point(0, 0);
+            panelClose.Name = "panelClose";
+            panelClose.Size = new Size(800, 39);
+            panelClose.TabIndex = 10;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Anchor = AnchorStyles.Top | AnchorStyles.Right;
+            pictureBox2.Image = Properties.Resources.circle_xmark_solid1;
+            pictureBox2.Location = new Point(1364, 3);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(33, 32);
+            pictureBox2.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox2.TabIndex = 10;
+            pictureBox2.TabStop = false;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Dock = DockStyle.Right;
+            pictureBox1.Image = Properties.Resources.circle_xmark_solid1;
+            pictureBox1.Location = new Point(767, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(33, 39);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 9;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // FConsultas
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 450);
-            Controls.Add(lblTituloPacientes);
-            Controls.Add(dataGridView1);
+            Controls.Add(panelConsultas);
+            FormBorderStyle = FormBorderStyle.None;
             Name = "FConsultas";
             Text = "FConsultas";
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panelConsultas.ResumeLayout(false);
+            panelClose.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
 
-        private DataGridView dataGridView1;
-        private Label lblTituloPacientes;
+        private Panel panelConsultas;
+        private Panel panelClose;
+        private PictureBox pictureBox2;
+        private PictureBox pictureBox1;
     }
 }

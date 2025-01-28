@@ -93,6 +93,16 @@ namespace CapaPresentación.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap circle_xmark_solid1 {
+            get {
+                object obj = ResourceManager.GetObject("circle-xmark-solid1", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap clipboard_list_solid {
             get {
                 object obj = ResourceManager.GetObject("clipboard-list-solid", resourceCulture);
@@ -143,9 +153,49 @@ namespace CapaPresentación.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap pen_solid {
+            get {
+                object obj = ResourceManager.GetObject("pen-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap pills_solid {
             get {
                 object obj = ResourceManager.GetObject("pills-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap plus_solid {
+            get {
+                object obj = ResourceManager.GetObject("plus-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trash_solid {
+            get {
+                object obj = ResourceManager.GetObject("trash-solid", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap trash_solid1 {
+            get {
+                object obj = ResourceManager.GetObject("trash-solid1", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }
