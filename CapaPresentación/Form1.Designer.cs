@@ -245,7 +245,7 @@
             panelInicio.Controls.Add(lblTitle);
             panelInicio.Location = new Point(219, 0);
             panelInicio.Name = "panelInicio";
-            panelInicio.Size = new Size(781, 653);
+            panelInicio.Size = new Size(798, 653);
             panelInicio.TabIndex = 4;
             // 
             // panel5
@@ -254,14 +254,14 @@
             panel5.Controls.Add(pictureBox3);
             panel5.Location = new Point(0, 469);
             panel5.Name = "panel5";
-            panel5.Size = new Size(781, 184);
+            panel5.Size = new Size(798, 184);
             panel5.TabIndex = 11;
             // 
             // pictureBox3
             // 
             pictureBox3.Anchor = AnchorStyles.Right;
             pictureBox3.Image = Properties.Resources.ezquina2;
-            pictureBox3.Location = new Point(453, 0);
+            pictureBox3.Location = new Point(470, 0);
             pictureBox3.Name = "pictureBox3";
             pictureBox3.Size = new Size(330, 184);
             pictureBox3.SizeMode = PictureBoxSizeMode.Zoom;
@@ -274,7 +274,7 @@
             panel4.Controls.Add(pictureBox2);
             panel4.Location = new Point(0, 0);
             panel4.Name = "panel4";
-            panel4.Size = new Size(781, 184);
+            panel4.Size = new Size(798, 184);
             panel4.TabIndex = 10;
             // 
             // pictureBox2
@@ -292,7 +292,7 @@
             lblTitle.Anchor = AnchorStyles.None;
             lblTitle.AutoSize = true;
             lblTitle.Font = new Font("Roboto", 36F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            lblTitle.Location = new Point(191, 272);
+            lblTitle.Location = new Point(200, 272);
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(438, 116);
             lblTitle.TabIndex = 9;
@@ -303,7 +303,7 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = Color.FromArgb(194, 194, 194);
-            ClientSize = new Size(1000, 653);
+            ClientSize = new Size(1017, 653);
             Controls.Add(panelInicio);
             Controls.Add(panel1);
             IsMdiContainer = true;
