@@ -1,7 +1,12 @@
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.EntityFrameworkCore;
 using CapaDatos;
-
+using CapaPresentación.SecondWindows;
+using CapaDatos.Interfaces;
+using CapaDatos.Repository;
+using CapaDatos.Models;
+using CapaLogica.Interfaces;
+using CapaLogica.Servicios;
 namespace CapaPresentación
 {
     internal static class Program
@@ -30,15 +35,38 @@ namespace CapaPresentación
             });
 
             //Registrar servicios
-            // RegisterServices(services); Desenmarcar esto cuando se hayan registrado los servicios.
+            RegisterServices(services);
 
             //Registrar los formularios. Todos los formularios que hagamos se tienen que registrar.
             services.AddTransient<Form1>();
+            services.AddTransient<FPacientes>();
         }
 
         private static void RegisterServices(IServiceCollection services)
         {
             //Aqui se van a registrar los servicios, repositorios y demás.
+            services.AddTransient<IGenericRepository<Consultas>, GenericRepository<Consultas>>();
+            services.AddTransient<IGenericRepository<Diagnosticos>, GenericRepository<Diagnosticos>>();
+            services.AddTransient<IGenericRepository<HistorialConsultas>, GenericRepository<HistorialConsultas>>();
+            services.AddTransient<IGenericRepository<Pacientes>, GenericRepository<Pacientes>>();
+            services.AddTransient<IGenericRepository<Pagos>, GenericRepository<Pagos>>();
+            services.AddTransient<IGenericRepository<Tratamientos>, GenericRepository<Tratamientos>>();
+            services.AddTransient<IGenericRelations<HistorialConsultas>, HistorialRepository>();
+            services.AddTransient<IGenericRelations<Consultas>, ConsultaRepository>();
+            services.AddTransient<IGenericRelations<Pagos>, PagoRepository>();
+            services.AddTransient<IGenericRelations<Pacientes>, PacienteRepository>();
+            services.AddTransient<IGenericRelations<Tratamientos>, TratamientosRepository>();
+
+
+            //Aqui van los servicios
+            services.AddTransient<IConsultasServices, ConsultasServices>();
+            services.AddTransient<IDiagnosticosServices, DiagnosticosServices>();
+            services.AddTransient<IHistorialServices, HistorialServices>();
+            services.AddTransient<IPacientesServices, PacientesServices>();
+            services.AddTransient<IPagosServices, PagosServices>();
+            services.AddTransient<ITratamientosServices, TratamientosServices>();
+
+
         }
     }
 }

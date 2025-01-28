@@ -1,14 +1,18 @@
+using CapaLogica.Interfaces;
+using CapaLogica.Servicios;
 using CapaPresentación.SecondWindows;
 
 namespace CapaPresentación
 {
     public partial class Form1 : Form
     {
+        private readonly IPacientesServices pacientesServices;
         public Form1()
         {
             InitializeComponent();
             this.Icon = new Icon("Resources/Icons/cinta-de-cancer-de-mama.ico");
             this.FormClosing += new FormClosingEventHandler(MainForm_FormClosing);
+
         }
 
         private void btnExit_Click(object sender, EventArgs e)

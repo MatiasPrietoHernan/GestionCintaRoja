@@ -85,10 +85,10 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Font = new Font("Roboto", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(185, 25);
+            label1.Size = new Size(207, 25);
             label1.TabIndex = 1;
             label1.Text = "Lista de Pacientes";
             // 
@@ -143,7 +143,7 @@
             // 
             // btnEliminarPaciente
             // 
-            btnEliminarPaciente.Font = new Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEliminarPaciente.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminarPaciente.Image = Properties.Resources.trash_solid;
             btnEliminarPaciente.ImageAlign = ContentAlignment.MiddleLeft;
             btnEliminarPaciente.Location = new Point(6, 125);
@@ -157,7 +157,7 @@
             // 
             // btnEditarPaciente
             // 
-            btnEditarPaciente.Font = new Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnEditarPaciente.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditarPaciente.Image = Properties.Resources.pen_solid;
             btnEditarPaciente.ImageAlign = ContentAlignment.MiddleLeft;
             btnEditarPaciente.Location = new Point(6, 86);
@@ -171,7 +171,7 @@
             // 
             // btnAgregarPaciente
             // 
-            btnAgregarPaciente.Font = new Font("Roboto", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnAgregarPaciente.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAgregarPaciente.Image = Properties.Resources.plus_solid;
             btnAgregarPaciente.ImageAlign = ContentAlignment.MiddleLeft;
             btnAgregarPaciente.Location = new Point(6, 47);
