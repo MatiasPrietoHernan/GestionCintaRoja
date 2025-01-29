@@ -31,10 +31,10 @@
             pictureBox1 = new PictureBox();
             panelPacientes = new Panel();
             panel3 = new Panel();
-            btnActualizar = new Button();
             label1 = new Label();
             dataGridView1 = new DataGridView();
             panel2 = new Panel();
+            btnActualizar = new Button();
             btnBuscarPaciente = new Button();
             label2 = new Label();
             txtBuscarPaciente = new TextBox();
@@ -84,16 +84,6 @@
             panel3.Size = new Size(564, 411);
             panel3.TabIndex = 12;
             // 
-            // btnActualizar
-            // 
-            btnActualizar.Location = new Point(7, 221);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(75, 23);
-            btnActualizar.TabIndex = 2;
-            btnActualizar.Text = "Actualizar";
-            btnActualizar.UseVisualStyleBackColor = true;
-            btnActualizar.Click += btnActualizar_Click;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -130,6 +120,16 @@
             panel2.Size = new Size(236, 411);
             panel2.TabIndex = 11;
             // 
+            // btnActualizar
+            // 
+            btnActualizar.Location = new Point(7, 221);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(75, 23);
+            btnActualizar.TabIndex = 2;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Click += btnActualizar_Click;
+            // 
             // btnBuscarPaciente
             // 
             btnBuscarPaciente.Location = new Point(88, 221);
@@ -139,6 +139,7 @@
             btnBuscarPaciente.Text = "Buscar";
             btnBuscarPaciente.UseVisualStyleBackColor = true;
             btnBuscarPaciente.Click += btnBuscarPaciente_Click;
+            btnBuscarPaciente.KeyDown += btnBuscarPaciente_KeyDown;
             // 
             // label2
             // 
@@ -155,6 +156,7 @@
             txtBuscarPaciente.Name = "txtBuscarPaciente";
             txtBuscarPaciente.Size = new Size(158, 23);
             txtBuscarPaciente.TabIndex = 1;
+            txtBuscarPaciente.KeyDown += txtBuscarPaciente_KeyDown;
             // 
             // btnEliminarPaciente
             // 
