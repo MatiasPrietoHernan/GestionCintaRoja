@@ -24,5 +24,12 @@ namespace CapaDatos.Repository
                                            .Include(p => p.HistorialConsultas)
                                            .ToListAsync();
         }
+        public async Task<IEnumerable<Pacientes>> SearchTermAsync(string term)
+        {
+            return await _context.Pacientes
+        .Where(p =>
+            p.DNI.ToString().Contains(term))
+        .ToListAsync();
+        }
     }
 }

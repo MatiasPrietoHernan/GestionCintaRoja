@@ -1,4 +1,7 @@
-﻿using CapaPresentación.SecondWindows.Pacientes;
+﻿using CapaDatos.Models;
+using CapaLogica.Interfaces;
+using CapaPresentación.SecondWindows.Pacientes;
+using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -9,24 +12,18 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Pacientes1 = CapaDatos.Models.Pacientes;
 
 namespace CapaPresentación.SecondWindows
 {
     public partial class FPacientes : Form
     {
-        public FPacientes()
+        private readonly IPacientesServices pacientesServices;
+        public FPacientes(IPacientesServices _pacientesServices)
         {
             InitializeComponent();
+            pacientesServices = _pacientesServices;
             formDesing();
-            dataGridView1.Columns.Add("Nombre", "Nombre");
-            dataGridView1.Columns.Add("Apellido", "Apellido");
-            dataGridView1.Columns.Add("Edad", "Edad");
-            dataGridView1.Columns.Add("DNI", "DNI");
-            dataGridView1.Columns.Add("Direccion", "Dirección");
-            dataGridView1.Columns.Add("Telefono", "Teléfono");
-            dataGridView1.Columns.Add("Email", "Email");
-            dataGridView1.Columns.Add("FechaNacimiento", "Fecha de Nacimiento");
-            dataGridView1.Columns.Add("TipoSangre", "Tipo de Sangre");
 
         }
         private void pictureBox1_Click_1(object sender, EventArgs e)
@@ -35,27 +32,84 @@ namespace CapaPresentación.SecondWindows
         }
         private void btnAgregarPaciente_Click(object sender, EventArgs e)
         {
-            FAgregarPaciente formAgregar = new FAgregarPaciente();
-            formAgregar.Owner = this;
-            formAgregar.ShowDialog();
-
+            using (var scope = Program.ServiceProvider.CreateScope())
+            {
+                var formAgregar = scope.ServiceProvider.GetRequiredService<FAgregarPaciente>();
+                formAgregar.Owner = this;
+                formAgregar.ShowDialog();
+            }
         }
-        public void AgregarFila(string[] datos)
+        public async void AgregarFila(string[] datos, int idPaciente = 0)
         {
             // Verificar que los datos coincidan con las columnas del DataGridView
-            if (datos.Length == dataGridView1.Columns.Count)
+            try
             {
-                // Agregar una nueva fila al DataGridView con los datos
-                dataGridView1.Rows.Add(datos);
-            }
-            else
-            {
-                MessageBox.Show("La cantidad de datos no coincide con las columnas del DataGridView.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-        }
-        private void btnEditarPaciente_Click(object sender, EventArgs e)
-        {
+                Pacientes1 paciente;
+                if (idPaciente > 0)
+                {
+                    paciente = await pacientesServices.GetPacienteAsync(idPaciente);
+                    if (paciente == null)
+                    {
+                        MessageBox.Show("El paciente no existe.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
+                else
+                {
+                    paciente = new Pacientes1();
+                }
 
+                // Agregar una nueva fila al DataGridView con los datos
+                paciente.Nombre = datos[0];
+                paciente.Apellido = datos[1];
+                paciente.Edad = int.TryParse(datos[2], out int edad) ? edad : 0;
+                paciente.DNI = int.TryParse(datos[3], out int dni) ? dni : 0;
+                paciente.Direccion = datos[4];
+                paciente.Telefono = datos[5];
+                paciente.Email = datos[6];
+                paciente.FechaNacimiento = DateTime.TryParse(datos[7], out DateTime fechaNac) ? fechaNac : DateTime.MinValue;
+                paciente.TipoSangre = datos[8];
+
+                if (idPaciente == 0)
+                {
+                    await pacientesServices.AddPacienteAsync(paciente);
+                    MessageBox.Show("Paciente agregado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    await pacientesServices.UpdatePacienteAsync(paciente);
+                    MessageBox.Show("Paciente actualizado correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+
+
+                await GetDatosAsync();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+
+        }
+        private async void btnEditarPaciente_Click(object sender, EventArgs e)
+        {
+            if (dataGridView1.CurrentRow == null || dataGridView1.CurrentRow.Index < 0)
+            {
+                MessageBox.Show("Por favor, selecciona un paciente para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int idPaciente = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            Pacientes1 paciente = await pacientesServices.GetPacienteAsync(idPaciente);
+
+            if (paciente != null)
+            {
+                using (var scope = Program.ServiceProvider.CreateScope())
+                {
+                    FAgregarPaciente formEditar = new FAgregarPaciente(pacientesServices, paciente);
+                    formEditar.Owner = this;
+                    formEditar.ShowDialog();
+                }
+            }
         }
         private void formDesing()
         {
@@ -87,29 +141,62 @@ namespace CapaPresentación.SecondWindows
             };
         }
 
-        private void btnEliminarPaciente_Click(object sender, EventArgs e)
+        private async void btnEliminarPaciente_Click(object sender, EventArgs e)
         {
-            // Validar si hay una fila seleccionada
             if (dataGridView1.CurrentRow == null || dataGridView1.CurrentRow.Index < 0)
             {
-                MessageBox.Show("Por favor, selecciona una fila para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, selecciona un paciente para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            // Confirmar eliminación
-            DialogResult resultado = MessageBox.Show(
-                "¿Estás seguro de que deseas eliminar esta fila?",
-                "Confirmar eliminación",
-                MessageBoxButtons.YesNo,
-                MessageBoxIcon.Warning
-            );
+            int idPaciente = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            Pacientes1 paciente = await pacientesServices.GetPacienteAsync(idPaciente);
 
-            if (resultado == DialogResult.Yes)
+            if (paciente != null)
             {
-                // Eliminar la fila seleccionada
-                dataGridView1.Rows.RemoveAt(dataGridView1.CurrentRow.Index);
-                MessageBox.Show("Fila eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                using (var scope = Program.ServiceProvider.CreateScope())
+                {
+                    var formEditar = new FAgregarPaciente(scope.ServiceProvider.GetRequiredService<IPacientesServices>(), paciente);
+                    formEditar.Owner = this;
+                    formEditar.ShowDialog();
+                }
             }
+        }
+        private async Task GetDatosAsync()
+        {
+            try
+            {
+                dataGridView1.DataSource = null;
+                var pacientes = await pacientesServices.GetPacientesAsync();
+                var datos = pacientes.Select(p => new
+                {
+                    p.Id,
+                    p.Nombre,
+                    p.Apellido,
+                    p.Edad,
+                    p.DNI,
+                    p.Direccion,
+                    p.Telefono,
+                    p.Email,
+                    p.FechaNacimiento,
+                    p.TipoSangre
+                }).ToList();
+                dataGridView1.DataSource = datos;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private async void FPacientes_Load(object sender, EventArgs e)
+        {
+            await GetDatosAsync();
+        }
+
+        private void btnBuscarPaciente_Click(object sender, EventArgs e)
+        {
+            //Proximo a realizar no olvidar
         }
     }
 }

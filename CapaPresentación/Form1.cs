@@ -1,12 +1,12 @@
 using CapaLogica.Interfaces;
 using CapaLogica.Servicios;
 using CapaPresentación.SecondWindows;
+using Microsoft.Extensions.DependencyInjection;
 
 namespace CapaPresentación
 {
     public partial class Form1 : Form
     {
-        private readonly IPacientesServices pacientesServices;
         public Form1()
         {
             InitializeComponent();
@@ -50,13 +50,13 @@ namespace CapaPresentación
             AbrirFormulario<FFacturacion>();
         }
 
-        private void AbrirFormulario<MiForm>() where MiForm : Form, new()
+        private void AbrirFormulario<MiForm>() where MiForm : Form
         {
             Form formulario;
             formulario = panelInicio.Controls.OfType<MiForm>().FirstOrDefault();
             if (formulario == null)
             {
-                formulario = new MiForm();
+                formulario = Program.ServiceProvider.GetRequiredService<MiForm>();
                 formulario.TopLevel = false;
                 formulario.FormBorderStyle = FormBorderStyle.None;
                 formulario.Dock = DockStyle.Fill;

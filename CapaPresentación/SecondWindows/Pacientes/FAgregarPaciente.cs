@@ -8,16 +8,40 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using CapaLogica.Interfaces;
+using Pacientes1 = CapaDatos.Models.Pacientes;
 
 namespace CapaPresentación.SecondWindows.Pacientes
 {
     public partial class FAgregarPaciente : Form
     {
-        public FAgregarPaciente()
+        private readonly IPacientesServices pacientesServices;
+        private readonly Pacientes1 pacienteAEditar;
+        public FAgregarPaciente(IPacientesServices _pacietesServices, Pacientes1 pacienteAEditar = null)
         {
+            pacientesServices = _pacietesServices;
             InitializeComponent();
             comboBoxTipoSangre.Text = "Seleccionar";
+            this.pacienteAEditar = pacienteAEditar;
+            CargarDatosPaciente();
+        }
 
+        private void CargarDatosPaciente()
+        {
+            if (pacienteAEditar != null)
+            {
+                txtIdPaciente.Text = pacienteAEditar.Id.ToString();
+                txtNombre.Text = pacienteAEditar.Nombre;
+                txtApellido.Text = pacienteAEditar.Apellido;
+                txtEdad.Text = pacienteAEditar.Edad.ToString();
+                txtDNI.Text = pacienteAEditar.DNI.ToString();
+                txtDireccion.Text = pacienteAEditar.Direccion;
+                txtTelefono.Text = pacienteAEditar.Telefono;
+                txtEmail.Text = pacienteAEditar.Email;
+                txtFechaNacimiento.Text = pacienteAEditar.FechaNacimiento.ToString("yyyy-MM-dd");
+                comboBoxTipoSangre.SelectedItem = pacienteAEditar.TipoSangre;
+                btnGuardar.Text = "Actualizar"; // Cambiar el texto del botón
+            }
         }
 
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -68,10 +92,12 @@ namespace CapaPresentación.SecondWindows.Pacientes
                     txtFechaNacimiento.Text, comboBoxTipoSangre.SelectedItem.ToString()
                 };
 
+            int idPaciente = string.IsNullOrWhiteSpace(txtIdPaciente.Text) ? 0 : int.Parse(txtIdPaciente.Text);
             if (Owner is FPacientes formPacientes)
             {
-                formPacientes.AgregarFila(datos);
+                formPacientes.AgregarFila(datos, idPaciente);
             }
+
 
             MessageBox.Show("Datos guardados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();

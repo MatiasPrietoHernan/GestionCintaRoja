@@ -9,5 +9,6 @@ namespace CapaDatos.Interfaces
     public interface IGenericRelations<T> where T: class
     {
         Task<IEnumerable<T>> GetAllRelationsAsync();
+        Task<IEnumerable<T>> SearchTermAsync(string term);
     }
 }

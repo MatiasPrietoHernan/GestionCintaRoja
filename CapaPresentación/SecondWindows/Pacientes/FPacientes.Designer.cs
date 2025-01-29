@@ -124,6 +124,7 @@
             btnBuscarPaciente.TabIndex = 3;
             btnBuscarPaciente.Text = "Buscar";
             btnBuscarPaciente.UseVisualStyleBackColor = true;
+            btnBuscarPaciente.Click += btnBuscarPaciente_Click;
             // 
             // label2
             // 
@@ -201,6 +202,7 @@
             FormBorderStyle = FormBorderStyle.None;
             Name = "FPacientes";
             Text = "FormDePrueba";
+            Load += FPacientes_Load;
             ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             panelPacientes.ResumeLayout(false);
             panel3.ResumeLayout(false);

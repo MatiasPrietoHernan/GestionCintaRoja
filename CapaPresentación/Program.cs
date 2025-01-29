@@ -7,6 +7,7 @@ using CapaDatos.Repository;
 using CapaDatos.Models;
 using CapaLogica.Interfaces;
 using CapaLogica.Servicios;
+using CapaPresentación.SecondWindows.Pacientes;
 namespace CapaPresentación
 {
     internal static class Program
@@ -15,7 +16,7 @@ namespace CapaPresentación
         ///  The main entry point for the application.
         /// </summary>
         /// Este método se encarga de inicializar la aplicación.
-        private static IServiceProvider ServiceProvider;
+        public static IServiceProvider ServiceProvider;
         [STAThread]
         static void Main()
         {
@@ -39,7 +40,10 @@ namespace CapaPresentación
 
             //Registrar los formularios. Todos los formularios que hagamos se tienen que registrar.
             services.AddTransient<Form1>();
+            services.AddTransient<FAgregarPaciente>();
             services.AddTransient<FPacientes>();
+            services.AddTransient<FConsultas>();
+            services.AddTransient<FDiagnosticos>();
         }
 
         private static void RegisterServices(IServiceCollection services)
