@@ -1,5 +1,6 @@
 ﻿using CapaDatos.Models;
 using CapaLogica.Interfaces;
+using CapaPresentación.Helpers;
 using CapaPresentación.SecondWindows.Pacientes;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -22,39 +23,10 @@ namespace CapaPresentación.SecondWindows
         public FPacientes(IPacientesServices _pacientesServices)
         {
             InitializeComponent();
-            formDesing();
             pacientesServices = _pacientesServices;
+            AggStyles.ApplyPlaceholder(txtBuscarPaciente, "Ingrese el DNI");
 
 
-        }
-        private void formDesing()
-        {
-            // Placeholder inicial
-            string placeholderText = "Ingrese DNI";
-
-            // Establecer el texto inicial y el color
-            txtBuscarPaciente.Text = placeholderText;
-            txtBuscarPaciente.ForeColor = Color.Gray;
-
-            // Evento para cuando el TextBox gana el foco
-            txtBuscarPaciente.GotFocus += (sender, e) =>
-            {
-                if (txtBuscarPaciente.Text == placeholderText)
-                {
-                    txtBuscarPaciente.Text = ""; // Limpiar el campo
-                    txtBuscarPaciente.ForeColor = Color.Black; // Cambiar el color del texto
-                }
-            };
-
-            // Evento para cuando el TextBox pierde el foco
-            txtBuscarPaciente.LostFocus += (sender, e) =>
-            {
-                if (string.IsNullOrWhiteSpace(txtBuscarPaciente.Text))
-                {
-                    txtBuscarPaciente.Text = placeholderText; // Restaurar el placeholder
-                    txtBuscarPaciente.ForeColor = Color.Gray; // Cambiar el color del texto a gris
-                }
-            };
         }
         private async void FPacientes_Load(object sender, EventArgs e)
         {
