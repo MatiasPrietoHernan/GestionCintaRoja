@@ -30,7 +30,7 @@ namespace CapaPresentación.SecondWindows
         private void formDesing()
         {
             // Placeholder inicial
-            string placeholderText = "Ingrese DNI";
+            string placeholderText = "Ingrese DNI, Nombre o Apellido";
 
             // Establecer el texto inicial y el color
             txtBuscarPaciente.Text = placeholderText;
@@ -248,9 +248,30 @@ namespace CapaPresentación.SecondWindows
             {
                 await GetDatosAsync();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void btnBuscarPaciente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnBuscarPaciente.PerformClick();
+            }
+        }
+
+        private async void txtBuscarPaciente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnBuscarPaciente.PerformClick();
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                txtBuscarPaciente.Text = "";
+                await GetDatosAsync();
             }
         }
     }
