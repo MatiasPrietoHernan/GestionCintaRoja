@@ -97,9 +97,6 @@ namespace CapaPresentación.SecondWindows.Pacientes
             {
                 formPacientes.AgregarFila(datos, idPaciente);
             }
-
-
-            MessageBox.Show("Datos guardados correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             this.Close();
         }
     }

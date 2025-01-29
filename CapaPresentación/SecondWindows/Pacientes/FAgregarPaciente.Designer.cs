@@ -54,138 +54,146 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(154, 46);
+            txtNombre.Location = new Point(176, 61);
+            txtNombre.Margin = new Padding(3, 4, 3, 4);
             txtNombre.Name = "txtNombre";
-            txtNombre.Size = new Size(139, 23);
+            txtNombre.Size = new Size(158, 27);
             txtNombre.TabIndex = 0;
             // 
             // lblNombre
             // 
             lblNombre.AutoSize = true;
-            lblNombre.Location = new Point(97, 54);
+            lblNombre.Location = new Point(106, 68);
             lblNombre.Name = "lblNombre";
-            lblNombre.Size = new Size(51, 15);
+            lblNombre.Size = new Size(64, 20);
             lblNombre.TabIndex = 1;
             lblNombre.Text = "Nombre";
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(154, 75);
+            txtApellido.Location = new Point(176, 100);
+            txtApellido.Margin = new Padding(3, 4, 3, 4);
             txtApellido.Name = "txtApellido";
-            txtApellido.Size = new Size(139, 23);
+            txtApellido.Size = new Size(158, 27);
             txtApellido.TabIndex = 0;
             // 
             // lblApellido
             // 
             lblApellido.AutoSize = true;
-            lblApellido.Location = new Point(97, 83);
+            lblApellido.Location = new Point(104, 107);
             lblApellido.Name = "lblApellido";
-            lblApellido.Size = new Size(51, 15);
+            lblApellido.Size = new Size(66, 20);
             lblApellido.TabIndex = 1;
             lblApellido.Text = "Apellido";
             // 
             // txtEdad
             // 
-            txtEdad.Location = new Point(154, 104);
+            txtEdad.Location = new Point(176, 139);
+            txtEdad.Margin = new Padding(3, 4, 3, 4);
             txtEdad.Name = "txtEdad";
-            txtEdad.Size = new Size(139, 23);
+            txtEdad.Size = new Size(158, 27);
             txtEdad.TabIndex = 0;
             // 
             // lblEdad
             // 
             lblEdad.AutoSize = true;
-            lblEdad.Location = new Point(115, 112);
+            lblEdad.Location = new Point(127, 146);
             lblEdad.Name = "lblEdad";
-            lblEdad.Size = new Size(33, 15);
+            lblEdad.Size = new Size(43, 20);
             lblEdad.TabIndex = 1;
             lblEdad.Text = "Edad";
             // 
             // txtDNI
             // 
-            txtDNI.Location = new Point(154, 133);
+            txtDNI.Location = new Point(176, 177);
+            txtDNI.Margin = new Padding(3, 4, 3, 4);
             txtDNI.Name = "txtDNI";
-            txtDNI.Size = new Size(139, 23);
+            txtDNI.Size = new Size(158, 27);
             txtDNI.TabIndex = 0;
             // 
             // lblDNI
             // 
             lblDNI.AutoSize = true;
-            lblDNI.Location = new Point(121, 141);
+            lblDNI.Location = new Point(135, 184);
             lblDNI.Name = "lblDNI";
-            lblDNI.Size = new Size(27, 15);
+            lblDNI.Size = new Size(35, 20);
             lblDNI.TabIndex = 1;
             lblDNI.Text = "DNI";
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(154, 162);
+            txtDireccion.Location = new Point(176, 216);
+            txtDireccion.Margin = new Padding(3, 4, 3, 4);
             txtDireccion.Name = "txtDireccion";
-            txtDireccion.Size = new Size(139, 23);
+            txtDireccion.Size = new Size(158, 27);
             txtDireccion.TabIndex = 0;
             // 
             // lblDireccion
             // 
             lblDireccion.AutoSize = true;
-            lblDireccion.Location = new Point(91, 170);
+            lblDireccion.Location = new Point(98, 223);
             lblDireccion.Name = "lblDireccion";
-            lblDireccion.Size = new Size(57, 15);
+            lblDireccion.Size = new Size(72, 20);
             lblDireccion.TabIndex = 1;
             lblDireccion.Text = "Direccion";
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(154, 191);
+            txtTelefono.Location = new Point(176, 255);
+            txtTelefono.Margin = new Padding(3, 4, 3, 4);
             txtTelefono.Name = "txtTelefono";
-            txtTelefono.Size = new Size(139, 23);
+            txtTelefono.Size = new Size(158, 27);
             txtTelefono.TabIndex = 0;
             // 
             // lblTelefono
             // 
             lblTelefono.AutoSize = true;
-            lblTelefono.Location = new Point(95, 199);
+            lblTelefono.Location = new Point(103, 262);
             lblTelefono.Name = "lblTelefono";
-            lblTelefono.Size = new Size(52, 15);
+            lblTelefono.Size = new Size(67, 20);
             lblTelefono.TabIndex = 1;
             lblTelefono.Text = "Telefono";
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(154, 220);
+            txtEmail.Location = new Point(176, 293);
+            txtEmail.Margin = new Padding(3, 4, 3, 4);
             txtEmail.Name = "txtEmail";
-            txtEmail.Size = new Size(139, 23);
+            txtEmail.Size = new Size(158, 27);
             txtEmail.TabIndex = 0;
             // 
             // lblEmail
             // 
             lblEmail.AutoSize = true;
-            lblEmail.Location = new Point(112, 228);
+            lblEmail.Location = new Point(124, 300);
             lblEmail.Name = "lblEmail";
-            lblEmail.Size = new Size(36, 15);
+            lblEmail.Size = new Size(46, 20);
             lblEmail.TabIndex = 1;
             lblEmail.Text = "Email";
             // 
             // txtFechaNacimiento
             // 
-            txtFechaNacimiento.Location = new Point(154, 249);
+            txtFechaNacimiento.Location = new Point(176, 332);
+            txtFechaNacimiento.Margin = new Padding(3, 4, 3, 4);
             txtFechaNacimiento.Name = "txtFechaNacimiento";
-            txtFechaNacimiento.Size = new Size(139, 23);
+            txtFechaNacimiento.Size = new Size(158, 27);
             txtFechaNacimiento.TabIndex = 0;
             // 
             // lblFechaNacimiento
             // 
             lblFechaNacimiento.AutoSize = true;
-            lblFechaNacimiento.Location = new Point(31, 257);
+            lblFechaNacimiento.Location = new Point(24, 339);
             lblFechaNacimiento.Name = "lblFechaNacimiento";
-            lblFechaNacimiento.Size = new Size(117, 15);
+            lblFechaNacimiento.Size = new Size(146, 20);
             lblFechaNacimiento.TabIndex = 1;
             lblFechaNacimiento.Text = "Fecha de nacimiento";
             // 
             // lblTipoSangre
             // 
             lblTipoSangre.AutoSize = true;
-            lblTipoSangre.Location = new Point(63, 291);
+            lblTipoSangre.Location = new Point(62, 375);
             lblTipoSangre.Name = "lblTipoSangre";
-            lblTipoSangre.Size = new Size(84, 15);
+            lblTipoSangre.Size = new Size(108, 20);
             lblTipoSangre.TabIndex = 1;
             lblTipoSangre.Text = "Tipo de sangre";
             // 
@@ -193,16 +201,18 @@
             // 
             comboBoxTipoSangre.FormattingEnabled = true;
             comboBoxTipoSangre.Items.AddRange(new object[] { "A+", "A-", "B+", "B-", "AB+", "AB-", "O+", "O-" });
-            comboBoxTipoSangre.Location = new Point(154, 283);
+            comboBoxTipoSangre.Location = new Point(176, 367);
+            comboBoxTipoSangre.Margin = new Padding(3, 4, 3, 4);
             comboBoxTipoSangre.Name = "comboBoxTipoSangre";
-            comboBoxTipoSangre.Size = new Size(97, 23);
+            comboBoxTipoSangre.Size = new Size(110, 28);
             comboBoxTipoSangre.TabIndex = 2;
             // 
             // btnGuardar
             // 
-            btnGuardar.Location = new Point(97, 323);
+            btnGuardar.Location = new Point(111, 431);
+            btnGuardar.Margin = new Padding(3, 4, 3, 4);
             btnGuardar.Name = "btnGuardar";
-            btnGuardar.Size = new Size(75, 23);
+            btnGuardar.Size = new Size(86, 31);
             btnGuardar.TabIndex = 3;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
@@ -210,9 +220,10 @@
             // 
             // btnCancelar
             // 
-            btnCancelar.Location = new Point(218, 323);
+            btnCancelar.Location = new Point(249, 431);
+            btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
-            btnCancelar.Size = new Size(75, 23);
+            btnCancelar.Size = new Size(86, 31);
             btnCancelar.TabIndex = 3;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
@@ -220,25 +231,26 @@
             // txtIdPaciente
             // 
             txtIdPaciente.Enabled = false;
-            txtIdPaciente.Location = new Point(154, 17);
+            txtIdPaciente.Location = new Point(176, 23);
+            txtIdPaciente.Margin = new Padding(3, 4, 3, 4);
             txtIdPaciente.Name = "txtIdPaciente";
-            txtIdPaciente.Size = new Size(139, 23);
+            txtIdPaciente.Size = new Size(158, 27);
             txtIdPaciente.TabIndex = 0;
             // 
             // IdPaciente
             // 
             IdPaciente.AutoSize = true;
-            IdPaciente.Location = new Point(97, 25);
+            IdPaciente.Location = new Point(146, 30);
             IdPaciente.Name = "IdPaciente";
-            IdPaciente.Size = new Size(18, 15);
+            IdPaciente.Size = new Size(24, 20);
             IdPaciente.TabIndex = 1;
             IdPaciente.Text = "ID";
             // 
             // FAgregarPaciente
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(390, 388);
+            ClientSize = new Size(446, 517);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(comboBoxTipoSangre);
@@ -261,6 +273,7 @@
             Controls.Add(txtApellido);
             Controls.Add(txtIdPaciente);
             Controls.Add(txtNombre);
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FAgregarPaciente";
             Text = "FAgregarPaciente";
             ResumeLayout(false);

@@ -51,10 +51,10 @@ namespace CapaLogica.Servicios
             return await genericRelations.GetAllRelationsAsync();
         }
 
-        public async Task<IEnumerable<Pacientes>> SearchPaciente(string term)
-        {
-            return await genericRelations.SearchTermAsync(term);
-        }
+        //public async Task<IEnumerable<Pacientes>> SearchPaciente(string term)
+        //{
+        //    return await genericRelations.SearchTermAsync(term);
+        //}
 
     }
 }

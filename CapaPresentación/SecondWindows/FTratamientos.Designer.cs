@@ -41,8 +41,9 @@
             panelTratamientos.Controls.Add(panelClose);
             panelTratamientos.Dock = DockStyle.Fill;
             panelTratamientos.Location = new Point(0, 0);
+            panelTratamientos.Margin = new Padding(3, 4, 3, 4);
             panelTratamientos.Name = "panelTratamientos";
-            panelTratamientos.Size = new Size(800, 450);
+            panelTratamientos.Size = new Size(914, 600);
             panelTratamientos.TabIndex = 0;
             // 
             // panelClose
@@ -50,28 +51,33 @@
             panelClose.Controls.Add(pictureBox1);
             panelClose.Dock = DockStyle.Top;
             panelClose.Location = new Point(0, 0);
+            panelClose.Margin = new Padding(3, 4, 3, 4);
             panelClose.Name = "panelClose";
-            panelClose.Size = new Size(800, 39);
+            panelClose.Size = new Size(914, 52);
             panelClose.TabIndex = 0;
             // 
             // pictureBox1
             // 
+            pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Dock = DockStyle.Right;
             pictureBox1.Image = Properties.Resources.circle_xmark_solid1;
-            pictureBox1.Location = new Point(767, 0);
+            pictureBox1.Location = new Point(876, 0);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(33, 39);
+            pictureBox1.Size = new Size(38, 52);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click_1;
             // 
             // FTratamientos
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(panelTratamientos);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FTratamientos";
             Text = "FTratamientos";
             panelTratamientos.ResumeLayout(false);

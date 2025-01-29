@@ -22,9 +22,43 @@ namespace CapaPresentación.SecondWindows
         public FPacientes(IPacientesServices _pacientesServices)
         {
             InitializeComponent();
-            pacientesServices = _pacientesServices;
             formDesing();
+            pacientesServices = _pacientesServices;
+            
 
+        }
+        private void formDesing()
+        {
+            // Placeholder inicial
+            string placeholderText = "Ingrese DNI";
+
+            // Establecer el texto inicial y el color
+            txtBuscarPaciente.Text = placeholderText;
+            txtBuscarPaciente.ForeColor = Color.Gray;
+
+            // Evento para cuando el TextBox gana el foco
+            txtBuscarPaciente.GotFocus += (sender, e) =>
+            {
+                if (txtBuscarPaciente.Text == placeholderText)
+                {
+                    txtBuscarPaciente.Text = ""; // Limpiar el campo
+                    txtBuscarPaciente.ForeColor = Color.Black; // Cambiar el color del texto
+                }
+            };
+
+            // Evento para cuando el TextBox pierde el foco
+            txtBuscarPaciente.LostFocus += (sender, e) =>
+            {
+                if (string.IsNullOrWhiteSpace(txtBuscarPaciente.Text))
+                {
+                    txtBuscarPaciente.Text = placeholderText; // Restaurar el placeholder
+                    txtBuscarPaciente.ForeColor = Color.Gray; // Cambiar el color del texto a gris
+                }
+            };
+        }
+        private async void FPacientes_Load(object sender, EventArgs e)
+        {
+            await GetDatosAsync();
         }
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
@@ -111,35 +145,6 @@ namespace CapaPresentación.SecondWindows
                 }
             }
         }
-        private void formDesing()
-        {
-            // Placeholder inicial
-            string placeholderText = "Ingrese DNI";
-
-            // Establecer el texto inicial y el color
-            txtBuscarPaciente.Text = placeholderText;
-            txtBuscarPaciente.ForeColor = Color.Gray;
-
-            // Evento para cuando el TextBox gana el foco
-            txtBuscarPaciente.GotFocus += (sender, e) =>
-            {
-                if (txtBuscarPaciente.Text == placeholderText)
-                {
-                    txtBuscarPaciente.Text = ""; // Limpiar el campo
-                    txtBuscarPaciente.ForeColor = Color.Black; // Cambiar el color del texto
-                }
-            };
-
-            // Evento para cuando el TextBox pierde el foco
-            txtBuscarPaciente.LostFocus += (sender, e) =>
-            {
-                if (string.IsNullOrWhiteSpace(txtBuscarPaciente.Text))
-                {
-                    txtBuscarPaciente.Text = placeholderText; // Restaurar el placeholder
-                    txtBuscarPaciente.ForeColor = Color.Gray; // Cambiar el color del texto a gris
-                }
-            };
-        }
 
         private async void btnEliminarPaciente_Click(object sender, EventArgs e)
         {
@@ -166,6 +171,7 @@ namespace CapaPresentación.SecondWindows
         {
             try
             {
+                Cursor = Cursors.WaitCursor;
                 dataGridView1.DataSource = null;
                 var pacientes = await pacientesServices.GetPacientesAsync();
                 var datos = pacientes.Select(p => new
@@ -187,13 +193,11 @@ namespace CapaPresentación.SecondWindows
             {
                 MessageBox.Show("Error: " + ex.Message);
             }
+            finally
+            {
+                Cursor = Cursors.Default;
+            }
         }
-
-        private async void FPacientes_Load(object sender, EventArgs e)
-        {
-            await GetDatosAsync();
-        }
-
         private void btnBuscarPaciente_Click(object sender, EventArgs e)
         {
             //Proximo a realizar no olvidar

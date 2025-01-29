@@ -40,10 +40,13 @@ namespace CapaPresentación
 
             //Registrar los formularios. Todos los formularios que hagamos se tienen que registrar.
             services.AddTransient<Form1>();
-            services.AddTransient<FAgregarPaciente>();
             services.AddTransient<FPacientes>();
+            services.AddTransient<FAgregarPaciente>();
             services.AddTransient<FConsultas>();
             services.AddTransient<FDiagnosticos>();
+            services.AddTransient<FTratamientos>();
+            services.AddTransient<FHistorialClinico>();
+            services.AddTransient<FFacturacion>();
         }
 
         private static void RegisterServices(IServiceCollection services)
