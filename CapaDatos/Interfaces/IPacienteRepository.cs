@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CapaDatos.Models;
 
 namespace CapaDatos.Interfaces
 {
-    public interface IGenericRelations<T> where T: class
+    public interface IPacienteRepository
     {
-        Task<IEnumerable<T>> GetAllRelationsAsync();
+        Task<IEnumerable<Pacientes>> SearchTermAsync(string term);
     }
 }

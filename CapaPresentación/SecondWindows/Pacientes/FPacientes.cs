@@ -24,7 +24,7 @@ namespace CapaPresentación.SecondWindows
             InitializeComponent();
             formDesing();
             pacientesServices = _pacientesServices;
-            
+
 
         }
         private void formDesing()
@@ -202,9 +202,56 @@ namespace CapaPresentación.SecondWindows
                 Cursor = Cursors.Default;
             }
         }
-        private void btnBuscarPaciente_Click(object sender, EventArgs e)
+        private async void btnBuscarPaciente_Click(object sender, EventArgs e)
         {
-            //Proximo a realizar no olvidar
+            try
+            {
+                string term = txtBuscarPaciente.Text;
+                if (string.IsNullOrWhiteSpace(term) || term == "Ingrese DNI")
+                {
+                    MessageBox.Show("Por favor, ingrese un DNI para buscar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    await GetDatosAsync();
+                    return;
+                }
+                var datos = await pacientesServices.SearchPaciente(term);
+                if (datos.Count() == 0)
+                {
+                    MessageBox.Show("No se encontraron resultados.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                else
+                {
+                    dataGridView1.DataSource = datos.Select(p => new
+                    {
+                        p.Id,
+                        p.Nombre,
+                        p.Apellido,
+                        p.Edad,
+                        p.DNI,
+                        p.Direccion,
+                        p.Telefono,
+                        p.Email,
+                        p.FechaNacimiento,
+                        p.TipoSangre
+                    }).ToList();
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private async void btnActualizar_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                await GetDatosAsync();
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+            }
         }
     }
 }

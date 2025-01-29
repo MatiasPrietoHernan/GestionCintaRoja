@@ -15,6 +15,6 @@ namespace CapaLogica.Interfaces
         public Task UpdatePacienteAsync(Pacientes paciente);
         public Task DeletePacienteAsync(int id);
         public Task<IEnumerable<Pacientes>> GetPacientesWithRealtionsAsync();
-        //public Task<IEnumerable<Pacientes>> SearchPaciente(string term);
+        public Task<IEnumerable<Pacientes>> SearchPaciente(string term);
     }
 }
