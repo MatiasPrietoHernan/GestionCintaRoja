@@ -63,6 +63,7 @@ namespace CapaPresentación
             services.AddTransient<IGenericRelations<Pagos>, PagoRepository>();
             services.AddTransient<IGenericRelations<Pacientes>, PacienteRepository>();
             services.AddTransient<IGenericRelations<Tratamientos>, TratamientosRepository>();
+            services.AddTransient<IPacienteRepository, PacienteRepository>();
 
 
             //Aqui van los servicios

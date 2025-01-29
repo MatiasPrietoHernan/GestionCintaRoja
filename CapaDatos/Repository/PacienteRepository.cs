@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CapaDatos.Repository
 {
-    public class PacienteRepository : IGenericRelations<Pacientes>
+    public class PacienteRepository : IGenericRelations<Pacientes>, IPacienteRepository
     {
         private readonly AppDbContext _context;
 
