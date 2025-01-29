@@ -148,23 +148,27 @@ namespace CapaPresentación.SecondWindows
 
         private async void btnEliminarPaciente_Click(object sender, EventArgs e)
         {
+            // Validar si hay una fila seleccionada
             if (dataGridView1.CurrentRow == null || dataGridView1.CurrentRow.Index < 0)
             {
-                MessageBox.Show("Por favor, selecciona un paciente para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("Por favor, selecciona una fila para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
-            int idPaciente = (int)dataGridView1.CurrentRow.Cells[0].Value;
-            Pacientes1 paciente = await pacientesServices.GetPacienteAsync(idPaciente);
+            // Confirmar eliminación
+            DialogResult resultado = MessageBox.Show(
+                "¿Estás seguro de que deseas eliminar esta fila?",
+                "Confirmar eliminación",
+                MessageBoxButtons.YesNo,
+                MessageBoxIcon.Warning
+            );
 
-            if (paciente != null)
+            if (resultado == DialogResult.Yes)
             {
-                using (var scope = Program.ServiceProvider.CreateScope())
-                {
-                    var formEditar = new FAgregarPaciente(scope.ServiceProvider.GetRequiredService<IPacientesServices>(), paciente);
-                    formEditar.Owner = this;
-                    formEditar.ShowDialog();
-                }
+                // Eliminar la fila seleccionada
+                await pacientesServices.DeletePacienteAsync((int)dataGridView1.CurrentRow.Cells[0].Value);
+                await GetDatosAsync();
+                MessageBox.Show("Fila eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
         private async Task GetDatosAsync()
