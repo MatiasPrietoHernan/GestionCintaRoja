@@ -57,9 +57,8 @@
             panelConsultas.Controls.Add(panelClose);
             panelConsultas.Dock = DockStyle.Fill;
             panelConsultas.Location = new Point(0, 0);
-            panelConsultas.Margin = new Padding(3, 4, 3, 4);
             panelConsultas.Name = "panelConsultas";
-            panelConsultas.Size = new Size(914, 600);
+            panelConsultas.Size = new Size(800, 450);
             panelConsultas.TabIndex = 0;
             // 
             // panel2
@@ -67,18 +66,19 @@
             panel2.Controls.Add(label1);
             panel2.Controls.Add(dataGridView1);
             panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 52);
+            panel2.Location = new Point(0, 39);
+            panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(664, 548);
+            panel2.Size = new Size(581, 411);
             panel2.TabIndex = 3;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 13);
+            label1.Location = new Point(10, 10);
             label1.Name = "label1";
-            label1.Size = new Size(256, 31);
+            label1.Size = new Size(208, 25);
             label1.TabIndex = 3;
             label1.Text = "Lista de Consultas";
             // 
@@ -87,11 +87,10 @@
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 48);
-            dataGridView1.Margin = new Padding(3, 4, 3, 4);
+            dataGridView1.Location = new Point(10, 36);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(594, 241);
+            dataGridView1.Size = new Size(520, 181);
             dataGridView1.TabIndex = 2;
             // 
             // panel1
@@ -104,27 +103,26 @@
             panel1.Controls.Add(btnEditarConsulta);
             panel1.Controls.Add(btnAgregarConsulta);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(664, 52);
+            panel1.Location = new Point(581, 39);
+            panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(250, 548);
+            panel1.Size = new Size(219, 411);
             panel1.TabIndex = 2;
             // 
             // btnActualizar
             // 
-            btnActualizar.Location = new Point(7, 297);
-            btnActualizar.Margin = new Padding(3, 4, 3, 4);
+            btnActualizar.Location = new Point(6, 223);
             btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(86, 31);
+            btnActualizar.Size = new Size(75, 23);
             btnActualizar.TabIndex = 8;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = true;
             // 
             // btnBuscarPaciente
             // 
-            btnBuscarPaciente.Location = new Point(100, 297);
-            btnBuscarPaciente.Margin = new Padding(3, 4, 3, 4);
+            btnBuscarPaciente.Location = new Point(88, 223);
             btnBuscarPaciente.Name = "btnBuscarPaciente";
-            btnBuscarPaciente.Size = new Size(86, 31);
+            btnBuscarPaciente.Size = new Size(75, 23);
             btnBuscarPaciente.TabIndex = 10;
             btnBuscarPaciente.Text = "Buscar";
             btnBuscarPaciente.UseVisualStyleBackColor = true;
@@ -132,18 +130,17 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(6, 238);
+            label2.Location = new Point(5, 178);
             label2.Name = "label2";
-            label2.Size = new Size(111, 20);
+            label2.Size = new Size(90, 15);
             label2.TabIndex = 9;
             label2.Text = "Buscar consulta";
             // 
             // txtBuscarConsulta
             // 
-            txtBuscarConsulta.Location = new Point(6, 262);
-            txtBuscarConsulta.Margin = new Padding(3, 4, 3, 4);
+            txtBuscarConsulta.Location = new Point(5, 196);
             txtBuscarConsulta.Name = "txtBuscarConsulta";
-            txtBuscarConsulta.Size = new Size(180, 27);
+            txtBuscarConsulta.Size = new Size(158, 23);
             txtBuscarConsulta.TabIndex = 7;
             // 
             // btnEliminarConsulta
@@ -151,26 +148,25 @@
             btnEliminarConsulta.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminarConsulta.Image = Properties.Resources.trash_solid;
             btnEliminarConsulta.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminarConsulta.Location = new Point(6, 169);
-            btnEliminarConsulta.Margin = new Padding(3, 4, 3, 4);
+            btnEliminarConsulta.Location = new Point(5, 127);
             btnEliminarConsulta.Name = "btnEliminarConsulta";
-            btnEliminarConsulta.Padding = new Padding(5);
-            btnEliminarConsulta.Size = new Size(139, 44);
+            btnEliminarConsulta.Padding = new Padding(4, 4, 4, 4);
+            btnEliminarConsulta.Size = new Size(122, 33);
             btnEliminarConsulta.TabIndex = 4;
             btnEliminarConsulta.Text = "       Eliminar";
             btnEliminarConsulta.TextAlign = ContentAlignment.MiddleLeft;
             btnEliminarConsulta.UseVisualStyleBackColor = true;
+            btnEliminarConsulta.Click += btnEliminarConsulta_Click;
             // 
             // btnEditarConsulta
             // 
             btnEditarConsulta.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditarConsulta.Image = Properties.Resources.pen_solid;
             btnEditarConsulta.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEditarConsulta.Location = new Point(6, 117);
-            btnEditarConsulta.Margin = new Padding(3, 4, 3, 4);
+            btnEditarConsulta.Location = new Point(5, 88);
             btnEditarConsulta.Name = "btnEditarConsulta";
-            btnEditarConsulta.Padding = new Padding(5);
-            btnEditarConsulta.Size = new Size(139, 44);
+            btnEditarConsulta.Padding = new Padding(4, 4, 4, 4);
+            btnEditarConsulta.Size = new Size(122, 33);
             btnEditarConsulta.TabIndex = 5;
             btnEditarConsulta.Text = "       Editar";
             btnEditarConsulta.TextAlign = ContentAlignment.MiddleLeft;
@@ -182,11 +178,10 @@
             btnAgregarConsulta.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAgregarConsulta.Image = Properties.Resources.plus_solid;
             btnAgregarConsulta.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregarConsulta.Location = new Point(6, 65);
-            btnAgregarConsulta.Margin = new Padding(3, 4, 3, 4);
+            btnAgregarConsulta.Location = new Point(5, 49);
             btnAgregarConsulta.Name = "btnAgregarConsulta";
-            btnAgregarConsulta.Padding = new Padding(5);
-            btnAgregarConsulta.Size = new Size(139, 44);
+            btnAgregarConsulta.Padding = new Padding(4, 4, 4, 4);
+            btnAgregarConsulta.Size = new Size(122, 33);
             btnAgregarConsulta.TabIndex = 6;
             btnAgregarConsulta.Text = "       Agregar";
             btnAgregarConsulta.TextAlign = ContentAlignment.MiddleLeft;
@@ -198,9 +193,8 @@
             panelClose.Controls.Add(pictureBox1);
             panelClose.Dock = DockStyle.Top;
             panelClose.Location = new Point(0, 0);
-            panelClose.Margin = new Padding(3, 4, 3, 4);
             panelClose.Name = "panelClose";
-            panelClose.Size = new Size(914, 52);
+            panelClose.Size = new Size(800, 39);
             panelClose.TabIndex = 1;
             // 
             // pictureBox1
@@ -208,10 +202,9 @@
             pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Dock = DockStyle.Right;
             pictureBox1.Image = Properties.Resources.circle_xmark_solid1;
-            pictureBox1.Location = new Point(876, 0);
-            pictureBox1.Margin = new Padding(3, 4, 3, 4);
+            pictureBox1.Location = new Point(767, 0);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(38, 52);
+            pictureBox1.Size = new Size(33, 39);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 10;
             pictureBox1.TabStop = false;
@@ -219,12 +212,11 @@
             // 
             // FConsultas
             // 
-            AutoScaleDimensions = new SizeF(8F, 20F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(914, 600);
+            ClientSize = new Size(800, 450);
             Controls.Add(panelConsultas);
             FormBorderStyle = FormBorderStyle.None;
-            Margin = new Padding(3, 4, 3, 4);
             Name = "FConsultas";
             Text = "FConsultas";
             Load += FConsultas_Load;

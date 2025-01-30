@@ -11,24 +11,29 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using CapaLogica.Interfaces;
+using CapaLogica.Servicios;
+using Consulta1 = CapaDatos.Models.Consultas;
 
 namespace CapaPresentación.SecondWindows
 {
     public partial class FConsultas : Form
     {
-        public FConsultas()
+        private readonly IConsultasServices consultasServices;
+        public FConsultas(IConsultasServices _consultasServices)
         {
             InitializeComponent();
             AggStyles.ApplyPlaceholder(txtBuscarConsulta, "Ingrese DNI");
+            consultasServices = _consultasServices;
         }
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void FConsultas_Load(object sender, EventArgs e)
+        private async void FConsultas_Load(object sender, EventArgs e)
         {
-
+            await GetConsultasAsync();
         }
 
         private void btnAgregarConsulta_Click(object sender, EventArgs e)
@@ -37,13 +42,83 @@ namespace CapaPresentación.SecondWindows
             {
                 var formAgregar = scope.ServiceProvider.GetRequiredService<FAgregarConsulta>();
                 formAgregar.Owner = this;
+                formAgregar.FormClosed += async (s, args) => await GetConsultasAsync();
                 formAgregar.ShowDialog();
             }
         }
 
-        private void btnEditarConsulta_Click(object sender, EventArgs e)
+        private async void btnEditarConsulta_Click(object sender, EventArgs e)
         {
-            
+            if (dataGridView1.CurrentRow == null || dataGridView1.CurrentRow.Index < 0)
+            {
+                MessageBox.Show("Por favor, selecciona una consulta para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+
+            int idConsulta = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            Consulta1 consulta = await consultasServices.GetConsultaAsync(idConsulta);
+
+            using (var scope = Program.ServiceProvider.CreateScope())
+            {
+                FAgregarConsulta fAgregarConsulta = new FAgregarConsulta(consultasServices, consulta);
+                fAgregarConsulta.Owner = this;  // Pasamos la consulta para editar
+                fAgregarConsulta.FormClosed += async (s, args) => await GetConsultasAsync(); // Recargamos las consultas después de editar
+                fAgregarConsulta.ShowDialog();
+            }
+        }
+
+        private async Task GetConsultasAsync()
+        {
+            try
+            {
+                var datos = await consultasServices.GetConsultasWithRealtiosnAsync();
+                var consultas = datos.Select(c => new
+                {
+                    c.Id,
+                    c.Paciente.Nombre,
+                    c.Paciente.Apellido,
+                    c.Fecha,
+                    c.Motivo,
+                    c.Observaciones
+                }).ToList();
+
+                dataGridView1.DataSource = consultas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnEliminarConsulta_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (dataGridView1.CurrentRow == null || dataGridView1.CurrentRow.Index < 0)
+                {
+                    MessageBox.Show("Por favor, selecciona una fila para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                DialogResult resultado = MessageBox.Show(
+               "¿Estás seguro de que deseas eliminar esta fila?",
+               "Confirmar eliminación",
+               MessageBoxButtons.YesNo,
+               MessageBoxIcon.Warning
+           );
+
+                if (resultado == DialogResult.Yes)
+                {
+                    // Eliminar la fila seleccionada
+                    await consultasServices.DeleteConsultaAsync((int)dataGridView1.CurrentRow.Cells[0].Value);
+                    await GetConsultasAsync();
+                    MessageBox.Show("Fila eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
