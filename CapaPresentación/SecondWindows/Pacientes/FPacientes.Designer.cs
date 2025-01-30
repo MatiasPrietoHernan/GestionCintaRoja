@@ -127,10 +127,16 @@
             // 
             // btnActualizar
             // 
+<<<<<<< HEAD
             btnActualizar.Location = new Point(8, 295);
             btnActualizar.Margin = new Padding(3, 4, 3, 4);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(86, 31);
+=======
+            btnActualizar.Location = new Point(7, 221);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(75, 23);
+>>>>>>> 4b4f8ede451dd1624bbaeb3923360ec136da8948
             btnActualizar.TabIndex = 2;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = true;
@@ -146,6 +152,7 @@
             btnBuscarPaciente.Text = "Buscar";
             btnBuscarPaciente.UseVisualStyleBackColor = true;
             btnBuscarPaciente.Click += btnBuscarPaciente_Click;
+            btnBuscarPaciente.KeyDown += btnBuscarPaciente_KeyDown;
             // 
             // label2
             // 
@@ -163,6 +170,7 @@
             txtBuscarPaciente.Name = "txtBuscarPaciente";
             txtBuscarPaciente.Size = new Size(180, 27);
             txtBuscarPaciente.TabIndex = 1;
+            txtBuscarPaciente.KeyDown += txtBuscarPaciente_KeyDown;
             // 
             // btnEliminarPaciente
             // 

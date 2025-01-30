@@ -26,10 +26,14 @@ namespace CapaDatos.Repository
         }
         public async Task<IEnumerable<Pacientes>> SearchTermAsync(string term)
         {
+            term = term.Trim().ToLower();
+
             return await _context.Pacientes
-        .Where(p =>
-            p.DNI.ToString().Contains(term))
-        .ToListAsync();
+                .Where(p =>
+                    p.DNI.ToString().Contains(term) ||
+                    p.Nombre.ToLower().Contains(term) ||
+                    p.Apellido.ToLower().Contains(term))
+                .ToListAsync();
         }
     }
 }

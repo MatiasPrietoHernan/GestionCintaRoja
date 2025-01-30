@@ -28,6 +28,38 @@ namespace CapaPresentación.SecondWindows
 
 
         }
+<<<<<<< HEAD
+=======
+        private void formDesing()
+        {
+            // Placeholder inicial
+            string placeholderText = "Ingrese DNI, Nombre o Apellido";
+
+            // Establecer el texto inicial y el color
+            txtBuscarPaciente.Text = placeholderText;
+            txtBuscarPaciente.ForeColor = Color.Gray;
+
+            // Evento para cuando el TextBox gana el foco
+            txtBuscarPaciente.GotFocus += (sender, e) =>
+            {
+                if (txtBuscarPaciente.Text == placeholderText)
+                {
+                    txtBuscarPaciente.Text = ""; // Limpiar el campo
+                    txtBuscarPaciente.ForeColor = Color.Black; // Cambiar el color del texto
+                }
+            };
+
+            // Evento para cuando el TextBox pierde el foco
+            txtBuscarPaciente.LostFocus += (sender, e) =>
+            {
+                if (string.IsNullOrWhiteSpace(txtBuscarPaciente.Text))
+                {
+                    txtBuscarPaciente.Text = placeholderText; // Restaurar el placeholder
+                    txtBuscarPaciente.ForeColor = Color.Gray; // Cambiar el color del texto a gris
+                }
+            };
+        }
+>>>>>>> 4b4f8ede451dd1624bbaeb3923360ec136da8948
         private async void FPacientes_Load(object sender, EventArgs e)
         {
             await GetDatosAsync();
@@ -220,9 +252,30 @@ namespace CapaPresentación.SecondWindows
             {
                 await GetDatosAsync();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message);
+            }
+        }
+
+        private void btnBuscarPaciente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnBuscarPaciente.PerformClick();
+            }
+        }
+
+        private async void txtBuscarPaciente_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnBuscarPaciente.PerformClick();
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                txtBuscarPaciente.Text = "";
+                await GetDatosAsync();
             }
         }
     }
