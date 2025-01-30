@@ -227,6 +227,7 @@
             btnCancelar.TabIndex = 10;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // txtIdPaciente
             // 
@@ -275,7 +276,7 @@
             Controls.Add(txtNombre);
             Margin = new Padding(3, 4, 3, 4);
             Name = "FAgregarPaciente";
-            Text = "FAgregarPaciente";
+            Text = "Agregar Paciente";
             ResumeLayout(false);
             PerformLayout();
         }

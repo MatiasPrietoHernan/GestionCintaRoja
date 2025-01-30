@@ -8,6 +8,7 @@ using CapaDatos.Models;
 using CapaLogica.Interfaces;
 using CapaLogica.Servicios;
 using CapaPresentación.SecondWindows.Pacientes;
+using CapaPresentación.SecondWindows.Consultas;
 namespace CapaPresentación
 {
     internal static class Program
@@ -43,6 +44,7 @@ namespace CapaPresentación
             services.AddTransient<FPacientes>();
             services.AddTransient<FAgregarPaciente>();
             services.AddTransient<FConsultas>();
+            services.AddTransient<FAgregarConsulta>();
             services.AddTransient<FDiagnosticos>();
             services.AddTransient<FTratamientos>();
             services.AddTransient<FHistorialClinico>();

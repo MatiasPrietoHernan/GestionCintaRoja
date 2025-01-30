@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement;
 using CapaLogica.Interfaces;
 using Pacientes1 = CapaDatos.Models.Pacientes;
+using CapaPresentación.Helpers;
 
 namespace CapaPresentación.SecondWindows.Pacientes
 {
@@ -47,14 +48,15 @@ namespace CapaPresentación.SecondWindows.Pacientes
         private void btnGuardar_Click(object sender, EventArgs e)
         {
             // Validar campos vacíos
-            if (string.IsNullOrWhiteSpace(txtNombre.Text) ||
-                string.IsNullOrWhiteSpace(txtApellido.Text) ||
-                string.IsNullOrWhiteSpace(txtEdad.Text) ||
-                string.IsNullOrWhiteSpace(txtDNI.Text) ||
-                string.IsNullOrWhiteSpace(txtDireccion.Text) ||
-                string.IsNullOrWhiteSpace(txtTelefono.Text) ||
-                string.IsNullOrWhiteSpace(txtEmail.Text) ||
-                string.IsNullOrWhiteSpace(txtFechaNacimiento.Text) ||
+            if (!ValidationHelper.AreFieldsNotEmpty(
+                txtNombre.Text,
+                txtApellido.Text,
+                txtEdad.Text,
+                txtDNI.Text,
+                txtDireccion.Text,
+                txtTelefono.Text,
+                txtEmail.Text,
+                txtFechaNacimiento.Text) ||
                 comboBoxTipoSangre.SelectedItem == null)
             {
                 MessageBox.Show("Todos los campos deben estar llenos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -62,30 +64,34 @@ namespace CapaPresentación.SecondWindows.Pacientes
             }
 
             // Validar que los campos numéricos contengan solo números
-            if (!int.TryParse(txtEdad.Text, out _) ||
-                !long.TryParse(txtDNI.Text, out _) ||
-                !long.TryParse(txtTelefono.Text, out _))
+            if (!ValidationHelper.AreFieldsNumeric(txtEdad.Text, txtDNI.Text, txtTelefono.Text))
             {
                 MessageBox.Show("Los campos Edad, DNI y Teléfono deben contener solo números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
+            if (!ValidationHelper.IsValidDNI(txtDNI.Text))
+            {
+                MessageBox.Show("El campo DNI debe contener 7 o 8 caractermes minimo", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
             // Validar formato de correo electrónico
-            if (!System.Text.RegularExpressions.Regex.IsMatch(txtEmail.Text, @"^[^@\s]+@[^@\s]+\.[^@\s]+$"))
+            if (!ValidationHelper.IsValidEmail(txtEmail.Text))
             {
                 MessageBox.Show("El correo electrónico no tiene un formato válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
             // Validar formato de fecha
-            if (!DateTime.TryParse(txtFechaNacimiento.Text, out _))
+            if (!ValidationHelper.IsValidDate(txtFechaNacimiento.Text))
             {
                 MessageBox.Show("La fecha de nacimiento no tiene un formato válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
+
             // Si todas las validaciones pasan, guardar los datos
-            string[] datos = 
+            string[] datos =
                 {
                     txtNombre.Text, txtApellido.Text, txtEdad.Text, txtDNI.Text,
                     txtDireccion.Text, txtTelefono.Text, txtEmail.Text,
@@ -97,6 +103,11 @@ namespace CapaPresentación.SecondWindows.Pacientes
             {
                 formPacientes.AgregarFila(datos, idPaciente);
             }
+            this.Close();
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }
