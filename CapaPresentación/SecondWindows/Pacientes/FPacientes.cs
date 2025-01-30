@@ -28,8 +28,6 @@ namespace CapaPresentación.SecondWindows
 
 
         }
-<<<<<<< HEAD
-=======
         private void formDesing()
         {
             // Placeholder inicial
@@ -59,7 +57,6 @@ namespace CapaPresentación.SecondWindows
                 }
             };
         }
->>>>>>> 4b4f8ede451dd1624bbaeb3923360ec136da8948
         private async void FPacientes_Load(object sender, EventArgs e)
         {
             await GetDatosAsync();
