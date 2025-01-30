@@ -75,7 +75,7 @@
             txtApellido.Margin = new Padding(3, 4, 3, 4);
             txtApellido.Name = "txtApellido";
             txtApellido.Size = new Size(158, 27);
-            txtApellido.TabIndex = 0;
+            txtApellido.TabIndex = 1;
             // 
             // lblApellido
             // 
@@ -92,7 +92,7 @@
             txtEdad.Margin = new Padding(3, 4, 3, 4);
             txtEdad.Name = "txtEdad";
             txtEdad.Size = new Size(158, 27);
-            txtEdad.TabIndex = 0;
+            txtEdad.TabIndex = 2;
             // 
             // lblEdad
             // 
@@ -109,7 +109,7 @@
             txtDNI.Margin = new Padding(3, 4, 3, 4);
             txtDNI.Name = "txtDNI";
             txtDNI.Size = new Size(158, 27);
-            txtDNI.TabIndex = 0;
+            txtDNI.TabIndex = 3;
             // 
             // lblDNI
             // 
@@ -126,7 +126,7 @@
             txtDireccion.Margin = new Padding(3, 4, 3, 4);
             txtDireccion.Name = "txtDireccion";
             txtDireccion.Size = new Size(158, 27);
-            txtDireccion.TabIndex = 0;
+            txtDireccion.TabIndex = 4;
             // 
             // lblDireccion
             // 
@@ -143,7 +143,7 @@
             txtTelefono.Margin = new Padding(3, 4, 3, 4);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.Size = new Size(158, 27);
-            txtTelefono.TabIndex = 0;
+            txtTelefono.TabIndex = 5;
             // 
             // lblTelefono
             // 
@@ -160,7 +160,7 @@
             txtEmail.Margin = new Padding(3, 4, 3, 4);
             txtEmail.Name = "txtEmail";
             txtEmail.Size = new Size(158, 27);
-            txtEmail.TabIndex = 0;
+            txtEmail.TabIndex = 6;
             // 
             // lblEmail
             // 
@@ -177,7 +177,7 @@
             txtFechaNacimiento.Margin = new Padding(3, 4, 3, 4);
             txtFechaNacimiento.Name = "txtFechaNacimiento";
             txtFechaNacimiento.Size = new Size(158, 27);
-            txtFechaNacimiento.TabIndex = 0;
+            txtFechaNacimiento.TabIndex = 7;
             // 
             // lblFechaNacimiento
             // 
@@ -205,7 +205,7 @@
             comboBoxTipoSangre.Margin = new Padding(3, 4, 3, 4);
             comboBoxTipoSangre.Name = "comboBoxTipoSangre";
             comboBoxTipoSangre.Size = new Size(110, 28);
-            comboBoxTipoSangre.TabIndex = 2;
+            comboBoxTipoSangre.TabIndex = 8;
             // 
             // btnGuardar
             // 
@@ -213,7 +213,7 @@
             btnGuardar.Margin = new Padding(3, 4, 3, 4);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(86, 31);
-            btnGuardar.TabIndex = 3;
+            btnGuardar.TabIndex = 9;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click;
@@ -224,9 +224,10 @@
             btnCancelar.Margin = new Padding(3, 4, 3, 4);
             btnCancelar.Name = "btnCancelar";
             btnCancelar.Size = new Size(86, 31);
-            btnCancelar.TabIndex = 3;
+            btnCancelar.TabIndex = 10;
             btnCancelar.Text = "Cancelar";
             btnCancelar.UseVisualStyleBackColor = true;
+            btnCancelar.Click += btnCancelar_Click;
             // 
             // txtIdPaciente
             // 
@@ -275,7 +276,7 @@
             Controls.Add(txtNombre);
             Margin = new Padding(3, 4, 3, 4);
             Name = "FAgregarPaciente";
-            Text = "FAgregarPaciente";
+            Text = "Agregar Paciente";
             ResumeLayout(false);
             PerformLayout();
         }

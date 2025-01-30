@@ -1,5 +1,6 @@
 ﻿using CapaDatos.Models;
 using CapaLogica.Interfaces;
+using CapaPresentación.Helpers;
 using CapaPresentación.SecondWindows.Pacientes;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -22,11 +23,13 @@ namespace CapaPresentación.SecondWindows
         public FPacientes(IPacientesServices _pacientesServices)
         {
             InitializeComponent();
-            formDesing();
             pacientesServices = _pacientesServices;
+            AggStyles.ApplyPlaceholder(txtBuscarPaciente, "Ingrese el DNI");
 
 
         }
+<<<<<<< HEAD
+=======
         private void formDesing()
         {
             // Placeholder inicial
@@ -56,6 +59,7 @@ namespace CapaPresentación.SecondWindows
                 }
             };
         }
+>>>>>>> 4b4f8ede451dd1624bbaeb3923360ec136da8948
         private async void FPacientes_Load(object sender, EventArgs e)
         {
             await GetDatosAsync();

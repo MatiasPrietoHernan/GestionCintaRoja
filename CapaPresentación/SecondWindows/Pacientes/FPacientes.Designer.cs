@@ -55,9 +55,10 @@
             pictureBox1.Cursor = Cursors.Hand;
             pictureBox1.Dock = DockStyle.Right;
             pictureBox1.Image = Properties.Resources.circle_xmark_solid1;
-            pictureBox1.Location = new Point(765, 0);
+            pictureBox1.Location = new Point(874, 0);
+            pictureBox1.Margin = new Padding(3, 4, 3, 4);
             pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(35, 39);
+            pictureBox1.Size = new Size(40, 52);
             pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
             pictureBox1.TabIndex = 9;
             pictureBox1.TabStop = false;
@@ -70,8 +71,9 @@
             panelPacientes.Controls.Add(panel2);
             panelPacientes.Controls.Add(panel1);
             panelPacientes.Location = new Point(0, 0);
+            panelPacientes.Margin = new Padding(3, 4, 3, 4);
             panelPacientes.Name = "panelPacientes";
-            panelPacientes.Size = new Size(800, 450);
+            panelPacientes.Size = new Size(914, 600);
             panelPacientes.TabIndex = 0;
             // 
             // panel3
@@ -79,18 +81,19 @@
             panel3.Controls.Add(label1);
             panel3.Controls.Add(dataGridView1);
             panel3.Dock = DockStyle.Fill;
-            panel3.Location = new Point(0, 39);
+            panel3.Location = new Point(0, 52);
+            panel3.Margin = new Padding(3, 4, 3, 4);
             panel3.Name = "panel3";
-            panel3.Size = new Size(564, 411);
+            panel3.Size = new Size(644, 548);
             panel3.TabIndex = 12;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 9);
+            label1.Location = new Point(14, 12);
             label1.Name = "label1";
-            label1.Size = new Size(207, 25);
+            label1.Size = new Size(254, 31);
             label1.TabIndex = 1;
             label1.Text = "Lista de Pacientes";
             // 
@@ -99,10 +102,11 @@
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 37);
+            dataGridView1.Location = new Point(14, 49);
+            dataGridView1.Margin = new Padding(3, 4, 3, 4);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(521, 181);
+            dataGridView1.Size = new Size(594, 241);
             dataGridView1.TabIndex = 0;
             // 
             // panel2
@@ -115,16 +119,24 @@
             panel2.Controls.Add(btnEditarPaciente);
             panel2.Controls.Add(btnAgregarPaciente);
             panel2.Dock = DockStyle.Right;
-            panel2.Location = new Point(564, 39);
+            panel2.Location = new Point(644, 52);
+            panel2.Margin = new Padding(3, 4, 3, 4);
             panel2.Name = "panel2";
-            panel2.Size = new Size(236, 411);
+            panel2.Size = new Size(270, 548);
             panel2.TabIndex = 11;
             // 
             // btnActualizar
             // 
+<<<<<<< HEAD
+            btnActualizar.Location = new Point(8, 295);
+            btnActualizar.Margin = new Padding(3, 4, 3, 4);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(86, 31);
+=======
             btnActualizar.Location = new Point(7, 221);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(75, 23);
+>>>>>>> 4b4f8ede451dd1624bbaeb3923360ec136da8948
             btnActualizar.TabIndex = 2;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = true;
@@ -132,9 +144,10 @@
             // 
             // btnBuscarPaciente
             // 
-            btnBuscarPaciente.Location = new Point(88, 221);
+            btnBuscarPaciente.Location = new Point(101, 295);
+            btnBuscarPaciente.Margin = new Padding(3, 4, 3, 4);
             btnBuscarPaciente.Name = "btnBuscarPaciente";
-            btnBuscarPaciente.Size = new Size(75, 23);
+            btnBuscarPaciente.Size = new Size(86, 31);
             btnBuscarPaciente.TabIndex = 3;
             btnBuscarPaciente.Text = "Buscar";
             btnBuscarPaciente.UseVisualStyleBackColor = true;
@@ -144,17 +157,18 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(6, 177);
+            label2.Location = new Point(7, 236);
             label2.Name = "label2";
-            label2.Size = new Size(90, 15);
+            label2.Size = new Size(113, 20);
             label2.TabIndex = 2;
             label2.Text = "Buscar paciente";
             // 
             // txtBuscarPaciente
             // 
-            txtBuscarPaciente.Location = new Point(6, 195);
+            txtBuscarPaciente.Location = new Point(7, 260);
+            txtBuscarPaciente.Margin = new Padding(3, 4, 3, 4);
             txtBuscarPaciente.Name = "txtBuscarPaciente";
-            txtBuscarPaciente.Size = new Size(158, 23);
+            txtBuscarPaciente.Size = new Size(180, 27);
             txtBuscarPaciente.TabIndex = 1;
             txtBuscarPaciente.KeyDown += txtBuscarPaciente_KeyDown;
             // 
@@ -163,10 +177,11 @@
             btnEliminarPaciente.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminarPaciente.Image = Properties.Resources.trash_solid;
             btnEliminarPaciente.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminarPaciente.Location = new Point(6, 125);
+            btnEliminarPaciente.Location = new Point(7, 167);
+            btnEliminarPaciente.Margin = new Padding(3, 4, 3, 4);
             btnEliminarPaciente.Name = "btnEliminarPaciente";
-            btnEliminarPaciente.Padding = new Padding(4);
-            btnEliminarPaciente.Size = new Size(122, 33);
+            btnEliminarPaciente.Padding = new Padding(5, 5, 5, 5);
+            btnEliminarPaciente.Size = new Size(139, 44);
             btnEliminarPaciente.TabIndex = 0;
             btnEliminarPaciente.Text = "       Eliminar";
             btnEliminarPaciente.TextAlign = ContentAlignment.MiddleLeft;
@@ -178,10 +193,11 @@
             btnEditarPaciente.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditarPaciente.Image = Properties.Resources.pen_solid;
             btnEditarPaciente.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEditarPaciente.Location = new Point(6, 86);
+            btnEditarPaciente.Location = new Point(7, 115);
+            btnEditarPaciente.Margin = new Padding(3, 4, 3, 4);
             btnEditarPaciente.Name = "btnEditarPaciente";
-            btnEditarPaciente.Padding = new Padding(4);
-            btnEditarPaciente.Size = new Size(122, 33);
+            btnEditarPaciente.Padding = new Padding(5, 5, 5, 5);
+            btnEditarPaciente.Size = new Size(139, 44);
             btnEditarPaciente.TabIndex = 0;
             btnEditarPaciente.Text = "       Editar";
             btnEditarPaciente.TextAlign = ContentAlignment.MiddleLeft;
@@ -193,10 +209,11 @@
             btnAgregarPaciente.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAgregarPaciente.Image = Properties.Resources.plus_solid;
             btnAgregarPaciente.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregarPaciente.Location = new Point(6, 47);
+            btnAgregarPaciente.Location = new Point(7, 63);
+            btnAgregarPaciente.Margin = new Padding(3, 4, 3, 4);
             btnAgregarPaciente.Name = "btnAgregarPaciente";
-            btnAgregarPaciente.Padding = new Padding(4);
-            btnAgregarPaciente.Size = new Size(122, 33);
+            btnAgregarPaciente.Padding = new Padding(5, 5, 5, 5);
+            btnAgregarPaciente.Size = new Size(139, 44);
             btnAgregarPaciente.TabIndex = 0;
             btnAgregarPaciente.Text = "       Agregar";
             btnAgregarPaciente.TextAlign = ContentAlignment.MiddleLeft;
@@ -208,17 +225,19 @@
             panel1.Controls.Add(pictureBox1);
             panel1.Dock = DockStyle.Top;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(3, 4, 3, 4);
             panel1.Name = "panel1";
-            panel1.Size = new Size(800, 39);
+            panel1.Size = new Size(914, 52);
             panel1.TabIndex = 10;
             // 
             // FPacientes
             // 
-            AutoScaleDimensions = new SizeF(7F, 15F);
+            AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(800, 450);
+            ClientSize = new Size(914, 600);
             Controls.Add(panelPacientes);
             FormBorderStyle = FormBorderStyle.None;
+            Margin = new Padding(3, 4, 3, 4);
             Name = "FPacientes";
             Text = "FormDePrueba";
             Load += FPacientes_Load;
