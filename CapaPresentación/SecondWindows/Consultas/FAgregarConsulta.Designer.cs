@@ -90,7 +90,7 @@
             txtMotivo.Margin = new Padding(3, 2, 3, 2);
             txtMotivo.Name = "txtMotivo";
             txtMotivo.Size = new Size(110, 23);
-            txtMotivo.TabIndex = 5;
+            txtMotivo.TabIndex = 3;
             // 
             // label4
             // 
@@ -109,7 +109,7 @@
             txtObservaciones.Name = "txtObservaciones";
             txtObservaciones.ScrollBars = ScrollBars.Vertical;
             txtObservaciones.Size = new Size(268, 104);
-            txtObservaciones.TabIndex = 5;
+            txtObservaciones.TabIndex = 4;
             // 
             // btnGuardar
             // 
@@ -117,7 +117,7 @@
             btnGuardar.Margin = new Padding(3, 2, 3, 2);
             btnGuardar.Name = "btnGuardar";
             btnGuardar.Size = new Size(82, 22);
-            btnGuardar.TabIndex = 6;
+            btnGuardar.TabIndex = 5;
             btnGuardar.Text = "Guardar";
             btnGuardar.UseVisualStyleBackColor = true;
             btnGuardar.Click += btnGuardar_Click_1;
@@ -138,7 +138,7 @@
             btnSeleccionar.Location = new Point(289, 69);
             btnSeleccionar.Name = "btnSeleccionar";
             btnSeleccionar.Size = new Size(110, 52);
-            btnSeleccionar.TabIndex = 7;
+            btnSeleccionar.TabIndex = 1;
             btnSeleccionar.Text = "Seleccionar Paciente";
             btnSeleccionar.UseVisualStyleBackColor = true;
             btnSeleccionar.Click += btnSeleccionar_Click;

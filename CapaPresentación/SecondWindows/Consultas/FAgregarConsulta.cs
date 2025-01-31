@@ -74,7 +74,7 @@ namespace CapaPresentación.SecondWindows.Consultas
             }
             if (!ValidationHelper.IsValidDate(txtFecha.Text))
             {
-                MessageBox.Show("La fecha de nacimiento no tiene un formato válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("La fecha no tiene un formato válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
