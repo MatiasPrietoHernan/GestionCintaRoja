@@ -103,9 +103,33 @@ namespace CapaPresentación.SecondWindows
             await GetDiagnosticosAsync();
         }
 
-        private void btnBuscar_Click(object sender, EventArgs e)
+        private async void btnBuscar_Click(object sender, EventArgs e)
         {
+            try
+            {
 
+                if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+                {
+                    MessageBox.Show("Por favor, ingrese un termino para buscar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                var datos = await diagnosticosServices.SearchByTermAsync(txtBuscar.Text);
+
+
+                var diagnosticos = datos.Select(d => new
+                {
+                    d.Id,
+                    d.FechaDiagnostico,
+                    d.Consulta.Motivo,
+                    d.Descripcion,
+                }).ToList();
+
+                dataGridView1.DataSource = diagnosticos;
+
+            } catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
 
         private async Task GetDiagnosticosAsync()

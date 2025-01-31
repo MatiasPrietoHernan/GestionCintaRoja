@@ -20,8 +20,12 @@ namespace CapaDatos.Repository
 
         public async Task<IEnumerable<Consultas>> GetAllRelationsAsync()
         {
-            return await _context.Consultas.Include(d=> d.Diagnostico)
-                .Include(t=> t.Tratamientos).Include(p=> p.Pagos).Include(pa=> pa.Paciente).ToListAsync();
+            return await _context.Consultas
+               .Include(c => c.Diagnosticos) // Cambié a plural
+               .Include(c => c.Tratamientos)
+               .Include(c => c.Pagos)
+               .Include(c => c.Paciente)
+               .ToListAsync();
         }
 
         public async Task<IEnumerable<Consultas>> SearchByTermAsync(string term)

@@ -3,6 +3,7 @@ using System;
 using CapaDatos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CapaDatos.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250131172618_CambiosDiagnosticos")]
+    partial class CambiosDiagnosticos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
@@ -205,7 +208,7 @@ namespace CapaDatos.Migrations
                     b.Property<int?>("IdConsulta")
                         .HasColumnType("INTEGER");
 
-                    b.Property<int>("IdPaciente")
+                    b.Property<int?>("IdPaciente")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("NombreTratamiento")
@@ -213,11 +216,14 @@ namespace CapaDatos.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
 
+                    b.Property<int>("PacienteId")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.HasIndex("IdConsulta");
 
-                    b.HasIndex("IdPaciente");
+                    b.HasIndex("PacienteId");
 
                     b.ToTable("Tratamientos");
                 });
@@ -278,12 +284,11 @@ namespace CapaDatos.Migrations
                 {
                     b.HasOne("CapaDatos.Models.Consultas", "Consulta")
                         .WithMany("Tratamientos")
-                        .HasForeignKey("IdConsulta")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("IdConsulta");
 
                     b.HasOne("CapaDatos.Models.Pacientes", "Paciente")
-                        .WithMany("Tratamientos")
-                        .HasForeignKey("IdPaciente")
+                        .WithMany()
+                        .HasForeignKey("PacienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
@@ -306,8 +311,6 @@ namespace CapaDatos.Migrations
                     b.Navigation("Consulta");
 
                     b.Navigation("HistorialConsultas");
-
-                    b.Navigation("Tratamientos");
                 });
 #pragma warning restore 612, 618
         }

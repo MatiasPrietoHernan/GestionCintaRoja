@@ -14,5 +14,6 @@ namespace CapaDatos.Models
         public string Descripcion { get; set; }
         public DateTime FechaDiagnostico { get; set; }
 
+
     }
 }

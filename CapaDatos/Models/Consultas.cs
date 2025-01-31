@@ -16,7 +16,8 @@ namespace CapaDatos.Models
         public string Observaciones { get; set; }
         public ICollection<Pagos> Pagos { get; set; }
         public ICollection<Tratamientos> Tratamientos { get; set; }
-        public Diagnosticos Diagnostico { get; set; }
+        public ICollection<Diagnosticos> Diagnosticos { get; set; }  // Aquí cambia la relación de uno a uno a uno a muchos
+
 
     }
 }

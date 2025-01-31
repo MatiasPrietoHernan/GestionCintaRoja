@@ -3,6 +3,7 @@ using System;
 using CapaDatos;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 #nullable disable
@@ -10,9 +11,11 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CapaDatos.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    partial class AppDbContextModelSnapshot : ModelSnapshot
+    [Migration("20250131225035_AgregarRelacionTratamientos")]
+    partial class AgregarRelacionTratamientos
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        /// <inheritdoc />
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder.HasAnnotation("ProductVersion", "9.0.1");
@@ -191,6 +194,9 @@ namespace CapaDatos.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
+                    b.Property<int>("ConsultaId")
+                        .HasColumnType("INTEGER");
+
                     b.Property<string>("Detalles")
                         .IsRequired()
                         .HasMaxLength(255)
@@ -215,7 +221,7 @@ namespace CapaDatos.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("IdConsulta");
+                    b.HasIndex("ConsultaId");
 
                     b.HasIndex("IdPaciente");
 
@@ -278,8 +284,9 @@ namespace CapaDatos.Migrations
                 {
                     b.HasOne("CapaDatos.Models.Consultas", "Consulta")
                         .WithMany("Tratamientos")
-                        .HasForeignKey("IdConsulta")
-                        .OnDelete(DeleteBehavior.Cascade);
+                        .HasForeignKey("ConsultaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
 
                     b.HasOne("CapaDatos.Models.Pacientes", "Paciente")
                         .WithMany("Tratamientos")
