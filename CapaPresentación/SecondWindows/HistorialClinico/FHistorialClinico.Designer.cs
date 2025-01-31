@@ -32,35 +32,35 @@
             panel4 = new Panel();
             tabControl1 = new TabControl();
             tabConsultas = new TabPage();
-            dataGridView1 = new DataGridView();
+            dataGridConsultas = new DataGridView();
             label12 = new Label();
             tabDiagnosticos = new TabPage();
-            dataGridView2 = new DataGridView();
+            dataGridDiagnosticos = new DataGridView();
             label13 = new Label();
             tabTratamientos = new TabPage();
-            dataGridView3 = new DataGridView();
+            dataGridTratamientos = new DataGridView();
             label14 = new Label();
             tabPagos = new TabPage();
-            dataGridView4 = new DataGridView();
+            dataGridPagos = new DataGridView();
             label15 = new Label();
             panel3 = new Panel();
-            textBox8 = new TextBox();
-            textBox6 = new TextBox();
+            txtFechaNacimiento = new TextBox();
+            txtDireccion = new TextBox();
             label10 = new Label();
             label7 = new Label();
-            textBox3 = new TextBox();
+            txtApellido = new TextBox();
             label4 = new Label();
-            textBox7 = new TextBox();
-            textBox5 = new TextBox();
+            txtEmail = new TextBox();
+            txtDNI = new TextBox();
             label9 = new Label();
             label6 = new Label();
-            textBox2 = new TextBox();
+            txtNombre = new TextBox();
             label3 = new Label();
-            textBox9 = new TextBox();
+            txtTipoSangre = new TextBox();
             label11 = new Label();
-            textBox1 = new TextBox();
+            txtTelefono = new TextBox();
             label8 = new Label();
-            textBox4 = new TextBox();
+            txtEdad = new TextBox();
             label5 = new Label();
             txtID = new TextBox();
             label2 = new Label();
@@ -72,13 +72,13 @@
             panel4.SuspendLayout();
             tabControl1.SuspendLayout();
             tabConsultas.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridConsultas).BeginInit();
             tabDiagnosticos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridDiagnosticos).BeginInit();
             tabTratamientos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridTratamientos).BeginInit();
             tabPagos.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridPagos).BeginInit();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
@@ -119,7 +119,7 @@
             // 
             // tabConsultas
             // 
-            tabConsultas.Controls.Add(dataGridView1);
+            tabConsultas.Controls.Add(dataGridConsultas);
             tabConsultas.Controls.Add(label12);
             tabConsultas.Location = new Point(4, 24);
             tabConsultas.Name = "tabConsultas";
@@ -129,16 +129,16 @@
             tabConsultas.Text = "Consultas";
             tabConsultas.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridConsultas
             // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(8, 23);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(544, 205);
-            dataGridView1.TabIndex = 5;
+            dataGridConsultas.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridConsultas.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridConsultas.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridConsultas.Location = new Point(8, 23);
+            dataGridConsultas.Name = "dataGridConsultas";
+            dataGridConsultas.RowHeadersWidth = 51;
+            dataGridConsultas.Size = new Size(544, 205);
+            dataGridConsultas.TabIndex = 5;
             // 
             // label12
             // 
@@ -152,7 +152,7 @@
             // 
             // tabDiagnosticos
             // 
-            tabDiagnosticos.Controls.Add(dataGridView2);
+            tabDiagnosticos.Controls.Add(dataGridDiagnosticos);
             tabDiagnosticos.Controls.Add(label13);
             tabDiagnosticos.Location = new Point(4, 24);
             tabDiagnosticos.Name = "tabDiagnosticos";
@@ -162,16 +162,16 @@
             tabDiagnosticos.Text = "Diagnosticos";
             tabDiagnosticos.UseVisualStyleBackColor = true;
             // 
-            // dataGridView2
+            // dataGridDiagnosticos
             // 
-            dataGridView2.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView2.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView2.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView2.Location = new Point(8, 23);
-            dataGridView2.Name = "dataGridView2";
-            dataGridView2.RowHeadersWidth = 51;
-            dataGridView2.Size = new Size(544, 181);
-            dataGridView2.TabIndex = 7;
+            dataGridDiagnosticos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridDiagnosticos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridDiagnosticos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridDiagnosticos.Location = new Point(8, 23);
+            dataGridDiagnosticos.Name = "dataGridDiagnosticos";
+            dataGridDiagnosticos.RowHeadersWidth = 51;
+            dataGridDiagnosticos.Size = new Size(544, 181);
+            dataGridDiagnosticos.TabIndex = 7;
             // 
             // label13
             // 
@@ -185,7 +185,7 @@
             // 
             // tabTratamientos
             // 
-            tabTratamientos.Controls.Add(dataGridView3);
+            tabTratamientos.Controls.Add(dataGridTratamientos);
             tabTratamientos.Controls.Add(label14);
             tabTratamientos.Location = new Point(4, 24);
             tabTratamientos.Name = "tabTratamientos";
@@ -195,16 +195,16 @@
             tabTratamientos.Text = "Tratamientos";
             tabTratamientos.UseVisualStyleBackColor = true;
             // 
-            // dataGridView3
+            // dataGridTratamientos
             // 
-            dataGridView3.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView3.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView3.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView3.Location = new Point(8, 23);
-            dataGridView3.Name = "dataGridView3";
-            dataGridView3.RowHeadersWidth = 51;
-            dataGridView3.Size = new Size(544, 181);
-            dataGridView3.TabIndex = 7;
+            dataGridTratamientos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridTratamientos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridTratamientos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridTratamientos.Location = new Point(8, 23);
+            dataGridTratamientos.Name = "dataGridTratamientos";
+            dataGridTratamientos.RowHeadersWidth = 51;
+            dataGridTratamientos.Size = new Size(544, 181);
+            dataGridTratamientos.TabIndex = 7;
             // 
             // label14
             // 
@@ -218,7 +218,7 @@
             // 
             // tabPagos
             // 
-            tabPagos.Controls.Add(dataGridView4);
+            tabPagos.Controls.Add(dataGridPagos);
             tabPagos.Controls.Add(label15);
             tabPagos.Location = new Point(4, 24);
             tabPagos.Name = "tabPagos";
@@ -228,16 +228,16 @@
             tabPagos.Text = "Pagos";
             tabPagos.UseVisualStyleBackColor = true;
             // 
-            // dataGridView4
+            // dataGridPagos
             // 
-            dataGridView4.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView4.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView4.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView4.Location = new Point(8, 23);
-            dataGridView4.Name = "dataGridView4";
-            dataGridView4.RowHeadersWidth = 51;
-            dataGridView4.Size = new Size(544, 181);
-            dataGridView4.TabIndex = 7;
+            dataGridPagos.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridPagos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridPagos.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridPagos.Location = new Point(8, 23);
+            dataGridPagos.Name = "dataGridPagos";
+            dataGridPagos.RowHeadersWidth = 51;
+            dataGridPagos.Size = new Size(544, 181);
+            dataGridPagos.TabIndex = 7;
             // 
             // label15
             // 
@@ -252,23 +252,23 @@
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(224, 224, 224);
-            panel3.Controls.Add(textBox8);
-            panel3.Controls.Add(textBox6);
+            panel3.Controls.Add(txtFechaNacimiento);
+            panel3.Controls.Add(txtDireccion);
             panel3.Controls.Add(label10);
             panel3.Controls.Add(label7);
-            panel3.Controls.Add(textBox3);
+            panel3.Controls.Add(txtApellido);
             panel3.Controls.Add(label4);
-            panel3.Controls.Add(textBox7);
-            panel3.Controls.Add(textBox5);
+            panel3.Controls.Add(txtEmail);
+            panel3.Controls.Add(txtDNI);
             panel3.Controls.Add(label9);
             panel3.Controls.Add(label6);
-            panel3.Controls.Add(textBox2);
+            panel3.Controls.Add(txtNombre);
             panel3.Controls.Add(label3);
-            panel3.Controls.Add(textBox9);
+            panel3.Controls.Add(txtTipoSangre);
             panel3.Controls.Add(label11);
-            panel3.Controls.Add(textBox1);
+            panel3.Controls.Add(txtTelefono);
             panel3.Controls.Add(label8);
-            panel3.Controls.Add(textBox4);
+            panel3.Controls.Add(txtEdad);
             panel3.Controls.Add(label5);
             panel3.Controls.Add(txtID);
             panel3.Controls.Add(label2);
@@ -280,21 +280,21 @@
             panel3.Size = new Size(800, 133);
             panel3.TabIndex = 1;
             // 
-            // textBox8
+            // txtFechaNacimiento
             // 
-            textBox8.Location = new Point(688, 43);
-            textBox8.Name = "textBox8";
-            textBox8.ReadOnly = true;
-            textBox8.Size = new Size(100, 23);
-            textBox8.TabIndex = 7;
+            txtFechaNacimiento.Location = new Point(688, 43);
+            txtFechaNacimiento.Name = "txtFechaNacimiento";
+            txtFechaNacimiento.ReadOnly = true;
+            txtFechaNacimiento.Size = new Size(100, 23);
+            txtFechaNacimiento.TabIndex = 7;
             // 
-            // textBox6
+            // txtDireccion
             // 
-            textBox6.Location = new Point(246, 101);
-            textBox6.Name = "textBox6";
-            textBox6.ReadOnly = true;
-            textBox6.Size = new Size(100, 23);
-            textBox6.TabIndex = 7;
+            txtDireccion.Location = new Point(246, 101);
+            txtDireccion.Name = "txtDireccion";
+            txtDireccion.ReadOnly = true;
+            txtDireccion.Size = new Size(100, 23);
+            txtDireccion.TabIndex = 7;
             // 
             // label10
             // 
@@ -314,13 +314,13 @@
             label7.TabIndex = 6;
             label7.Text = "Direccion";
             // 
-            // textBox3
+            // txtApellido
             // 
-            textBox3.Location = new Point(69, 101);
-            textBox3.Name = "textBox3";
-            textBox3.ReadOnly = true;
-            textBox3.Size = new Size(100, 23);
-            textBox3.TabIndex = 7;
+            txtApellido.Location = new Point(69, 101);
+            txtApellido.Name = "txtApellido";
+            txtApellido.ReadOnly = true;
+            txtApellido.Size = new Size(100, 23);
+            txtApellido.TabIndex = 7;
             // 
             // label4
             // 
@@ -331,21 +331,21 @@
             label4.TabIndex = 6;
             label4.Text = "Apellido";
             // 
-            // textBox7
+            // txtEmail
             // 
-            textBox7.Location = new Point(456, 72);
-            textBox7.Name = "textBox7";
-            textBox7.ReadOnly = true;
-            textBox7.Size = new Size(100, 23);
-            textBox7.TabIndex = 7;
+            txtEmail.Location = new Point(456, 72);
+            txtEmail.Name = "txtEmail";
+            txtEmail.ReadOnly = true;
+            txtEmail.Size = new Size(100, 23);
+            txtEmail.TabIndex = 7;
             // 
-            // textBox5
+            // txtDNI
             // 
-            textBox5.Location = new Point(246, 72);
-            textBox5.Name = "textBox5";
-            textBox5.ReadOnly = true;
-            textBox5.Size = new Size(100, 23);
-            textBox5.TabIndex = 7;
+            txtDNI.Location = new Point(246, 72);
+            txtDNI.Name = "txtDNI";
+            txtDNI.ReadOnly = true;
+            txtDNI.Size = new Size(100, 23);
+            txtDNI.TabIndex = 7;
             // 
             // label9
             // 
@@ -365,13 +365,13 @@
             label6.TabIndex = 6;
             label6.Text = "DNI";
             // 
-            // textBox2
+            // txtNombre
             // 
-            textBox2.Location = new Point(69, 72);
-            textBox2.Name = "textBox2";
-            textBox2.ReadOnly = true;
-            textBox2.Size = new Size(100, 23);
-            textBox2.TabIndex = 7;
+            txtNombre.Location = new Point(69, 72);
+            txtNombre.Name = "txtNombre";
+            txtNombre.ReadOnly = true;
+            txtNombre.Size = new Size(100, 23);
+            txtNombre.TabIndex = 7;
             // 
             // label3
             // 
@@ -382,13 +382,13 @@
             label3.TabIndex = 6;
             label3.Text = "Nombre";
             // 
-            // textBox9
+            // txtTipoSangre
             // 
-            textBox9.Location = new Point(456, 101);
-            textBox9.Name = "textBox9";
-            textBox9.ReadOnly = true;
-            textBox9.Size = new Size(100, 23);
-            textBox9.TabIndex = 7;
+            txtTipoSangre.Location = new Point(456, 101);
+            txtTipoSangre.Name = "txtTipoSangre";
+            txtTipoSangre.ReadOnly = true;
+            txtTipoSangre.Size = new Size(100, 23);
+            txtTipoSangre.TabIndex = 7;
             // 
             // label11
             // 
@@ -399,13 +399,13 @@
             label11.TabIndex = 6;
             label11.Text = "Tipo de sangre";
             // 
-            // textBox1
+            // txtTelefono
             // 
-            textBox1.Location = new Point(456, 43);
-            textBox1.Name = "textBox1";
-            textBox1.ReadOnly = true;
-            textBox1.Size = new Size(100, 23);
-            textBox1.TabIndex = 7;
+            txtTelefono.Location = new Point(456, 43);
+            txtTelefono.Name = "txtTelefono";
+            txtTelefono.ReadOnly = true;
+            txtTelefono.Size = new Size(100, 23);
+            txtTelefono.TabIndex = 7;
             // 
             // label8
             // 
@@ -416,13 +416,13 @@
             label8.TabIndex = 6;
             label8.Text = "Telefono";
             // 
-            // textBox4
+            // txtEdad
             // 
-            textBox4.Location = new Point(246, 43);
-            textBox4.Name = "textBox4";
-            textBox4.ReadOnly = true;
-            textBox4.Size = new Size(100, 23);
-            textBox4.TabIndex = 7;
+            txtEdad.Location = new Point(246, 43);
+            txtEdad.Name = "txtEdad";
+            txtEdad.ReadOnly = true;
+            txtEdad.Size = new Size(100, 23);
+            txtEdad.TabIndex = 7;
             // 
             // label5
             // 
@@ -509,16 +509,16 @@
             tabControl1.ResumeLayout(false);
             tabConsultas.ResumeLayout(false);
             tabConsultas.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridConsultas).EndInit();
             tabDiagnosticos.ResumeLayout(false);
             tabDiagnosticos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridDiagnosticos).EndInit();
             tabTratamientos.ResumeLayout(false);
             tabTratamientos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView3).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridTratamientos).EndInit();
             tabPagos.ResumeLayout(false);
             tabPagos.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)dataGridView4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridPagos).EndInit();
             panel3.ResumeLayout(false);
             panel3.PerformLayout();
             panel2.ResumeLayout(false);
@@ -535,25 +535,25 @@
         private Panel panel3;
         private Label label1;
         private Button btnSeleccionar;
-        private TextBox textBox2;
+        private TextBox txtNombre;
         private Label label3;
         private TextBox txtID;
         private Label label2;
-        private TextBox textBox3;
+        private TextBox txtApellido;
         private Label label4;
-        private TextBox textBox4;
+        private TextBox txtEdad;
         private Label label5;
-        private TextBox textBox6;
+        private TextBox txtDireccion;
         private Label label7;
-        private TextBox textBox5;
+        private TextBox txtDNI;
         private Label label6;
-        private TextBox textBox8;
+        private TextBox txtFechaNacimiento;
         private Label label10;
-        private TextBox textBox7;
+        private TextBox txtEmail;
         private Label label9;
-        private TextBox textBox1;
+        private TextBox txtTelefono;
         private Label label8;
-        private TextBox textBox9;
+        private TextBox txtTipoSangre;
         private Label label11;
         private TabControl tabControl1;
         private TabPage tabConsultas;
@@ -561,12 +561,12 @@
         private TabPage tabDiagnosticos;
         private TabPage tabTratamientos;
         private TabPage tabPagos;
-        private DataGridView dataGridView1;
-        private DataGridView dataGridView2;
+        private DataGridView dataGridConsultas;
+        private DataGridView dataGridDiagnosticos;
         private Label label13;
-        private DataGridView dataGridView3;
+        private DataGridView dataGridTratamientos;
         private Label label14;
-        private DataGridView dataGridView4;
+        private DataGridView dataGridPagos;
         private Label label15;
     }
 }
