@@ -164,8 +164,7 @@ namespace CapaDatos.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Diagnosticos_IdConsulta",
                 table: "Diagnosticos",
-                column: "IdConsulta",
-                unique: true);
+                column: "IdConsulta");
 
             migrationBuilder.CreateIndex(
                 name: "IX_HistorialConsultas_ConsultaId",

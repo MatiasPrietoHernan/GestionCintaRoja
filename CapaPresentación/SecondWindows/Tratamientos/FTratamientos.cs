@@ -1,4 +1,6 @@
-﻿using CapaPresentación.SecondWindows.GlobalWidows;
+﻿using CapaLogica.Interfaces;
+using CapaLogica.Servicios;
+using CapaPresentación.SecondWindows.GlobalWidows;
 using CapaPresentación.SecondWindows.Tratamientos;
 using Microsoft.Extensions.DependencyInjection;
 using System;
@@ -10,23 +12,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Tratamientos1= CapaDatos.Models.Tratamientos;
 
 namespace CapaPresentación.SecondWindows
 {
     public partial class FTratamientos : Form
     {
-        public FTratamientos()
+        private readonly ITratamientosServices tratamientosServices;
+        public FTratamientos(ITratamientosServices tratamientosServices)
         {
             InitializeComponent();
+            this.tratamientosServices = tratamientosServices;
         }
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void FTratamientos_Load(object sender, EventArgs e)
+        private async void FTratamientos_Load(object sender, EventArgs e)
         {
-
+            await GetTratamientosAsync();
         }
 
         private void btnAgregar_Click(object sender, EventArgs e)
@@ -35,18 +40,102 @@ namespace CapaPresentación.SecondWindows
             {
                 var globalPacientes = scope.ServiceProvider.GetRequiredService<FAgregarTratamiento>();
                 globalPacientes.Owner = this;
+                globalPacientes.FormClosed += async (s, ev) => await GetTratamientosAsync();
                 globalPacientes.ShowDialog();
             }
         }
 
-        private void btnEditar_Click(object sender, EventArgs e)
+        private async void btnEditar_Click(object sender, EventArgs e)
         {
+            if (dataGridView1.CurrentRow == null || dataGridView1.CurrentRow.Index < 0)
+            {
+                MessageBox.Show("Por favor, selecciona una consulta para editar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
 
+            int idTratamiento = (int)dataGridView1.CurrentRow.Cells[0].Value;
+            Tratamientos1 tratamiento = await tratamientosServices.GetTratamientoAsync(idTratamiento);
+            using (var scope = Program.ServiceProvider.CreateScope())
+            {
+                FAgregarTratamiento formEditar = new FAgregarTratamiento(tratamientosServices, tratamiento);
+                formEditar.Owner = this;
+                formEditar.FormClosed += async (s, ev) => await GetTratamientosAsync();
+                formEditar.ShowDialog();
+            }
         }
 
-        private void btnEliminar_Click(object sender, EventArgs e)
+        private async void btnEliminar_Click(object sender, EventArgs e)
         {
+            try
+            {
+                if (dataGridView1.CurrentRow == null || dataGridView1.CurrentRow.Index < 0)
+                {
+                    MessageBox.Show("Por favor, selecciona una fila para eliminar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
 
+                DialogResult resultado = MessageBox.Show(
+               "¿Estás seguro de que deseas eliminar esta fila?",
+               "Confirmar eliminación",
+               MessageBoxButtons.YesNo,
+               MessageBoxIcon.Warning
+           );
+
+                if (resultado == DialogResult.Yes)
+                {
+                    // Eliminar la fila seleccionada
+                    await tratamientosServices.DeleteTratamientoAsync((int)dataGridView1.CurrentRow.Cells[0].Value);
+                    await GetTratamientosAsync();
+                    MessageBox.Show("Fila eliminada correctamente.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async Task GetTratamientosAsync()
+        {
+            try
+            {
+                var datos = await tratamientosServices.GetTratamientosWithRealtiosnAsync();
+
+                var tratamientos = datos.Select(t => new
+                {
+                    t.Id,
+                    t.NombreTratamiento,
+                    t.Paciente.Nombre,
+                    t.Paciente.Apellido,
+                    t.FechaInicio,
+                    t.FechaFin,
+                    t.Detalles
+                }).ToList();
+
+                dataGridView1.DataSource = tratamientos;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnBuscarPaciente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnActualizar_Click(object sender, EventArgs e)
+        {
+            await GetTratamientosAsync();
         }
     }
 }

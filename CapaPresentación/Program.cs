@@ -75,6 +75,7 @@ namespace CapaPresentación
             services.AddTransient<IPacienteRepository, PacienteRepository>();
             services.AddTransient<IConsultasRepository, ConsultaRepository>();
             services.AddTransient<IGenericRelations<Diagnosticos>, DiagnosticosRepository>();
+            services.AddTransient<IDiagnosticosRepository, DiagnosticosRepository>();
 
 
             //Aqui van los servicios

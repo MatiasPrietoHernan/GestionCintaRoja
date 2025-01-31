@@ -126,6 +126,7 @@
             btnBuscarPaciente.TabIndex = 10;
             btnBuscarPaciente.Text = "Buscar";
             btnBuscarPaciente.UseVisualStyleBackColor = true;
+            btnBuscarPaciente.Click += btnBuscarPaciente_Click;
             // 
             // label2
             // 

@@ -35,15 +35,23 @@ namespace CapaDatos
 
             // Consultas -> Diagnósticos (1 a 1)
             modelBuilder.Entity<Diagnosticos>()
-                .HasOne(d => d.Consulta)
-                .WithOne(c => c.Diagnostico) // Relación: Una consulta tiene un diagnóstico
-                .HasForeignKey<Diagnosticos>(d => d.IdConsulta);
+                 .HasOne(d => d.Consulta)
+                 .WithMany(c => c.Diagnosticos) // Relación: Una consulta tiene muchos diagnósticos
+                 .HasForeignKey(d => d.IdConsulta);
 
             // Consultas -> Tratamientos (1 a muchos)
             modelBuilder.Entity<Tratamientos>()
-                .HasOne(t => t.Consulta)
-                .WithMany(c => c.Tratamientos) // Relación: Una consulta tiene muchos tratamientos
-                .HasForeignKey(t => t.IdConsulta);
+                .HasOne(t => t.Paciente)  // Un Tratamiento tiene UN paciente
+                .WithMany(p => p.Tratamientos)  // Un paciente tiene MUCHOS tratamientos
+                .HasForeignKey(t => t.IdPaciente)  // Clave foránea en la tabla Tratamientos
+                .OnDelete(DeleteBehavior.Cascade);
+
+            modelBuilder.Entity<Tratamientos>()
+                .HasOne(t => t.Consulta)  // Un Tratamiento puede estar relacionado con UNA consulta
+                .WithMany(c => c.Tratamientos)  // Una consulta puede tener VARIOS tratamientos
+                .HasForeignKey(t => t.IdConsulta)  // Clave foránea en la tabla Tratamientos
+                .OnDelete(DeleteBehavior.Cascade);
+
 
             // Pacientes -> HistorialConsultas (1 a muchos)
             modelBuilder.Entity<HistorialConsultas>()

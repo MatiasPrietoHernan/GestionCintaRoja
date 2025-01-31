@@ -10,11 +10,14 @@ namespace CapaDatos.Models
     {
         public int Id { get; set; }
         public string NombreTratamiento { get; set; }
-        //Los coso con el signo de pregunta significa que son opcionales, es decir, pueden ser nulos
+
+        // Si es opcional o no, acordate de usar int? o int según convenga.
         public int? IdConsulta { get; set; }
         public Consultas Consulta { get; set; }
 
-        public int? IdPaciente { get; set; }
+        // Aquí solo dejamos IdPaciente para la relación con Pacientes.
+        // Si es obligatorio, lo cambias a int en lugar de int?
+        public int IdPaciente { get; set; }
         public Pacientes Paciente { get; set; }
 
         public DateTime FechaInicio { get; set; }
