@@ -11,11 +11,11 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace CapaPresentación.SecondWindows.Diagnosticos
+namespace CapaPresentación.SecondWindows.Tratamientos
 {
-    public partial class FAgregarDiagnostico : Form
+    public partial class FAgregarTratamiento : Form
     {
-        public FAgregarDiagnostico()
+        public FAgregarTratamiento()
         {
             InitializeComponent();
         }
@@ -30,29 +30,28 @@ namespace CapaPresentación.SecondWindows.Diagnosticos
             }
         }
 
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            this.Close();
+        }
+
         private void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (!ValidationHelper.AreFieldsNotEmpty(txtID.Text, txtFecha.Text, txtDescripcion.Text))
+            if (!ValidationHelper.AreFieldsNotEmpty(txtID.Text, txtTratamiento.Text, txtFechaInicio.Text, txtFechaFin.Text, txtDescripcion.Text))
             {
                 MessageBox.Show("Todos los campos deben estar llenos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
             if (!ValidationHelper.AreFieldsNumeric(txtID.Text))
             {
-                MessageBox.Show("El campo ID debe ser numerico.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("El campo de ID Pciente deben contener solo números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!ValidationHelper.IsValidDate(txtFecha.Text))
+            if (!ValidationHelper.IsValidDate(txtFechaInicio.Text) || !ValidationHelper.IsValidDate(txtFechaFin.Text))
             {
                 MessageBox.Show("La fecha no tiene un formato válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-
-        }
-
-        private void btnCancelar_Click(object sender, EventArgs e)
-        {
-            this.Close();
         }
     }
 }
