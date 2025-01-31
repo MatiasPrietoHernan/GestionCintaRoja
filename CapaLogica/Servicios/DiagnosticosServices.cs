@@ -13,9 +13,12 @@ namespace CapaLogica.Servicios
     {
         private readonly IGenericRepository<Diagnosticos> genericRepository;
 
-        public DiagnosticosServices(IGenericRepository<Diagnosticos> genericRepository)
+        private readonly IGenericRelations<Diagnosticos> genericRelations;
+
+        public DiagnosticosServices(IGenericRepository<Diagnosticos> genericRepository, IGenericRelations<Diagnosticos> genericRelations)
         {
             this.genericRepository = genericRepository;
+            this.genericRelations = genericRelations;
         }
 
         public async Task<IEnumerable<Diagnosticos>> GetDiagnosticosAsync()
@@ -41,6 +44,11 @@ namespace CapaLogica.Servicios
         public async Task DeleteDiagnosticoAsync(int id)
         {
             await genericRepository.DeleteAsync(id);
+        }
+
+        public async Task<IEnumerable<Diagnosticos>> GetAllRelationsAsync()
+        {
+            return await genericRelations.GetAllRelationsAsync();
         }
 
     }
