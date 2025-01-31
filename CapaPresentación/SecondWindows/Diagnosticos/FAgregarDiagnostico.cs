@@ -87,7 +87,6 @@ namespace CapaPresentación.SecondWindows.Diagnosticos
             {
                 Diagnosticos1 diagnostico = new Diagnosticos1
                 {
-                    Id = int.Parse(txtID.Text),
                     IdConsulta = int.Parse(txtID.Text),
                     FechaDiagnostico = DateTime.Parse(txtFecha.Text),
                     Descripcion = txtDescripcion.Text

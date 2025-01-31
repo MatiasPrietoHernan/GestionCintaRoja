@@ -29,10 +29,10 @@
         private void InitializeComponent()
         {
             panelDiagnosticos = new Panel();
-            panelClose = new Panel();
-            pictureBox1 = new PictureBox();
-            panel1 = new Panel();
             panel2 = new Panel();
+            label1 = new Label();
+            dataGridView1 = new DataGridView();
+            panel1 = new Panel();
             btnActualizar = new Button();
             btnBuscar = new Button();
             label2 = new Label();
@@ -40,14 +40,14 @@
             btnEliminar = new Button();
             btnEditar = new Button();
             btnAgregar = new Button();
-            label1 = new Label();
-            dataGridView1 = new DataGridView();
+            panelClose = new Panel();
+            pictureBox1 = new PictureBox();
             panelDiagnosticos.SuspendLayout();
-            panelClose.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
-            panel1.SuspendLayout();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel1.SuspendLayout();
+            panelClose.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // panelDiagnosticos
@@ -61,27 +61,36 @@
             panelDiagnosticos.Size = new Size(800, 450);
             panelDiagnosticos.TabIndex = 0;
             // 
-            // panelClose
+            // panel2
             // 
-            panelClose.Controls.Add(pictureBox1);
-            panelClose.Dock = DockStyle.Top;
-            panelClose.Location = new Point(0, 0);
-            panelClose.Name = "panelClose";
-            panelClose.Size = new Size(800, 39);
-            panelClose.TabIndex = 1;
+            panel2.Controls.Add(label1);
+            panel2.Controls.Add(dataGridView1);
+            panel2.Dock = DockStyle.Fill;
+            panel2.Location = new Point(0, 39);
+            panel2.Name = "panel2";
+            panel2.Size = new Size(564, 411);
+            panel2.TabIndex = 3;
             // 
-            // pictureBox1
+            // label1
             // 
-            pictureBox1.Cursor = Cursors.Hand;
-            pictureBox1.Dock = DockStyle.Right;
-            pictureBox1.Image = Properties.Resources.circle_xmark_solid1;
-            pictureBox1.Location = new Point(767, 0);
-            pictureBox1.Name = "pictureBox1";
-            pictureBox1.Size = new Size(33, 39);
-            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
-            pictureBox1.TabIndex = 10;
-            pictureBox1.TabStop = false;
-            pictureBox1.Click += pictureBox1_Click;
+            label1.AutoSize = true;
+            label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label1.Location = new Point(12, 9);
+            label1.Name = "label1";
+            label1.Size = new Size(148, 25);
+            label1.TabIndex = 5;
+            label1.Text = "Diagnosticos";
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
+            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(12, 37);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.RowHeadersWidth = 51;
+            dataGridView1.Size = new Size(520, 181);
+            dataGridView1.TabIndex = 4;
             // 
             // panel1
             // 
@@ -97,16 +106,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(236, 411);
             panel1.TabIndex = 2;
-            // 
-            // panel2
-            // 
-            panel2.Controls.Add(label1);
-            panel2.Controls.Add(dataGridView1);
-            panel2.Dock = DockStyle.Fill;
-            panel2.Location = new Point(0, 39);
-            panel2.Name = "panel2";
-            panel2.Size = new Size(564, 411);
-            panel2.TabIndex = 3;
             // 
             // btnActualizar
             // 
@@ -189,26 +188,27 @@
             btnAgregar.UseVisualStyleBackColor = true;
             btnAgregar.Click += btnAgregar_Click;
             // 
-            // label1
+            // panelClose
             // 
-            label1.AutoSize = true;
-            label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(12, 9);
-            label1.Name = "label1";
-            label1.Size = new Size(148, 25);
-            label1.TabIndex = 5;
-            label1.Text = "Diagnosticos";
+            panelClose.Controls.Add(pictureBox1);
+            panelClose.Dock = DockStyle.Top;
+            panelClose.Location = new Point(0, 0);
+            panelClose.Name = "panelClose";
+            panelClose.Size = new Size(800, 39);
+            panelClose.TabIndex = 1;
             // 
-            // dataGridView1
+            // pictureBox1
             // 
-            dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
-            dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(12, 37);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(520, 181);
-            dataGridView1.TabIndex = 4;
+            pictureBox1.Cursor = Cursors.Hand;
+            pictureBox1.Dock = DockStyle.Right;
+            pictureBox1.Image = Properties.Resources.circle_xmark_solid1;
+            pictureBox1.Location = new Point(767, 0);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(33, 39);
+            pictureBox1.SizeMode = PictureBoxSizeMode.Zoom;
+            pictureBox1.TabIndex = 10;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // FDiagnosticos
             // 
@@ -221,13 +221,13 @@
             Text = "FDiagnosticos";
             Load += FDiagnosticos_Load;
             panelDiagnosticos.ResumeLayout(false);
-            panelClose.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
-            panel1.ResumeLayout(false);
-            panel1.PerformLayout();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
+            panelClose.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
         }
 

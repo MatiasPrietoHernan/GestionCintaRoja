@@ -22,5 +22,6 @@ namespace CapaDatos.Models
         // Agregar la propiedad Consulta para la relación uno a muchos
         public ICollection<Consultas> Consulta { get; set; }
         public ICollection<HistorialConsultas> HistorialConsultas { get; set; }
+        public ICollection<Tratamientos> Tratamientos { get; set; }
     }
 }

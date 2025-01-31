@@ -125,5 +125,34 @@ namespace CapaPresentación.SecondWindows
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
         }
+
+        private async void btnBuscarPaciente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                string term = txtBuscarConsulta.Text;
+                if (string.IsNullOrWhiteSpace(term))
+                {
+                    MessageBox.Show("Por favor, ingrese un termino para buscar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                var datos = await consultasServices.SearchByTerm(term);
+                var consultas = datos.Select(c => new
+                {
+                    c.Id,
+                    c.Paciente.Nombre,
+                    c.Paciente.Apellido,
+                    c.Fecha,
+                    c.Motivo,
+                    c.Observaciones
+                }).ToList();
+
+                dataGridView1.DataSource = consultas;
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
     }
 }
