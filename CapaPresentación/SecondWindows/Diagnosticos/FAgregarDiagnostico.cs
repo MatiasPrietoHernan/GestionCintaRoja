@@ -1,4 +1,4 @@
-﻿using CapaLogica.Interfaces;
+using CapaLogica.Interfaces;
 using CapaPresentación.DTO;
 using CapaPresentación.Factories;
 using CapaPresentación.Helpers;
@@ -60,6 +60,7 @@ namespace CapaPresentación.SecondWindows.Diagnosticos
                 {
                     txtID.Text = id.ToString(); // Mostrar el ID en el textbox
                 };
+
                 globalPacientes.ShowDialog();
             }
         }

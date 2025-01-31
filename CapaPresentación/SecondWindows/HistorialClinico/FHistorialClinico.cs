@@ -1,4 +1,6 @@
-﻿using System;
+﻿using CapaPresentación.SecondWindows.GlobalWidows;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +21,16 @@ namespace CapaPresentación.SecondWindows
         private void pictureBox1_Click_1(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            using (var scope = Program.ServiceProvider.CreateScope())
+            {
+                var globalPacientes = scope.ServiceProvider.GetRequiredService<GlobalPacientes>();
+                globalPacientes.Owner = this;
+                globalPacientes.ShowDialog();
+            }
         }
     }
 }

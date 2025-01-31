@@ -12,6 +12,7 @@ using CapaPresentación.SecondWindows.Consultas;
 using CapaPresentación.SecondWindows.Diagnosticos;
 using CapaPresentación.SecondWindows.GlobalWidows;
 using CapaPresentación.Factories;
+using CapaPresentación.SecondWindows.Tratamientos;
 namespace CapaPresentación
 {
     internal static class Program
@@ -51,6 +52,7 @@ namespace CapaPresentación
             services.AddTransient<FDiagnosticos>();
             services.AddTransient<FAgregarDiagnostico>();
             services.AddTransient<FTratamientos>();
+            services.AddTransient<FAgregarTratamiento>();
             services.AddTransient<FHistorialClinico>();
             services.AddTransient<FFacturacion>();
             services.AddTransient<GlobalPacientes>();
