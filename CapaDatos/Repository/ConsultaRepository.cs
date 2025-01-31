@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CapaDatos.Repository
 {
-    public class ConsultaRepository : IGenericRelations<Consultas>, IPacienteRepository
+    public class ConsultaRepository : IGenericRelations<Consultas>, IConsultasRepository
     {
         private readonly AppDbContext _context;
 
@@ -24,12 +24,12 @@ namespace CapaDatos.Repository
                 .Include(t=> t.Tratamientos).Include(p=> p.Pagos).Include(pa=> pa.Paciente).ToListAsync();
         }
 
-        public async Task<IEnumerable<Pacientes>> SearchTermAsync(string term)
+        public async Task<IEnumerable<Consultas>> SearchByTermAsync(string term)
         {
-            return await _context.Pacientes
-                .Where(p =>
-                    p.DNI.ToString().Contains(term))
-                .ToListAsync();
+            return await _context.Consultas.Include(pa => pa.Paciente)
+                .Where(c => c.Motivo.ToLower().Contains(term) || c.Paciente.Nombre.ToLower().Contains(term) 
+                || c.Paciente.Apellido.ToLower().Contains(term) || c.Fecha.Contains(term)
+                ).ToListAsync();
         }
 
 

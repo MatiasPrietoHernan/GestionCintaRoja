@@ -11,6 +11,7 @@ using CapaPresentación.SecondWindows.Pacientes;
 using CapaPresentación.SecondWindows.Consultas;
 using CapaPresentación.SecondWindows.Diagnosticos;
 using CapaPresentación.SecondWindows.GlobalWidows;
+using CapaPresentación.Factories;
 using CapaPresentación.SecondWindows.Tratamientos;
 namespace CapaPresentación
 {
@@ -72,6 +73,8 @@ namespace CapaPresentación
             services.AddTransient<IGenericRelations<Pacientes>, PacienteRepository>();
             services.AddTransient<IGenericRelations<Tratamientos>, TratamientosRepository>();
             services.AddTransient<IPacienteRepository, PacienteRepository>();
+            services.AddTransient<IConsultasRepository, ConsultaRepository>();
+            services.AddTransient<IGenericRelations<Diagnosticos>, DiagnosticosRepository>();
 
 
             //Aqui van los servicios
@@ -81,6 +84,10 @@ namespace CapaPresentación
             services.AddTransient<IPacientesServices, PacientesServices>();
             services.AddTransient<IPagosServices, PagosServices>();
             services.AddTransient<ITratamientosServices, TratamientosServices>();
+
+
+            //Aqui van los factories
+            services.AddTransient<GlobalPacientesFactory>();
 
 
         }

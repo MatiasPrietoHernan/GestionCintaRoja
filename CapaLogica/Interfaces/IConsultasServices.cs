@@ -15,5 +15,6 @@ namespace CapaLogica.Interfaces
         public Task UpdateConsultaAsync(Consultas consulta);
         public Task DeleteConsultaAsync(int id);
         public Task<IEnumerable<Consultas>> GetConsultasWithRealtiosnAsync();
+        public Task<IEnumerable<Consultas>> SearchByTerm(string term);
     }
 }

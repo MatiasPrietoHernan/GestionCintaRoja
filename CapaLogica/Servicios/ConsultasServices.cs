@@ -15,10 +15,13 @@ namespace CapaLogica.Servicios
 
         private readonly IGenericRelations<Consultas> _genericRelations;
 
-        public ConsultasServices(IGenericRelations<Consultas> genericRelations, IGenericRepository<Consultas> genericRepository)
+        private readonly IConsultasRepository consultasRepository;
+
+        public ConsultasServices(IGenericRelations<Consultas> genericRelations, IGenericRepository<Consultas> genericRepository, IConsultasRepository consultasRepository)
         {
             _genericRelations = genericRelations;
             _genericRepository = genericRepository;
+            this.consultasRepository = consultasRepository;
         }
 
         public async Task<IEnumerable<Consultas>> GetConsultasAsync()
@@ -49,6 +52,11 @@ namespace CapaLogica.Servicios
         public async Task<IEnumerable<Consultas>> GetConsultasWithRealtiosnAsync()
         {
             return await _genericRelations.GetAllRelationsAsync();
+        }
+
+        public async Task<IEnumerable<Consultas>> SearchByTerm(string term)
+        {
+            return await consultasRepository.SearchByTermAsync(term);
         }
 
     }

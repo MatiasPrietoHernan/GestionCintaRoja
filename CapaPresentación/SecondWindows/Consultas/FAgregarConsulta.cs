@@ -15,6 +15,8 @@ using static System.Runtime.InteropServices.JavaScript.JSType;
 using CapaPresentación.SecondWindows.GlobalWidows;
 using CapaLogica.Interfaces;
 using Consutlas1 = CapaDatos.Models.Consultas;
+using CapaPresentación.Factories;
+using CapaPresentación.DTO;
 
 namespace CapaPresentación.SecondWindows.Consultas
 {
@@ -129,7 +131,8 @@ namespace CapaPresentación.SecondWindows.Consultas
         {
             using (var scope = Program.ServiceProvider.CreateScope())
             {
-                var globalPacientes = scope.ServiceProvider.GetRequiredService<GlobalPacientes>();
+                var factory = scope.ServiceProvider.GetRequiredService<GlobalPacientesFactory>();
+                var globalPacientes = factory.Crear(ModoFormularioPacientes.Consulta);
                 globalPacientes.Owner = this;
 
                 // Suscribirse al evento para recibir el ID del paciente seleccionado
