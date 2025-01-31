@@ -14,11 +14,13 @@ namespace CapaLogica.Servicios
 
         private readonly IGenericRelations<Tratamientos> genericRelations;
         private readonly IGenericRepository<Tratamientos> genericRepository;
+        private readonly ITratamientosRepository tratamientosRepository;
 
-        public TratamientosServices(IGenericRelations<Tratamientos> genericRelations, IGenericRepository<Tratamientos> genericRepository)
+        public TratamientosServices(IGenericRelations<Tratamientos> genericRelations, IGenericRepository<Tratamientos> genericRepository, ITratamientosRepository tratamientosRepository)
         {
             this.genericRelations = genericRelations;
             this.genericRepository = genericRepository;
+            this.tratamientosRepository = tratamientosRepository;
         }
 
         public async Task<IEnumerable<Tratamientos>> GetTratamientosAsync()
@@ -49,6 +51,11 @@ namespace CapaLogica.Servicios
         public async Task<IEnumerable<Tratamientos>> GetTratamientosWithRealtiosnAsync()
         {
             return await genericRelations.GetAllRelationsAsync();
+        }
+
+        public async Task<IEnumerable<Tratamientos>> SearchByTermAsync(string term)
+        {
+            return await tratamientosRepository.SearchByTermAsync(term);
         }
     }
 }
