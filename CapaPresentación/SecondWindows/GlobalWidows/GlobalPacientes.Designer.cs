@@ -81,7 +81,7 @@
             Controls.Add(txtBuscador);
             Controls.Add(listView1);
             Name = "GlobalPacientes";
-            Text = "GlobalPacientes";
+            Text = "Buscar Paciente";
             Load += GlobalPacientes_Load;
             ResumeLayout(false);
             PerformLayout();
