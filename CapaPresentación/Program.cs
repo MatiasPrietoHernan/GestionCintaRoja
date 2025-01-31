@@ -9,6 +9,7 @@ using CapaLogica.Interfaces;
 using CapaLogica.Servicios;
 using CapaPresentación.SecondWindows.Pacientes;
 using CapaPresentación.SecondWindows.Consultas;
+using CapaPresentación.SecondWindows.Diagnosticos;
 using CapaPresentación.SecondWindows.GlobalWidows;
 namespace CapaPresentación
 {
@@ -47,6 +48,7 @@ namespace CapaPresentación
             services.AddTransient<FConsultas>();
             services.AddTransient<FAgregarConsulta>();
             services.AddTransient<FDiagnosticos>();
+            services.AddTransient<FAgregarDiagnostico>();
             services.AddTransient<FTratamientos>();
             services.AddTransient<FHistorialClinico>();
             services.AddTransient<FFacturacion>();

@@ -69,25 +69,25 @@
             panel2.Location = new Point(0, 39);
             panel2.Margin = new Padding(3, 2, 3, 2);
             panel2.Name = "panel2";
-            panel2.Size = new Size(581, 411);
+            panel2.Size = new Size(564, 411);
             panel2.TabIndex = 3;
             // 
             // label1
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Microsoft Sans Serif", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label1.Location = new Point(10, 10);
+            label1.Location = new Point(12, 9);
             label1.Name = "label1";
-            label1.Size = new Size(208, 25);
+            label1.Size = new Size(117, 25);
             label1.TabIndex = 3;
-            label1.Text = "Lista de Consultas";
+            label1.Text = "Consultas";
             // 
             // dataGridView1
             // 
             dataGridView1.Anchor = AnchorStyles.Top | AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             dataGridView1.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.Fill;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(10, 36);
+            dataGridView1.Location = new Point(12, 37);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.RowHeadersWidth = 51;
             dataGridView1.Size = new Size(520, 181);
@@ -103,15 +103,15 @@
             panel1.Controls.Add(btnEditarConsulta);
             panel1.Controls.Add(btnAgregarConsulta);
             panel1.Dock = DockStyle.Right;
-            panel1.Location = new Point(581, 39);
+            panel1.Location = new Point(564, 39);
             panel1.Margin = new Padding(3, 2, 3, 2);
             panel1.Name = "panel1";
-            panel1.Size = new Size(219, 411);
+            panel1.Size = new Size(236, 411);
             panel1.TabIndex = 2;
             // 
             // btnActualizar
             // 
-            btnActualizar.Location = new Point(6, 223);
+            btnActualizar.Location = new Point(7, 221);
             btnActualizar.Name = "btnActualizar";
             btnActualizar.Size = new Size(75, 23);
             btnActualizar.TabIndex = 8;
@@ -120,7 +120,7 @@
             // 
             // btnBuscarPaciente
             // 
-            btnBuscarPaciente.Location = new Point(88, 223);
+            btnBuscarPaciente.Location = new Point(88, 221);
             btnBuscarPaciente.Name = "btnBuscarPaciente";
             btnBuscarPaciente.Size = new Size(75, 23);
             btnBuscarPaciente.TabIndex = 10;
@@ -130,7 +130,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(5, 178);
+            label2.Location = new Point(6, 177);
             label2.Name = "label2";
             label2.Size = new Size(90, 15);
             label2.TabIndex = 9;
@@ -138,7 +138,7 @@
             // 
             // txtBuscarConsulta
             // 
-            txtBuscarConsulta.Location = new Point(5, 196);
+            txtBuscarConsulta.Location = new Point(6, 195);
             txtBuscarConsulta.Name = "txtBuscarConsulta";
             txtBuscarConsulta.Size = new Size(158, 23);
             txtBuscarConsulta.TabIndex = 7;
@@ -148,9 +148,9 @@
             btnEliminarConsulta.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEliminarConsulta.Image = Properties.Resources.trash_solid;
             btnEliminarConsulta.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEliminarConsulta.Location = new Point(5, 127);
+            btnEliminarConsulta.Location = new Point(6, 125);
             btnEliminarConsulta.Name = "btnEliminarConsulta";
-            btnEliminarConsulta.Padding = new Padding(4, 4, 4, 4);
+            btnEliminarConsulta.Padding = new Padding(4);
             btnEliminarConsulta.Size = new Size(122, 33);
             btnEliminarConsulta.TabIndex = 4;
             btnEliminarConsulta.Text = "       Eliminar";
@@ -163,9 +163,9 @@
             btnEditarConsulta.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnEditarConsulta.Image = Properties.Resources.pen_solid;
             btnEditarConsulta.ImageAlign = ContentAlignment.MiddleLeft;
-            btnEditarConsulta.Location = new Point(5, 88);
+            btnEditarConsulta.Location = new Point(6, 86);
             btnEditarConsulta.Name = "btnEditarConsulta";
-            btnEditarConsulta.Padding = new Padding(4, 4, 4, 4);
+            btnEditarConsulta.Padding = new Padding(4);
             btnEditarConsulta.Size = new Size(122, 33);
             btnEditarConsulta.TabIndex = 5;
             btnEditarConsulta.Text = "       Editar";
@@ -178,9 +178,9 @@
             btnAgregarConsulta.Font = new Font("Microsoft Sans Serif", 9.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
             btnAgregarConsulta.Image = Properties.Resources.plus_solid;
             btnAgregarConsulta.ImageAlign = ContentAlignment.MiddleLeft;
-            btnAgregarConsulta.Location = new Point(5, 49);
+            btnAgregarConsulta.Location = new Point(6, 47);
             btnAgregarConsulta.Name = "btnAgregarConsulta";
-            btnAgregarConsulta.Padding = new Padding(4, 4, 4, 4);
+            btnAgregarConsulta.Padding = new Padding(4);
             btnAgregarConsulta.Size = new Size(122, 33);
             btnAgregarConsulta.TabIndex = 6;
             btnAgregarConsulta.Text = "       Agregar";
