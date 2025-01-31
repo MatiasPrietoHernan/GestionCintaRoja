@@ -9,7 +9,7 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CapaDatos.Repository
 {
-    public class TratamientosRepository : IGenericRelations<Tratamientos>
+    public class TratamientosRepository : IGenericRelations<Tratamientos>, ITratamientosRepository
     {
         private readonly AppDbContext _context;
 
@@ -22,6 +22,14 @@ namespace CapaDatos.Repository
         public async Task<IEnumerable<Tratamientos>> GetAllRelationsAsync()
         {
             return await _context.Tratamientos.Include(x => x.Consulta).Include(x => x.Paciente).ToListAsync();
+        }
+
+        public async Task<IEnumerable<Tratamientos>> SearchByTermAsync(string term)
+        {
+            return await _context.Tratamientos
+                .Include(x => x.Paciente)
+                .Where(x => x.NombreTratamiento.ToLower().Contains(term) || x.Paciente.Nombre.ToLower().Contains(term) || x.Paciente.Apellido.ToLower().Contains(term))
+                .ToListAsync();
         }
     }
 }
