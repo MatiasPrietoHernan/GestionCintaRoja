@@ -71,6 +71,7 @@ namespace CapaPresentación.SecondWindows
         {
             try
             {
+                Cursor = Cursors.WaitCursor;
                 var datos = await consultasServices.GetConsultasWithRealtiosnAsync();
                 var consultas = datos.Select(c => new
                 {
@@ -87,6 +88,10 @@ namespace CapaPresentación.SecondWindows
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            finally
+            {
+                Cursor = Cursors.Default;
             }
         }
 
