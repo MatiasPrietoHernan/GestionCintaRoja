@@ -77,6 +77,7 @@ namespace CapaPresentación
             services.AddTransient<IGenericRelations<Diagnosticos>, DiagnosticosRepository>();
             services.AddTransient<ITratamientosRepository, TratamientosRepository>();
             services.AddTransient<IDiagnosticosRepository, DiagnosticosRepository>();
+            services.AddTransient<IPagosRepository, PagoRepository>();
 
 
 
@@ -87,7 +88,6 @@ namespace CapaPresentación
             services.AddTransient<IPacientesServices, PacientesServices>();
             services.AddTransient<IPagosServices, PagosServices>();
             services.AddTransient<ITratamientosServices, TratamientosServices>();
-
 
             //Aqui van los factories
             services.AddTransient<GlobalPacientesFactory>();

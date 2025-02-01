@@ -16,5 +16,6 @@ namespace CapaLogica.Interfaces
         public Task DeleteTratamientoAsync(int id);
         public Task<IEnumerable<Tratamientos>> GetTratamientosWithRealtiosnAsync();
         public Task<IEnumerable<Tratamientos>> SearchByTermAsync(string term);
+        public Task<IEnumerable<Tratamientos>> GetTratamientosPacientesAsync(int id);
     }
 }

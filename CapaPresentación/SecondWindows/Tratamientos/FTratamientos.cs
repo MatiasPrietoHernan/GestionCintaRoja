@@ -125,6 +125,24 @@ namespace CapaPresentación.SecondWindows
         {
             try
             {
+                if (string.IsNullOrWhiteSpace(txtBuscar.Text))
+                {
+                    MessageBox.Show("Por favor, ingrese un termino para buscar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                var datos = await tratamientosServices.SearchByTermAsync(txtBuscar.Text);
+                var tratamientos = datos.Select(t => new
+                {
+                    t.Id,
+                    t.NombreTratamiento,
+                    t.Paciente.Nombre,
+                    t.Paciente.Apellido,
+                    t.FechaInicio,
+                    t.FechaFin,
+                    t.Detalles
+                }).ToList();
+
+                dataGridView1.DataSource = tratamientos;
 
             }
             catch (Exception ex)

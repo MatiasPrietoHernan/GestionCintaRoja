@@ -10,5 +10,6 @@ namespace CapaDatos.Interfaces
     public interface IConsultasRepository
     {
         Task<IEnumerable<Consultas>> SearchByTermAsync(string term);
+        Task<IEnumerable<Consultas>> GetPacientesConsutlas(int id);
     }
 }

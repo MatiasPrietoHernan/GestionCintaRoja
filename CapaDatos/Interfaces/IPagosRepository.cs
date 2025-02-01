@@ -7,9 +7,8 @@ using CapaDatos.Models;
 
 namespace CapaDatos.Interfaces
 {
-    public interface ITratamientosRepository
+    public interface IPagosRepository
     {
-        Task<IEnumerable<Tratamientos>> SearchByTermAsync(string term);
-        Task<IEnumerable<Tratamientos>> GetTratamientosPacientes(int id);
+        Task<IEnumerable<Pagos>> GetPagosPacientesAsync(int id);
     }
 }
