@@ -36,6 +36,12 @@ namespace CapaDatos.Repository
                 ).ToListAsync();
         }
 
+        public async Task<IEnumerable<Consultas>> GetPacientesConsutlas(int id)
+        {
+            return await _context.Consultas.Include(pa => pa.Paciente)
+                .Where(c => c.idPaciente == id).ToListAsync();
+        }
+
 
     }
 }

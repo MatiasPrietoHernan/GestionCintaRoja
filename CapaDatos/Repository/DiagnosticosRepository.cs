@@ -30,5 +30,12 @@ namespace CapaDatos.Repository
                                            .Where(d => d.FechaDiagnostico.ToString().Contains(term))
                                            .ToListAsync();
         }
+
+        public async Task<IEnumerable<Diagnosticos>> GetDiagnosticosPacientes(int id)
+        {
+            return await _context.Diagnosticos.Include(d => d.Consulta)
+                                           .Where(d => d.Consulta.idPaciente == id)
+                                           .ToListAsync();
+        }
     }
 }

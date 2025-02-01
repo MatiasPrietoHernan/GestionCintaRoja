@@ -57,5 +57,9 @@ namespace CapaLogica.Servicios
         {
             return await tratamientosRepository.SearchByTermAsync(term);
         }
+        public async Task<IEnumerable<Tratamientos>> GetTratamientosPacientesAsync(int id)
+        {
+            return await tratamientosRepository.GetTratamientosPacientes(id);
+        }
     }
 }

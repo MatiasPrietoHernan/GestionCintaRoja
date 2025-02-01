@@ -56,5 +56,9 @@ namespace CapaLogica.Servicios
         {
             return await diagnosticosRepository.SearchByTermAsync(term);
         }
+        public async Task<IEnumerable<Diagnosticos>> GetDiagnosticosPacienteAsync(int id)
+        {
+            return await diagnosticosRepository.GetDiagnosticosPacientes(id);
+        }
     }
 }

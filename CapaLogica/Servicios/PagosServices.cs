@@ -13,11 +13,13 @@ namespace CapaLogica.Servicios
     {
         private readonly IGenericRelations<Pagos> genericRelations;
         private readonly IGenericRepository<Pagos> genericRepository;
+        private readonly IPagosRepository pagosRepository;
 
-        public PagosServices(IGenericRelations<Pagos> genericRelations, IGenericRepository<Pagos> genericRepository)
+        public PagosServices(IGenericRelations<Pagos> genericRelations, IGenericRepository<Pagos> genericRepository, IPagosRepository pagosRepository)
         {
             this.genericRelations = genericRelations;
             this.genericRepository = genericRepository;
+            this.pagosRepository = pagosRepository;
         }
 
         public async Task<IEnumerable<Pagos>> GetPagosAsync()
@@ -48,6 +50,11 @@ namespace CapaLogica.Servicios
         public async Task<IEnumerable<Pagos>> GetPagosWithRealtionsAsync()
         {
             return await genericRelations.GetAllRelationsAsync();
+        }
+
+        public async Task<IEnumerable<Pagos>> GetPagosPacientesAsync(int id)
+        {
+            return await pagosRepository.GetPagosPacientesAsync(id);
         }
 
     }
