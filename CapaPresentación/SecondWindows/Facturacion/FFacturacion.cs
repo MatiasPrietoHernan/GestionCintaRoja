@@ -1,4 +1,7 @@
-﻿using System;
+﻿using CapaPresentación.DTO;
+using CapaPresentación.Factories;
+using Microsoft.Extensions.DependencyInjection;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -19,6 +22,22 @@ namespace CapaPresentación.SecondWindows
         private void pictureBox1_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void btnSeleccionar_Click(object sender, EventArgs e)
+        {
+            using (var scope = Program.ServiceProvider.CreateScope())
+            {
+                var factory = scope.ServiceProvider.GetRequiredService<GlobalPacientesFactory>();
+                var globalPacientes = factory.Crear(ModoFormularioPacientes.Consulta);
+                globalPacientes.Owner = this;
+                globalPacientes.ShowDialog();
+            }
+        }
+
+        private void FFacturacion_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
