@@ -117,6 +117,7 @@
             btnActualizar.TabIndex = 8;
             btnActualizar.Text = "Actualizar";
             btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // btnBuscarPaciente
             // 
@@ -143,6 +144,7 @@
             txtBuscarConsulta.Name = "txtBuscarConsulta";
             txtBuscarConsulta.Size = new Size(158, 23);
             txtBuscarConsulta.TabIndex = 7;
+            txtBuscarConsulta.KeyDown += txtBuscarConsulta_KeyDown;
             // 
             // btnEliminarConsulta
             // 

@@ -125,6 +125,12 @@ namespace CapaPresentación.SecondWindows
                 }).ToList();
 
                 dataGridView1.DataSource = diagnosticos;
+                dataGridView1.Columns["Id"].Visible = false;
+                dataGridView1.Columns["FechaDiagnostico"].HeaderText = "Fecha Diagnostico";
+                dataGridView1.Columns["Motivo"].HeaderText = "Motivo";
+                dataGridView1.Columns["Motivo"].Width = 100;
+                dataGridView1.Columns["Descripcion"].HeaderText = "Descripcion";
+                dataGridView1.Columns["Descripcion"].Width = 150;
 
             } catch(Exception ex)
             {
@@ -147,8 +153,19 @@ namespace CapaPresentación.SecondWindows
                 }).ToList();
 
                 dataGridView1.DataSource = diagnosticos;
+
+                dataGridView1.Columns["Id"].Visible = false;
+                dataGridView1.Columns["FechaDiagnostico"].HeaderText = "Fecha Diagnostico";
+                dataGridView1.Columns["Motivo"].Width = 200;
+                dataGridView1.Columns["Motivo"].HeaderText = "Motivo";
+                dataGridView1.Columns["Descripcion"].Width = 300;
+                dataGridView1.Columns["Descripcion"].HeaderText = "Descripcion";
+
+                //dataGridView1.Columns["Motivo"].AutoSizeMode = DataGridViewAutoSizeColumnMode.AllCells;
+                //dataGridView1.Columns["Descripcion"].AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }

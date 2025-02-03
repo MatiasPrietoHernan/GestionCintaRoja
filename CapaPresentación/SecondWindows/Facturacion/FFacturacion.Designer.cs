@@ -173,6 +173,7 @@
             btnBuscarPaciente.TabIndex = 10;
             btnBuscarPaciente.Text = "Buscar";
             btnBuscarPaciente.UseVisualStyleBackColor = true;
+            btnBuscarPaciente.Click += btnBuscarPaciente_Click;
             // 
             // label10
             // 
@@ -189,6 +190,7 @@
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(158, 23);
             txtBuscar.TabIndex = 7;
+            txtBuscar.KeyDown += txtBuscar_KeyDown;
             // 
             // btnEliminar
             // 

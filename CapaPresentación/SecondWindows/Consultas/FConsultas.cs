@@ -84,6 +84,10 @@ namespace CapaPresentación.SecondWindows
                 }).ToList();
 
                 dataGridView1.DataSource = consultas;
+                dataGridView1.Columns["Id"].Visible = false;
+                dataGridView1.Columns["Motivo"].Width = 150;
+                dataGridView1.Columns["Observaciones"].Width = 230;
+
             }
             catch (Exception ex)
             {
@@ -136,7 +140,7 @@ namespace CapaPresentación.SecondWindows
                     MessageBox.Show("Por favor, ingrese un termino para buscar.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                var datos = await consultasServices.SearchByTerm(term);
+                var datos = await consultasServices.SearchByTerm(term.ToLower());
                 var consultas = datos.Select(c => new
                 {
                     c.Id,
@@ -148,10 +152,31 @@ namespace CapaPresentación.SecondWindows
                 }).ToList();
 
                 dataGridView1.DataSource = consultas;
+                dataGridView1.Columns["Id"].Visible = false;
+                dataGridView1.Columns["Motivo"].Width = 150;
+                dataGridView1.Columns["Observaciones"].Width = 230;
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnActualizar_Click(object sender, EventArgs e)
+        {
+            await GetConsultasAsync();
+        }
+
+        private void txtBuscarConsulta_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnBuscarPaciente.PerformClick();
+            }
+            else if(e.KeyCode == Keys.Escape)
+            {
+                txtBuscarConsulta.Text = "";
+                btnActualizar.PerformClick();
             }
         }
     }
