@@ -56,7 +56,7 @@ namespace CapaPresentación.SecondWindows.Diagnosticos
                 var globalPacientes = factory.Crear(ModoFormularioPacientes.Diagnostico);
                 globalPacientes.Owner = this;
 
-                globalPacientes.PacienteSeleccionado += (id) =>
+                globalPacientes.PacienteSeleccionado += (id, idPaciente) =>
                 {
                     txtID.Text = id.ToString(); // Mostrar el ID en el textbox
                 };

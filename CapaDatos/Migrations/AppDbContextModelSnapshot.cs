@@ -167,7 +167,7 @@ namespace CapaDatos.Migrations
                         .HasMaxLength(255)
                         .HasColumnType("TEXT");
 
-                    b.Property<int>("IdConsulta")
+                    b.Property<int?>("IdConsulta")
                         .HasColumnType("INTEGER");
 
                     b.Property<string>("MetodoPago")
@@ -178,9 +178,17 @@ namespace CapaDatos.Migrations
                     b.Property<double>("Monto")
                         .HasColumnType("REAL");
 
+                    b.Property<int>("PacienteId")
+                        .HasColumnType("INTEGER");
+
+                    b.Property<int?>("idPaciente")
+                        .HasColumnType("INTEGER");
+
                     b.HasKey("Id");
 
                     b.HasIndex("IdConsulta");
+
+                    b.HasIndex("PacienteId");
 
                     b.ToTable("Pagos");
                 });
@@ -268,10 +276,17 @@ namespace CapaDatos.Migrations
                     b.HasOne("CapaDatos.Models.Consultas", "Consulta")
                         .WithMany("Pagos")
                         .HasForeignKey("IdConsulta")
+                        .OnDelete(DeleteBehavior.Cascade);
+
+                    b.HasOne("CapaDatos.Models.Pacientes", "Paciente")
+                        .WithMany()
+                        .HasForeignKey("PacienteId")
                         .OnDelete(DeleteBehavior.Cascade)
                         .IsRequired();
 
                     b.Navigation("Consulta");
+
+                    b.Navigation("Paciente");
                 });
 
             modelBuilder.Entity("CapaDatos.Models.Tratamientos", b =>

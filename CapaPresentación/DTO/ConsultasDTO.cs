@@ -9,6 +9,7 @@ namespace CapaPresentación.DTO
     public class ConsultasDTO
     {
         public int Id { get; set; }
+        public int IdPaciente { get; set; }
         public int DNI { get; set; }
         public string Nombre { get; set; }
         public string Apellido { get; set; }

@@ -48,7 +48,7 @@ namespace CapaPresentación.SecondWindows
                 var globalPacientes = factory.Crear(ModoFormularioPacientes.Consulta);
                 globalPacientes.Owner = this;
 
-                globalPacientes.PacienteSeleccionado += async (id) =>
+                globalPacientes.PacienteSeleccionado += async (id, idConsulta) =>
                 {
                     txtID.Text = id.ToString(); // Mostrar el ID en el textbox
                     await GetDatosPacientes(id);
