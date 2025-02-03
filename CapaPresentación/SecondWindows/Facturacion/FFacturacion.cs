@@ -351,9 +351,54 @@ namespace CapaPresentación.SecondWindows
 
                 btnAgregar.Text = "      Actualizar";
                 btnEliminar.Text = "      Cancelar";
-            } catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private async void btnBuscarPaciente_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                if (string.IsNullOrEmpty(txtBuscar.Text))
+                {
+                    MessageBox.Show("Debe ingresar un término de búsqueda", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                var datos = await pagosServices.SearchPagosAsync(txtBuscar.Text);
+
+                var pagos = datos.Select(x => new
+                {
+                    x.Id,
+                    x.Consulta.Paciente.Nombre,
+                    x.Consulta.Paciente.Apellido,
+                    x.Consulta.Fecha,
+                    x.FechaPago,
+                    x.Monto,
+                    x.MetodoPago,
+                }).ToList();
+
+                dataGridPagos.DataSource = pagos;
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter)
+            {
+                btnBuscarPaciente.PerformClick();
+            }
+            else if (e.KeyCode == Keys.Escape)
+            {
+                txtBuscar.Text = "";
+                btnActualizar.PerformClick();
             }
         }
     }

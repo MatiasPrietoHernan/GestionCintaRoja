@@ -35,5 +35,10 @@ namespace CapaDatos.Repository
         {
             return await _context.Pagos.Include(c => c.Consulta).ThenInclude(p => p.Paciente).FirstOrDefaultAsync(p => p.Id == id);
         }
+
+        public async Task<IEnumerable<Pagos>> SearchPagosAsync(string term)
+        {
+            return await _context.Pagos.Include(c => c.Consulta).ThenInclude(p => p.Paciente).Where(p => p.Consulta.Paciente.Nombre.ToLower().Contains(term) || p.Consulta.Paciente.Apellido.ToLower().Contains(term) || p.Id.ToString().Contains(term)).ToListAsync();
+        }
     }
 }

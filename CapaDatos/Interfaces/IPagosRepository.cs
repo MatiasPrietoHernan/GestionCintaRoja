@@ -12,5 +12,6 @@ namespace CapaDatos.Interfaces
         Task<IEnumerable<Pagos>> GetPagosPacientesAsync(int id);
         Task<IEnumerable<Pagos>> GetAllPagosAsync();
         Task<Pagos> GetPagoRelationsAsync(int id);
+        Task<IEnumerable<Pagos>> SearchPagosAsync(string term);
     }
 }

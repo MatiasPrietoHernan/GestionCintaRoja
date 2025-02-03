@@ -66,5 +66,10 @@ namespace CapaLogica.Servicios
             return await pagosRepository.GetPagoRelationsAsync(id);
         }
 
+        public async Task<IEnumerable<Pagos>> SearchPagosAsync(string term)
+        {
+            return await pagosRepository.SearchPagosAsync(term);
+        }
+
     }
 }

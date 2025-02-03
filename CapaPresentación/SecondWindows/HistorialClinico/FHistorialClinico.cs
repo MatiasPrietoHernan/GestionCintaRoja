@@ -101,6 +101,12 @@ namespace CapaPresentación.SecondWindows
                     return;
                 }
                 dataGridConsultas.DataSource = pacienteConsultas;
+
+                dataGridConsultas.Columns["Nombre"].HeaderText = "Nombre";
+                dataGridConsultas.Columns["Apellido"].HeaderText = "Apellido";
+                dataGridConsultas.Columns["DNI"].HeaderText = "DNI";
+                dataGridConsultas.Columns["Fecha"].HeaderText = "Fecha Consulta";
+                dataGridConsultas.Columns["Motivo"].HeaderText = "Motivo de Consulta";
             }
             catch (Exception ex)
             {
@@ -124,6 +130,9 @@ namespace CapaPresentación.SecondWindows
                     return;
                 }
                 dataGridDiagnosticos.DataSource = pacienteDiagnosticos;
+                dataGridDiagnosticos.Columns["IdConsulta"].HeaderText = "ID Consulta";
+                dataGridDiagnosticos.Columns["FechaDiagnostico"].HeaderText = "Fecha Diagnóstico";
+                dataGridDiagnosticos.Columns["Descripcion"].HeaderText = "Descripción";
             }
             catch (Exception ex)
             {
@@ -149,6 +158,12 @@ namespace CapaPresentación.SecondWindows
                     return;
                 }
                 dataGridTratamientos.DataSource = pacienteTratamientos;
+
+                dataGridTratamientos.Columns["Id"].HeaderText = "ID Tratamiento";
+                dataGridTratamientos.Columns["NombreTratamiento"].HeaderText = "Tratamiento";
+                dataGridTratamientos.Columns["FechaInicio"].HeaderText = "Inicio";
+                dataGridTratamientos.Columns["FechaFin"].HeaderText = "Fin";
+                dataGridTratamientos.Columns["Detalles"].HeaderText = "Detalles";
             }
             catch(Exception ex)
             {
@@ -173,6 +188,10 @@ namespace CapaPresentación.SecondWindows
                     return;
                 }
                 dataGridPagos.DataSource = pacientePagos;
+                dataGridPagos.Columns["Id"].HeaderText = "Numero de Factura";
+                dataGridPagos.Columns["FechaPago"].HeaderText = "Fecha de Pago";
+                dataGridPagos.Columns["Monto"].HeaderText = "Monto";
+                dataGridPagos.Columns["MetodoPago"].HeaderText = "Método de Pago";
             }
             catch(Exception ex)
             {

@@ -114,6 +114,14 @@ namespace CapaPresentación.SecondWindows
 
                 dataGridView1.DataSource = tratamientos;
 
+                dataGridView1.Columns["Id"].HeaderText = "ID Tratamiento";
+                dataGridView1.Columns["NombreTratamiento"].HeaderText = "Nombre del Tratamiento";
+                dataGridView1.Columns["Nombre"].HeaderText = "Nombre";
+                dataGridView1.Columns["Apellido"].HeaderText = "Apellido";
+                dataGridView1.Columns["FechaInicio"].HeaderText = "Fecha de Inicio";
+                dataGridView1.Columns["FechaFin"].HeaderText = "Fecha de Fin";
+                dataGridView1.Columns["Detalles"].HeaderText = "Detalles";
+
             }
             catch (Exception ex)
             {
@@ -143,6 +151,14 @@ namespace CapaPresentación.SecondWindows
                 }).ToList();
 
                 dataGridView1.DataSource = tratamientos;
+
+                dataGridView1.Columns["Id"].HeaderText = "ID Tratamiento";
+                dataGridView1.Columns["NombreTratamiento"].HeaderText = "Nombre del Tratamiento";
+                dataGridView1.Columns["Nombre"].HeaderText = "Nombre";
+                dataGridView1.Columns["Apellido"].HeaderText = "Apellido";
+                dataGridView1.Columns["FechaInicio"].HeaderText = "Fecha de Inicio";
+                dataGridView1.Columns["FechaFin"].HeaderText = "Fecha de Fin";
+                dataGridView1.Columns["Detalles"].HeaderText = "Detalles";
 
             }
             catch (Exception ex)
