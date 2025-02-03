@@ -10,5 +10,7 @@ namespace CapaDatos.Interfaces
     public interface IPagosRepository
     {
         Task<IEnumerable<Pagos>> GetPagosPacientesAsync(int id);
+        Task<IEnumerable<Pagos>> GetAllPagosAsync();
+        Task<Pagos> GetPagoRelationsAsync(int id);
     }
 }

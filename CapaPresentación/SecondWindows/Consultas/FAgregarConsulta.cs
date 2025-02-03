@@ -136,7 +136,7 @@ namespace CapaPresentación.SecondWindows.Consultas
                 globalPacientes.Owner = this;
 
                 // Suscribirse al evento para recibir el ID del paciente seleccionado
-                globalPacientes.PacienteSeleccionado += (id) =>
+                globalPacientes.PacienteSeleccionado += (id, idPaciente) =>
                 {
                     IdPaciente = id;
                     txtDNI.Text = id.ToString(); // Mostrar el ID en el textbox (opcional)

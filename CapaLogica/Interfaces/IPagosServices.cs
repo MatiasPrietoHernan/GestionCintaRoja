@@ -16,5 +16,7 @@ namespace CapaLogica.Interfaces
         public Task DeletePagoAsync(int id);
         public Task<IEnumerable<Pagos>> GetPagosWithRealtionsAsync();
         public Task<IEnumerable<Pagos>> GetPagosPacientesAsync(int id);
+        public Task<IEnumerable<Pagos>> GetPagosConsultasPacientesAsync();
+        public Task<Pagos> GetPagoWithRelationsAsync(int id);
     }
 }

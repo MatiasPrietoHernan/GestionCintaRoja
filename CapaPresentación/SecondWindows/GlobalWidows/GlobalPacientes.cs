@@ -18,7 +18,7 @@ namespace CapaPresentación.SecondWindows.GlobalWidows
     {
         private readonly IPacientesServices pacientesServices;
         private readonly IConsultasServices consultasServices;
-        public event Action<int> PacienteSeleccionado;
+        public event Action<int, int?> PacienteSeleccionado;
 
         private ModoFormularioPacientes modo;
         public GlobalPacientes(IPacientesServices _pacientesServices, IConsultasServices consultasServices)
@@ -97,6 +97,8 @@ namespace CapaPresentación.SecondWindows.GlobalWidows
                 item.SubItems.Add(consulta.Apellido); // Cuarta columna (Apellido)
                 item.SubItems.Add(consulta.Fecha); // Quinta columna (Fecha)
                 item.SubItems.Add(consulta.Motivo); // Sexta columna (Motivo)
+
+                item.Tag = consulta.IdPaciente;
                 listView1.Items.Add(item);
             }
         }
@@ -106,14 +108,27 @@ namespace CapaPresentación.SecondWindows.GlobalWidows
             if (listView1.SelectedItems.Count > 0)
             {
                 var item = listView1.SelectedItems[0];
-                int idPaciente = int.Parse(item.Text); // El ID está en la primera columna
 
-                // Llamar al evento para pasar el ID
-                PacienteSeleccionado?.Invoke(idPaciente);
-
+                if (modo == ModoFormularioPacientes.Consulta)
+                {
+                    // En este modo, el listView muestra pacientes.
+                    int idPaciente = int.Parse(item.Text); // Primera columna es el idPaciente
+                                                           // Como no hay consulta, mandamos null para el idConsulta.
+                    PacienteSeleccionado?.Invoke(idPaciente, null);
+                }
+                else if (modo == ModoFormularioPacientes.Diagnostico)
+                {
+                    // En este modo, el listView muestra consultas.
+                    // La primera columna es el idConsulta.
+                    int idConsulta = int.Parse(item.Text);
+                    // Recuperamos el idPaciente del Tag.
+                    int idPaciente = int.Parse(item.Tag.ToString());
+                    PacienteSeleccionado?.Invoke(idPaciente, idConsulta);
+                }
                 this.Close();
             }
         }
+
 
         private async void btnBuscar_Click(object sender, EventArgs e)
         {
@@ -200,6 +215,7 @@ namespace CapaPresentación.SecondWindows.GlobalWidows
                 var consultas = datos.Select(c => new ConsultasDTO
                 {
                     Id = c.Id,
+                    IdPaciente = c.idPaciente,
                     DNI = c.Paciente.DNI,
                     Nombre = c.Paciente.Nombre,
                     Apellido = c.Paciente.Apellido,
