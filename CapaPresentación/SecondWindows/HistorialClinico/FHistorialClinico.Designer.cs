@@ -32,8 +32,6 @@
             panel4 = new Panel();
             tabControl1 = new TabControl();
             tabConsultas = new TabPage();
-            panel5 = new Panel();
-            btnActualizar = new Button();
             dataGridConsultas = new DataGridView();
             label12 = new Label();
             tabDiagnosticos = new TabPage();
@@ -70,11 +68,11 @@
             label1 = new Label();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
+            button1 = new Button();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             tabControl1.SuspendLayout();
             tabConsultas.SuspendLayout();
-            panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridConsultas).BeginInit();
             tabDiagnosticos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridDiagnosticos).BeginInit();
@@ -125,7 +123,6 @@
             // 
             // tabConsultas
             // 
-            tabConsultas.Controls.Add(panel5);
             tabConsultas.Controls.Add(dataGridConsultas);
             tabConsultas.Controls.Add(label12);
             tabConsultas.Location = new Point(4, 29);
@@ -136,26 +133,6 @@
             tabConsultas.TabIndex = 0;
             tabConsultas.Text = "Consultas";
             tabConsultas.UseVisualStyleBackColor = true;
-            // 
-            // panel5
-            // 
-            panel5.Controls.Add(btnActualizar);
-            panel5.Dock = DockStyle.Right;
-            panel5.Location = new Point(653, 4);
-            panel5.Name = "panel5";
-            panel5.Size = new Size(250, 330);
-            panel5.TabIndex = 7;
-            // 
-            // btnActualizar
-            // 
-            btnActualizar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            btnActualizar.Location = new Point(3, 27);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(107, 38);
-            btnActualizar.TabIndex = 6;
-            btnActualizar.Text = "Actualizar";
-            btnActualizar.UseVisualStyleBackColor = true;
-            btnActualizar.Click += btnActualizar_Click;
             // 
             // dataGridConsultas
             // 
@@ -287,6 +264,7 @@
             // panel3
             // 
             panel3.BackColor = Color.FromArgb(224, 224, 224);
+            panel3.Controls.Add(button1);
             panel3.Controls.Add(txtFechaNacimiento);
             panel3.Controls.Add(txtDireccion);
             panel3.Controls.Add(label10);
@@ -318,7 +296,7 @@
             // 
             // txtFechaNacimiento
             // 
-            txtFechaNacimiento.Location = new Point(786, 57);
+            txtFechaNacimiento.Location = new Point(797, 61);
             txtFechaNacimiento.Margin = new Padding(3, 4, 3, 4);
             txtFechaNacimiento.Name = "txtFechaNacimiento";
             txtFechaNacimiento.ReadOnly = true;
@@ -327,7 +305,7 @@
             // 
             // txtDireccion
             // 
-            txtDireccion.Location = new Point(281, 135);
+            txtDireccion.Location = new Point(281, 138);
             txtDireccion.Margin = new Padding(3, 4, 3, 4);
             txtDireccion.Name = "txtDireccion";
             txtDireccion.ReadOnly = true;
@@ -337,7 +315,7 @@
             // label10
             // 
             label10.AutoSize = true;
-            label10.Location = new Point(646, 68);
+            label10.Location = new Point(644, 68);
             label10.Name = "label10";
             label10.Size = new Size(146, 20);
             label10.TabIndex = 6;
@@ -346,7 +324,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(209, 145);
+            label7.Location = new Point(203, 145);
             label7.Name = "label7";
             label7.Size = new Size(72, 20);
             label7.TabIndex = 6;
@@ -354,7 +332,7 @@
             // 
             // txtApellido
             // 
-            txtApellido.Location = new Point(79, 135);
+            txtApellido.Location = new Point(79, 138);
             txtApellido.Margin = new Padding(3, 4, 3, 4);
             txtApellido.Name = "txtApellido";
             txtApellido.ReadOnly = true;
@@ -364,7 +342,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(14, 145);
+            label4.Location = new Point(7, 145);
             label4.Name = "label4";
             label4.Size = new Size(66, 20);
             label4.TabIndex = 6;
@@ -372,7 +350,7 @@
             // 
             // txtEmail
             // 
-            txtEmail.Location = new Point(521, 96);
+            txtEmail.Location = new Point(521, 100);
             txtEmail.Margin = new Padding(3, 4, 3, 4);
             txtEmail.Name = "txtEmail";
             txtEmail.ReadOnly = true;
@@ -381,7 +359,7 @@
             // 
             // txtDNI
             // 
-            txtDNI.Location = new Point(281, 96);
+            txtDNI.Location = new Point(281, 100);
             txtDNI.Margin = new Padding(3, 4, 3, 4);
             txtDNI.Name = "txtDNI";
             txtDNI.ReadOnly = true;
@@ -408,7 +386,7 @@
             // 
             // txtNombre
             // 
-            txtNombre.Location = new Point(79, 96);
+            txtNombre.Location = new Point(79, 100);
             txtNombre.Margin = new Padding(3, 4, 3, 4);
             txtNombre.Name = "txtNombre";
             txtNombre.ReadOnly = true;
@@ -418,7 +396,7 @@
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(14, 107);
+            label3.Location = new Point(9, 107);
             label3.Name = "label3";
             label3.Size = new Size(64, 20);
             label3.TabIndex = 6;
@@ -426,7 +404,7 @@
             // 
             // txtTipoSangre
             // 
-            txtTipoSangre.Location = new Point(521, 135);
+            txtTipoSangre.Location = new Point(521, 138);
             txtTipoSangre.Margin = new Padding(3, 4, 3, 4);
             txtTipoSangre.Name = "txtTipoSangre";
             txtTipoSangre.ReadOnly = true;
@@ -436,7 +414,7 @@
             // label11
             // 
             label11.AutoSize = true;
-            label11.Location = new Point(417, 145);
+            label11.Location = new Point(407, 145);
             label11.Name = "label11";
             label11.Size = new Size(108, 20);
             label11.TabIndex = 6;
@@ -444,7 +422,7 @@
             // 
             // txtTelefono
             // 
-            txtTelefono.Location = new Point(521, 57);
+            txtTelefono.Location = new Point(521, 61);
             txtTelefono.Margin = new Padding(3, 4, 3, 4);
             txtTelefono.Name = "txtTelefono";
             txtTelefono.ReadOnly = true;
@@ -454,7 +432,7 @@
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(454, 68);
+            label8.Location = new Point(448, 68);
             label8.Name = "label8";
             label8.Size = new Size(67, 20);
             label8.TabIndex = 6;
@@ -462,7 +440,7 @@
             // 
             // txtEdad
             // 
-            txtEdad.Location = new Point(281, 57);
+            txtEdad.Location = new Point(281, 61);
             txtEdad.Margin = new Padding(3, 4, 3, 4);
             txtEdad.Name = "txtEdad";
             txtEdad.ReadOnly = true;
@@ -480,7 +458,7 @@
             // 
             // txtID
             // 
-            txtID.Location = new Point(79, 57);
+            txtID.Location = new Point(79, 61);
             txtID.Margin = new Padding(3, 4, 3, 4);
             txtID.Name = "txtID";
             txtID.ReadOnly = true;
@@ -490,7 +468,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(51, 68);
+            label2.Location = new Point(49, 68);
             label2.Name = "label2";
             label2.Size = new Size(24, 20);
             label2.TabIndex = 6;
@@ -540,6 +518,15 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click_1;
             // 
+            // button1
+            // 
+            button1.Location = new Point(644, 136);
+            button1.Name = "button1";
+            button1.Size = new Size(146, 29);
+            button1.TabIndex = 8;
+            button1.Text = "Actualizar";
+            button1.UseVisualStyleBackColor = true;
+            // 
             // FHistorialClinico
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -555,7 +542,6 @@
             tabControl1.ResumeLayout(false);
             tabConsultas.ResumeLayout(false);
             tabConsultas.PerformLayout();
-            panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridConsultas).EndInit();
             tabDiagnosticos.ResumeLayout(false);
             tabDiagnosticos.PerformLayout();
@@ -615,7 +601,6 @@
         private Label label14;
         private DataGridView dataGridPagos;
         private Label label15;
-        private Button btnActualizar;
-        private Panel panel5;
+        private Button button1;
     }
 }
