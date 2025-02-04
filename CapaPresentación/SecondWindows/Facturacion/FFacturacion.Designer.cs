@@ -35,6 +35,7 @@
             dataGridPagos = new DataGridView();
             label12 = new Label();
             panel1 = new Panel();
+            btnExportar = new Button();
             btnActualizar = new Button();
             btnBuscarPaciente = new Button();
             label10 = new Label();
@@ -63,7 +64,6 @@
             label2 = new Label();
             btnSeleccionar = new Button();
             label1 = new Label();
-            btnExportar = new Button();
             panelClose.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelFacturacion.SuspendLayout();
@@ -113,7 +113,6 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(btnExportar);
             panel2.Controls.Add(dataGridPagos);
             panel2.Controls.Add(label12);
             panel2.Dock = DockStyle.Fill;
@@ -146,6 +145,7 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(btnExportar);
             panel1.Controls.Add(btnActualizar);
             panel1.Controls.Add(btnBuscarPaciente);
             panel1.Controls.Add(label10);
@@ -158,6 +158,20 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(250, 371);
             panel1.TabIndex = 3;
+            // 
+            // btnExportar
+            // 
+            btnExportar.Image = Properties.Resources.file_arrow_down_solid;
+            btnExportar.ImageAlign = ContentAlignment.MiddleLeft;
+            btnExportar.Location = new Point(6, 311);
+            btnExportar.Name = "btnExportar";
+            btnExportar.Padding = new Padding(5);
+            btnExportar.Size = new Size(122, 37);
+            btnExportar.TabIndex = 8;
+            btnExportar.Text = "         Exportar";
+            btnExportar.TextAlign = ContentAlignment.MiddleLeft;
+            btnExportar.UseVisualStyleBackColor = true;
+            btnExportar.Click += btnExportar_Click;
             // 
             // btnActualizar
             // 
@@ -207,7 +221,7 @@
             btnEliminar.Location = new Point(6, 135);
             btnEliminar.Margin = new Padding(3, 4, 3, 4);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Padding = new Padding(5, 5, 5, 5);
+            btnEliminar.Padding = new Padding(5);
             btnEliminar.Size = new Size(139, 44);
             btnEliminar.TabIndex = 4;
             btnEliminar.Text = "       Eliminar";
@@ -223,7 +237,7 @@
             btnEditar.Location = new Point(6, 83);
             btnEditar.Margin = new Padding(3, 4, 3, 4);
             btnEditar.Name = "btnEditar";
-            btnEditar.Padding = new Padding(5, 5, 5, 5);
+            btnEditar.Padding = new Padding(5);
             btnEditar.Size = new Size(139, 44);
             btnEditar.TabIndex = 5;
             btnEditar.Text = "       Editar";
@@ -239,7 +253,7 @@
             btnAgregar.Location = new Point(6, 31);
             btnAgregar.Margin = new Padding(3, 4, 3, 4);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Padding = new Padding(5, 5, 5, 5);
+            btnAgregar.Padding = new Padding(5);
             btnAgregar.Size = new Size(139, 44);
             btnAgregar.TabIndex = 6;
             btnAgregar.Text = "       Agregar";
@@ -453,20 +467,6 @@
             label1.Size = new Size(168, 31);
             label1.TabIndex = 4;
             label1.Text = "Facturacion";
-            // 
-            // btnExportar
-            // 
-            btnExportar.Image = Properties.Resources.file_arrow_down_solid;
-            btnExportar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnExportar.Location = new Point(509, 311);
-            btnExportar.Name = "btnExportar";
-            btnExportar.Padding = new Padding(5);
-            btnExportar.Size = new Size(122, 37);
-            btnExportar.TabIndex = 8;
-            btnExportar.Text = "         Exportar";
-            btnExportar.TextAlign = ContentAlignment.MiddleLeft;
-            btnExportar.UseVisualStyleBackColor = true;
-            btnExportar.Click += btnExportar_Click;
             // 
             // FFacturacion
             // 
