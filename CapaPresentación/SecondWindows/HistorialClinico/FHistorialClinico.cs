@@ -152,7 +152,7 @@ namespace CapaPresentación.SecondWindows
                     pt.FechaFin,
                     pt.Detalles
                 }).ToList();
-                if(pacienteTratamientos.Count == 0)
+                if (pacienteTratamientos.Count == 0)
                 {
                     MessageBox.Show("El paciente no tiene tratamientos registrados.", "Sin tratamientos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
@@ -165,7 +165,7 @@ namespace CapaPresentación.SecondWindows
                 dataGridTratamientos.Columns["FechaFin"].HeaderText = "Fin";
                 dataGridTratamientos.Columns["Detalles"].HeaderText = "Detalles";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
@@ -182,7 +182,7 @@ namespace CapaPresentación.SecondWindows
                     pp.Monto,
                     pp.MetodoPago,
                 }).ToList();
-                if(pacientePagos.Count == 0)
+                if (pacientePagos.Count == 0)
                 {
                     MessageBox.Show("El paciente no tiene pagos registrados.", "Sin pagos", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     return;
@@ -193,10 +193,15 @@ namespace CapaPresentación.SecondWindows
                 dataGridPagos.Columns["Monto"].HeaderText = "Monto";
                 dataGridPagos.Columns["MetodoPago"].HeaderText = "Método de Pago";
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+        }
+
+        private void btnActualizar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
