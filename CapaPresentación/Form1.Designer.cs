@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            button1 = new Button();
             btnExit = new Button();
             panel2 = new Panel();
             lblLogo = new Label();
@@ -62,6 +63,7 @@
             // panel1
             // 
             panel1.BackColor = Color.FromArgb(29, 53, 87);
+            panel1.Controls.Add(button1);
             panel1.Controls.Add(btnExit);
             panel1.Controls.Add(panel2);
             panel1.Controls.Add(btnFacturacion);
@@ -75,6 +77,23 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(250, 871);
             panel1.TabIndex = 3;
+            // 
+            // button1
+            // 
+            button1.BackColor = SystemColors.ControlLight;
+            button1.FlatStyle = FlatStyle.Flat;
+            button1.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            button1.ForeColor = SystemColors.ActiveCaptionText;
+            button1.Image = Properties.Resources.file_arrow_down_solid;
+            button1.ImageAlign = ContentAlignment.MiddleLeft;
+            button1.Location = new Point(0, 649);
+            button1.Name = "button1";
+            button1.Padding = new Padding(7, 0, 0, 0);
+            button1.Size = new Size(250, 63);
+            button1.TabIndex = 7;
+            button1.Text = "            Exportar";
+            button1.TextAlign = ContentAlignment.MiddleLeft;
+            button1.UseVisualStyleBackColor = false;
             // 
             // btnExit
             // 
@@ -366,5 +385,6 @@
         private PictureBox pictureBox3;
         private Panel panel5;
         private PictureBox pictureBox2;
+        private Button button1;
     }
 }

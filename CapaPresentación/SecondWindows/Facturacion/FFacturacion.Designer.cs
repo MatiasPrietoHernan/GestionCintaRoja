@@ -35,7 +35,6 @@
             dataGridPagos = new DataGridView();
             label12 = new Label();
             panel1 = new Panel();
-            btnExportar = new Button();
             btnActualizar = new Button();
             btnBuscarPaciente = new Button();
             label10 = new Label();
@@ -145,7 +144,6 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(btnExportar);
             panel1.Controls.Add(btnActualizar);
             panel1.Controls.Add(btnBuscarPaciente);
             panel1.Controls.Add(label10);
@@ -158,20 +156,6 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(250, 371);
             panel1.TabIndex = 3;
-            // 
-            // btnExportar
-            // 
-            btnExportar.Image = Properties.Resources.file_arrow_down_solid;
-            btnExportar.ImageAlign = ContentAlignment.MiddleLeft;
-            btnExportar.Location = new Point(6, 311);
-            btnExportar.Name = "btnExportar";
-            btnExportar.Padding = new Padding(5);
-            btnExportar.Size = new Size(122, 37);
-            btnExportar.TabIndex = 8;
-            btnExportar.Text = "         Exportar";
-            btnExportar.TextAlign = ContentAlignment.MiddleLeft;
-            btnExportar.UseVisualStyleBackColor = true;
-            btnExportar.Click += btnExportar_Click;
             // 
             // btnActualizar
             // 
@@ -529,6 +513,5 @@
         private Button btnAgregar;
         private TextBox txtIdConsulta;
         private Label idConsulta;
-        private Button btnExportar;
     }
 }
