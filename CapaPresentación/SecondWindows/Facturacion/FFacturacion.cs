@@ -401,5 +401,10 @@ namespace CapaPresentación.SecondWindows
                 btnActualizar.PerformClick();
             }
         }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
