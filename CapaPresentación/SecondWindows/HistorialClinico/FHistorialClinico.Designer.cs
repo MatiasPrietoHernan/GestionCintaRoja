@@ -32,6 +32,8 @@
             panel4 = new Panel();
             tabControl1 = new TabControl();
             tabConsultas = new TabPage();
+            panel5 = new Panel();
+            btnActualizar = new Button();
             dataGridConsultas = new DataGridView();
             label12 = new Label();
             tabDiagnosticos = new TabPage();
@@ -68,11 +70,11 @@
             label1 = new Label();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
-            btnActualizar = new Button();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             tabControl1.SuspendLayout();
             tabConsultas.SuspendLayout();
+            panel5.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridConsultas).BeginInit();
             tabDiagnosticos.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridDiagnosticos).BeginInit();
@@ -123,7 +125,7 @@
             // 
             // tabConsultas
             // 
-            tabConsultas.Controls.Add(btnActualizar);
+            tabConsultas.Controls.Add(panel5);
             tabConsultas.Controls.Add(dataGridConsultas);
             tabConsultas.Controls.Add(label12);
             tabConsultas.Location = new Point(4, 29);
@@ -134,6 +136,26 @@
             tabConsultas.TabIndex = 0;
             tabConsultas.Text = "Consultas";
             tabConsultas.UseVisualStyleBackColor = true;
+            // 
+            // panel5
+            // 
+            panel5.Controls.Add(btnActualizar);
+            panel5.Dock = DockStyle.Right;
+            panel5.Location = new Point(653, 4);
+            panel5.Name = "panel5";
+            panel5.Size = new Size(250, 330);
+            panel5.TabIndex = 7;
+            // 
+            // btnActualizar
+            // 
+            btnActualizar.Font = new Font("Segoe UI", 10.2F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            btnActualizar.Location = new Point(3, 27);
+            btnActualizar.Name = "btnActualizar";
+            btnActualizar.Size = new Size(107, 38);
+            btnActualizar.TabIndex = 6;
+            btnActualizar.Text = "Actualizar";
+            btnActualizar.UseVisualStyleBackColor = true;
+            btnActualizar.Click += btnActualizar_Click;
             // 
             // dataGridConsultas
             // 
@@ -179,7 +201,7 @@
             dataGridDiagnosticos.Margin = new Padding(3, 4, 3, 4);
             dataGridDiagnosticos.Name = "dataGridDiagnosticos";
             dataGridDiagnosticos.RowHeadersWidth = 51;
-            dataGridDiagnosticos.Size = new Size(622, 241);
+            dataGridDiagnosticos.Size = new Size(219, 241);
             dataGridDiagnosticos.TabIndex = 7;
             // 
             // label13
@@ -214,7 +236,7 @@
             dataGridTratamientos.Margin = new Padding(3, 4, 3, 4);
             dataGridTratamientos.Name = "dataGridTratamientos";
             dataGridTratamientos.RowHeadersWidth = 51;
-            dataGridTratamientos.Size = new Size(622, 241);
+            dataGridTratamientos.Size = new Size(219, 241);
             dataGridTratamientos.TabIndex = 7;
             // 
             // label14
@@ -249,7 +271,7 @@
             dataGridPagos.Margin = new Padding(3, 4, 3, 4);
             dataGridPagos.Name = "dataGridPagos";
             dataGridPagos.RowHeadersWidth = 51;
-            dataGridPagos.Size = new Size(622, 241);
+            dataGridPagos.Size = new Size(219, 241);
             dataGridPagos.TabIndex = 7;
             // 
             // label15
@@ -518,16 +540,6 @@
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click_1;
             // 
-            // btnActualizar
-            // 
-            btnActualizar.Location = new Point(637, 31);
-            btnActualizar.Name = "btnActualizar";
-            btnActualizar.Size = new Size(94, 29);
-            btnActualizar.TabIndex = 6;
-            btnActualizar.Text = "Actualizar";
-            btnActualizar.UseVisualStyleBackColor = true;
-            btnActualizar.Click += btnActualizar_Click;
-            // 
             // FHistorialClinico
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
@@ -543,6 +555,7 @@
             tabControl1.ResumeLayout(false);
             tabConsultas.ResumeLayout(false);
             tabConsultas.PerformLayout();
+            panel5.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)dataGridConsultas).EndInit();
             tabDiagnosticos.ResumeLayout(false);
             tabDiagnosticos.PerformLayout();
@@ -603,5 +616,6 @@
         private DataGridView dataGridPagos;
         private Label label15;
         private Button btnActualizar;
+        private Panel panel5;
     }
 }
