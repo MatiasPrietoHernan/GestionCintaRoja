@@ -20,14 +20,14 @@ namespace CapaDatos.Repository
 
         public async Task<IEnumerable<Diagnosticos>> GetAllRelationsAsync()
         {
-            return await _context.Diagnosticos.Include(d => d.Consulta)
-                                           .ToListAsync();
+            return await _context.Diagnosticos.Include(d => d.Consulta).ThenInclude(c => c.Paciente).ToListAsync();
+                                          
         }
 
         public async Task<IEnumerable<Diagnosticos>> SearchByTermAsync(string term)
         {
-            return await _context.Diagnosticos.Include(d => d.Consulta)
-                                           .Where(d => d.FechaDiagnostico.ToString().Contains(term))
+            return await _context.Diagnosticos.Include(d => d.Consulta).ThenInclude(p=>p.Paciente)
+                                           .Where(d => d.FechaDiagnostico.ToString().Contains(term) || d.Consulta.Paciente.Nombre.ToLower().Contains(term) || d.Consulta.Paciente.Apellido.ToLower().Contains(term))
                                            .ToListAsync();
         }
 

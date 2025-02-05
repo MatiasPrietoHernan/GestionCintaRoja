@@ -13,6 +13,7 @@ using CapaPresentación.SecondWindows.Diagnosticos;
 using CapaPresentación.SecondWindows.GlobalWidows;
 using CapaPresentación.Factories;
 using CapaPresentación.SecondWindows.Tratamientos;
+using CapaPresentación.SecondWindows.Exportacion;
 namespace CapaPresentación
 {
     internal static class Program
@@ -56,6 +57,7 @@ namespace CapaPresentación
             services.AddTransient<FHistorialClinico>();
             services.AddTransient<FFacturacion>();
             services.AddTransient<GlobalPacientes>();
+            services.AddTransient<FExportar>();
         }
 
         private static void RegisterServices(IServiceCollection services)
@@ -88,6 +90,8 @@ namespace CapaPresentación
             services.AddTransient<IPacientesServices, PacientesServices>();
             services.AddTransient<IPagosServices, PagosServices>();
             services.AddTransient<ITratamientosServices, TratamientosServices>();
+            services.AddTransient<IExportarExcel, ExportarExcel>();
+            services.AddTransient<IExportarPDF, ExportarPDF>();
 
             //Aqui van los factories
             services.AddTransient<GlobalPacientesFactory>();

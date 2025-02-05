@@ -1,6 +1,7 @@
 using CapaLogica.Interfaces;
 using CapaLogica.Servicios;
 using CapaPresentación.SecondWindows;
+using CapaPresentación.SecondWindows.Exportacion;
 using Microsoft.Extensions.DependencyInjection;
 
 namespace CapaPresentación
@@ -70,7 +71,7 @@ namespace CapaPresentación
                 formulario.BringToFront();
             }
         }
-        
+
         private void MainForm_FormClosing(object sender, FormClosingEventArgs e)
         {
             var resultado = MessageBox.Show(
@@ -82,6 +83,16 @@ namespace CapaPresentación
             if (resultado == DialogResult.No)
             {
                 e.Cancel = true;
+            }
+        }
+
+        private void btnExportar_Click(object sender, EventArgs e)
+        {
+            using (var scope = Program.ServiceProvider.CreateScope())
+            {
+                var exportar = scope.ServiceProvider.GetRequiredService<FExportar>();
+                exportar.Owner = this;
+                exportar.ShowDialog();
             }
         }
     }
