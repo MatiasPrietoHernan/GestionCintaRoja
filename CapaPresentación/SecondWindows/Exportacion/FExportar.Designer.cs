@@ -76,7 +76,7 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(331, 267);
+            ClientSize = new Size(299, 267);
             Controls.Add(btnPdf);
             Controls.Add(btnExcel);
             Controls.Add(label1);

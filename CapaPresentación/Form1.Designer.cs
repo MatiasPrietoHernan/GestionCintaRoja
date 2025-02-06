@@ -74,7 +74,7 @@
             panel1.Controls.Add(btnPacientes);
             panel1.Dock = DockStyle.Left;
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(2, 2, 2, 2);
+            panel1.Margin = new Padding(2);
             panel1.Name = "panel1";
             panel1.Size = new Size(200, 599);
             panel1.TabIndex = 3;
@@ -88,7 +88,7 @@
             btnExportar.Image = Properties.Resources.file_arrow_down_solid;
             btnExportar.ImageAlign = ContentAlignment.MiddleLeft;
             btnExportar.Location = new Point(2, 472);
-            btnExportar.Margin = new Padding(2, 2, 2, 2);
+            btnExportar.Margin = new Padding(2);
             btnExportar.Name = "btnExportar";
             btnExportar.Padding = new Padding(6, 0, 0, 0);
             btnExportar.Size = new Size(200, 50);
@@ -121,7 +121,7 @@
             panel2.Controls.Add(pictureBox1);
             panel2.Dock = DockStyle.Top;
             panel2.Location = new Point(0, 0);
-            panel2.Margin = new Padding(2, 2, 2, 2);
+            panel2.Margin = new Padding(2);
             panel2.Name = "panel2";
             panel2.Size = new Size(200, 126);
             panel2.TabIndex = 5;
@@ -160,7 +160,7 @@
             btnFacturacion.Image = Properties.Resources.file_invoice_dollar_solid;
             btnFacturacion.ImageAlign = ContentAlignment.MiddleLeft;
             btnFacturacion.Location = new Point(0, 418);
-            btnFacturacion.Margin = new Padding(2, 2, 2, 2);
+            btnFacturacion.Margin = new Padding(2);
             btnFacturacion.Name = "btnFacturacion";
             btnFacturacion.Padding = new Padding(6, 0, 0, 0);
             btnFacturacion.Size = new Size(200, 50);
@@ -179,7 +179,7 @@
             btnHistorialClinico.Image = Properties.Resources.folder_open_solid;
             btnHistorialClinico.ImageAlign = ContentAlignment.MiddleLeft;
             btnHistorialClinico.Location = new Point(0, 364);
-            btnHistorialClinico.Margin = new Padding(2, 2, 2, 2);
+            btnHistorialClinico.Margin = new Padding(2);
             btnHistorialClinico.Name = "btnHistorialClinico";
             btnHistorialClinico.Padding = new Padding(6, 0, 0, 0);
             btnHistorialClinico.Size = new Size(200, 50);
@@ -198,7 +198,7 @@
             btnTratamientos.Image = Properties.Resources.pills_solid;
             btnTratamientos.ImageAlign = ContentAlignment.MiddleLeft;
             btnTratamientos.Location = new Point(0, 310);
-            btnTratamientos.Margin = new Padding(2, 2, 2, 2);
+            btnTratamientos.Margin = new Padding(2);
             btnTratamientos.Name = "btnTratamientos";
             btnTratamientos.Padding = new Padding(6, 0, 0, 0);
             btnTratamientos.Size = new Size(200, 50);
@@ -217,7 +217,7 @@
             btnDiagnosticos.Image = Properties.Resources.clipboard_list_solid;
             btnDiagnosticos.ImageAlign = ContentAlignment.MiddleLeft;
             btnDiagnosticos.Location = new Point(0, 255);
-            btnDiagnosticos.Margin = new Padding(2, 2, 2, 2);
+            btnDiagnosticos.Margin = new Padding(2);
             btnDiagnosticos.Name = "btnDiagnosticos";
             btnDiagnosticos.Padding = new Padding(6, 0, 0, 0);
             btnDiagnosticos.Size = new Size(200, 50);
@@ -236,7 +236,7 @@
             btnConsultas.Image = Properties.Resources.calendar_days_solid;
             btnConsultas.ImageAlign = ContentAlignment.MiddleLeft;
             btnConsultas.Location = new Point(0, 201);
-            btnConsultas.Margin = new Padding(2, 2, 2, 2);
+            btnConsultas.Margin = new Padding(2);
             btnConsultas.Name = "btnConsultas";
             btnConsultas.Padding = new Padding(6, 0, 0, 0);
             btnConsultas.Size = new Size(200, 50);
@@ -255,7 +255,7 @@
             btnPacientes.Image = Properties.Resources.users_solid;
             btnPacientes.ImageAlign = ContentAlignment.MiddleLeft;
             btnPacientes.Location = new Point(0, 146);
-            btnPacientes.Margin = new Padding(2, 2, 2, 2);
+            btnPacientes.Margin = new Padding(2);
             btnPacientes.Name = "btnPacientes";
             btnPacientes.Padding = new Padding(6, 0, 0, 0);
             btnPacientes.Size = new Size(200, 50);
@@ -282,7 +282,7 @@
             panel4.Anchor = AnchorStyles.Bottom | AnchorStyles.Left | AnchorStyles.Right;
             panel4.Controls.Add(panel6);
             panel4.Location = new Point(0, 431);
-            panel4.Margin = new Padding(2, 2, 2, 2);
+            panel4.Margin = new Padding(2);
             panel4.Name = "panel4";
             panel4.Size = new Size(841, 167);
             panel4.TabIndex = 11;
@@ -314,7 +314,7 @@
             panel3.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
             panel3.Controls.Add(panel5);
             panel3.Location = new Point(0, 0);
-            panel3.Margin = new Padding(2, 2, 2, 2);
+            panel3.Margin = new Padding(2);
             panel3.Name = "panel3";
             panel3.Size = new Size(841, 167);
             panel3.TabIndex = 10;
@@ -351,7 +351,7 @@
             lblTitle.Name = "lblTitle";
             lblTitle.Size = new Size(458, 110);
             lblTitle.TabIndex = 9;
-            lblTitle.Text = "     !Bienvenido¡\r\nGestion Cinta Rosa\r\n";
+            lblTitle.Text = "     ¡Bienvenido!\r\nGestion Cinta Rosa\r\n";
             // 
             // Form1
             // 
@@ -362,7 +362,7 @@
             Controls.Add(panelInicio);
             Controls.Add(panel1);
             IsMdiContainer = true;
-            Margin = new Padding(2, 2, 2, 2);
+            Margin = new Padding(2);
             Name = "Form1";
             Text = "Gestion Ginecologica";
             panel1.ResumeLayout(false);

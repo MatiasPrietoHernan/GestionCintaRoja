@@ -144,7 +144,7 @@ namespace CapaLogica.Servicios
                         }
                         break;
                     case "Pagos":
-                        var pagos = await pagosServices.GetPagosWithRealtionsAsync();
+                        var pagos = await pagosServices.GetPagosConsultasPacientesAsync();
                         var pagos1 = pagos.Select(p => new
                         {
                             p.Id,

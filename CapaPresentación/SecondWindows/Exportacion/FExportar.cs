@@ -43,9 +43,9 @@ namespace CapaPresentación.SecondWindows.Exportacion
                     {
                         var rutaArchivo = saveFileDialog.FileName;
                         await _exportarExcel.ExportarAExcel(comboBox1.Text, rutaArchivo); // Pasás la ruta
+                        MessageBox.Show("Tabla exportada con éxito!");
                     }
                 }
-                MessageBox.Show("Tabla exportada con éxito!");
             }
             catch (Exception ex)
             {
@@ -85,9 +85,9 @@ namespace CapaPresentación.SecondWindows.Exportacion
                     {
                         var rutaArchivo = saveFileDialog.FileName;
                        await exportarPDF.ExportarAPdf(comboBox1.Text, rutaArchivo);
+                       MessageBox.Show("Tabla exportada con éxito!");
                     }
                 }
-                MessageBox.Show("Tabla exportada con éxito!");
             }
             catch(Exception ex)
             {
