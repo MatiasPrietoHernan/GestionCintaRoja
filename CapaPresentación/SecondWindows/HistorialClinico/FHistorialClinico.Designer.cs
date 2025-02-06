@@ -44,6 +44,7 @@
             dataGridPagos = new DataGridView();
             label15 = new Label();
             panel3 = new Panel();
+            button1 = new Button();
             txtFechaNacimiento = new TextBox();
             txtDireccion = new TextBox();
             label10 = new Label();
@@ -68,7 +69,6 @@
             label1 = new Label();
             panel2 = new Panel();
             pictureBox1 = new PictureBox();
-            button1 = new Button();
             panel1.SuspendLayout();
             panel4.SuspendLayout();
             tabControl1.SuspendLayout();
@@ -178,7 +178,7 @@
             dataGridDiagnosticos.Margin = new Padding(3, 4, 3, 4);
             dataGridDiagnosticos.Name = "dataGridDiagnosticos";
             dataGridDiagnosticos.RowHeadersWidth = 51;
-            dataGridDiagnosticos.Size = new Size(219, 241);
+            dataGridDiagnosticos.Size = new Size(622, 273);
             dataGridDiagnosticos.TabIndex = 7;
             // 
             // label13
@@ -213,7 +213,7 @@
             dataGridTratamientos.Margin = new Padding(3, 4, 3, 4);
             dataGridTratamientos.Name = "dataGridTratamientos";
             dataGridTratamientos.RowHeadersWidth = 51;
-            dataGridTratamientos.Size = new Size(219, 241);
+            dataGridTratamientos.Size = new Size(622, 273);
             dataGridTratamientos.TabIndex = 7;
             // 
             // label14
@@ -248,7 +248,7 @@
             dataGridPagos.Margin = new Padding(3, 4, 3, 4);
             dataGridPagos.Name = "dataGridPagos";
             dataGridPagos.RowHeadersWidth = 51;
-            dataGridPagos.Size = new Size(219, 241);
+            dataGridPagos.Size = new Size(622, 273);
             dataGridPagos.TabIndex = 7;
             // 
             // label15
@@ -293,6 +293,15 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(914, 177);
             panel3.TabIndex = 1;
+            // 
+            // button1
+            // 
+            button1.Location = new Point(644, 136);
+            button1.Name = "button1";
+            button1.Size = new Size(146, 29);
+            button1.TabIndex = 8;
+            button1.Text = "Actualizar";
+            button1.UseVisualStyleBackColor = true;
             // 
             // txtFechaNacimiento
             // 
@@ -517,15 +526,6 @@
             pictureBox1.TabIndex = 0;
             pictureBox1.TabStop = false;
             pictureBox1.Click += pictureBox1_Click_1;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(644, 136);
-            button1.Name = "button1";
-            button1.Size = new Size(146, 29);
-            button1.TabIndex = 8;
-            button1.Text = "Actualizar";
-            button1.UseVisualStyleBackColor = true;
             // 
             // FHistorialClinico
             // 
