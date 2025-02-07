@@ -30,7 +30,6 @@
         {
             txtDNI = new TextBox();
             label1 = new Label();
-            txtFecha = new TextBox();
             label2 = new Label();
             label3 = new Label();
             txtMotivo = new TextBox();
@@ -39,6 +38,7 @@
             btnGuardar = new Button();
             btnCancelar = new Button();
             btnSeleccionar = new Button();
+            dateConsulta = new DateTimePicker();
             SuspendLayout();
             // 
             // txtDNI
@@ -57,14 +57,6 @@
             label1.Size = new Size(66, 15);
             label1.TabIndex = 1;
             label1.Text = "ID Paciente";
-            // 
-            // txtFecha
-            // 
-            txtFecha.Location = new Point(141, 83);
-            txtFecha.Margin = new Padding(3, 2, 3, 2);
-            txtFecha.Name = "txtFecha";
-            txtFecha.Size = new Size(110, 23);
-            txtFecha.TabIndex = 2;
             // 
             // label2
             // 
@@ -143,11 +135,19 @@
             btnSeleccionar.UseVisualStyleBackColor = true;
             btnSeleccionar.Click += btnSeleccionar_Click;
             // 
+            // dateConsulta
+            // 
+            dateConsulta.Location = new Point(138, 82);
+            dateConsulta.Name = "dateConsulta";
+            dateConsulta.Size = new Size(113, 23);
+            dateConsulta.TabIndex = 7;
+            // 
             // FAgregarConsulta
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(526, 316);
+            Controls.Add(dateConsulta);
             Controls.Add(btnSeleccionar);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
@@ -156,7 +156,6 @@
             Controls.Add(label4);
             Controls.Add(label3);
             Controls.Add(label2);
-            Controls.Add(txtFecha);
             Controls.Add(label1);
             Controls.Add(txtDNI);
             Margin = new Padding(3, 2, 3, 2);
@@ -171,7 +170,6 @@
 
         private TextBox txtDNI;
         private Label label1;
-        private TextBox txtFecha;
         private Label label2;
         private Label label3;
         private TextBox txtMotivo;
@@ -180,5 +178,6 @@
         private Button btnGuardar;
         private Button btnCancelar;
         private Button btnSeleccionar;
+        private DateTimePicker dateConsulta;
     }
 }

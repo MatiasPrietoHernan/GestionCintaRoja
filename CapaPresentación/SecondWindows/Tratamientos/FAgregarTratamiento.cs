@@ -36,8 +36,8 @@ namespace CapaPresentación.SecondWindows.Tratamientos
             {
                 txtID.Text = tratamientoEditar.Id.ToString();
                 txtTratamiento.Text = tratamientoEditar.NombreTratamiento;
-                txtFechaInicio.Text = tratamientoEditar.FechaInicio.ToString();
-                txtFechaFin.Text = tratamientoEditar.FechaFin.ToString();
+                dateInicio.Text = tratamientoEditar.FechaInicio.ToString();
+                dateFin.Text = tratamientoEditar.FechaFin.ToString();
                 txtDescripcion.Text = tratamientoEditar.Detalles;
                 txtID.Enabled = false;
                 btnSeleccionar.Enabled = false;
@@ -77,7 +77,7 @@ namespace CapaPresentación.SecondWindows.Tratamientos
         {
             try
             {
-                if (!ValidationHelper.AreFieldsNotEmpty(txtID.Text, txtTratamiento.Text, txtFechaInicio.Text, txtFechaFin.Text, txtDescripcion.Text))
+                if (!ValidationHelper.AreFieldsNotEmpty(txtID.Text, txtTratamiento.Text, txtDescripcion.Text))
                 {
                     MessageBox.Show("Todos los campos deben estar llenos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
@@ -87,9 +87,14 @@ namespace CapaPresentación.SecondWindows.Tratamientos
                     MessageBox.Show("El campo de ID Pciente deben contener solo números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                if (!ValidationHelper.IsValidDate(txtFechaInicio.Text) || !ValidationHelper.IsValidDate(txtFechaFin.Text))
+                if(dateInicio.Value > dateFin.Value)
                 {
-                    MessageBox.Show("La fecha no tiene un formato válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    MessageBox.Show("La fecha de inicio no puede ser mayor a la fecha de fin.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                if (dateInicio.Value == dateFin.Value)
+                {
+                    MessageBox.Show("La fecha de inicio y la fecha de fin no pueden ser iguales.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
 
@@ -99,8 +104,8 @@ namespace CapaPresentación.SecondWindows.Tratamientos
                     {
                         NombreTratamiento = txtTratamiento.Text,
                         IdPaciente = int.Parse(txtID.Text),
-                        FechaInicio = DateTime.Parse(txtFechaInicio.Text),
-                        FechaFin = DateTime.Parse(txtFechaFin.Text),
+                        FechaInicio = dateInicio.Value.Date,
+                        FechaFin = dateFin.Value.Date,
                         Detalles = txtDescripcion.Text
                     };
                     await tratamientosServices.AddTratamientoAsync(tratamiento);
@@ -109,12 +114,13 @@ namespace CapaPresentación.SecondWindows.Tratamientos
                 else
                 {
                     tratamientoEditar.NombreTratamiento = txtTratamiento.Text;
-                    tratamientoEditar.FechaInicio = DateTime.Parse(txtFechaInicio.Text);
-                    tratamientoEditar.FechaFin = DateTime.Parse(txtFechaFin.Text);
+                    tratamientoEditar.FechaInicio = dateInicio.Value.Date;
+                    tratamientoEditar.FechaFin = dateFin.Value.Date;
                     tratamientoEditar.Detalles = txtDescripcion.Text;
                     MessageBox.Show("Tratamiento actualizado correctamente.", "Tratamiento actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     await tratamientosServices.UpdateTratamientoAsync(tratamientoEditar);
                 }
+
 
                 this.Close();
             } catch (Exception ex)

@@ -69,6 +69,7 @@ namespace CapaPresentación.SecondWindows
                 var datos = await pacientesServices.GetPacienteAsync(id);
                 txtNombre.Text = datos.Nombre;
                 txtApellido.Text = datos.Apellido;
+                txtDNI.Text = datos.DNI.ToString();
                 txtEdad.Text = datos.Edad.ToString();
                 txtTelefono.Text = datos.Telefono;
                 txtDireccion.Text = datos.Direccion;
@@ -201,6 +202,29 @@ namespace CapaPresentación.SecondWindows
 
         private void btnActualizar_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private async void btnActualizar_Click_1(object sender, EventArgs e)
+        {
+            try 
+            {
+                if(txtID.Text == "")
+                {
+                    MessageBox.Show("Por favor, seleccione un paciente.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+                await GetDatosPacientes(int.Parse(txtID.Text));
+                await GetConsultas(int.Parse(txtID.Text));
+                await GetDiagnosticos(int.Parse(txtID.Text));
+                await GetTratamientos(int.Parse(txtID.Text));
+                await GetPagos(int.Parse(txtID.Text));
+            }
+            catch(Exception ex)
+            {
+                MessageBox.Show(ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            
 
         }
     }
