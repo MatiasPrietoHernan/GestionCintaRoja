@@ -142,6 +142,7 @@
             txtBuscar.Name = "txtBuscar";
             txtBuscar.Size = new Size(158, 23);
             txtBuscar.TabIndex = 1;
+            txtBuscar.KeyDown += txtBuscar_KeyDown;
             // 
             // btnEliminar
             // 

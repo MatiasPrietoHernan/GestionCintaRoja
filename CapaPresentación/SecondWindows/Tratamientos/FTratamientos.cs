@@ -171,5 +171,18 @@ namespace CapaPresentación.SecondWindows
         {
             await GetTratamientosAsync();
         }
+
+        private void txtBuscar_KeyDown(object sender, KeyEventArgs e)
+        {
+            if(e.KeyCode == Keys.Enter)
+            {
+                btnBuscarPaciente.PerformClick();
+            }
+            else if(e.KeyCode == Keys.Escape)
+            {
+                txtBuscar.Clear();
+                btnActualizar.PerformClick();
+            }
+        }
     }
 }

@@ -175,11 +175,7 @@ namespace CapaPresentación.SecondWindows
                     MessageBox.Show("Debe ingresar un método de pago", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                     return;
                 }
-                else if (txtFecha.Text == "  /  /")
-                {
-                    MessageBox.Show("Debe ingresar una fecha", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                
                 else if (string.IsNullOrEmpty(txtNumeroFactura.Text))
                 {
                     MessageBox.Show("Debe ingresar un número de factura", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -203,7 +199,7 @@ namespace CapaPresentación.SecondWindows
                     var nuevoPago = new Pagos1
                     {
                         Id = int.Parse(txtNumeroFactura.Text),
-                        FechaPago = txtFecha.Text,
+                        FechaPago = datePago.Value.Date.ToString("dd/MM/yyyy"),
                         Monto = double.Parse(txtMonto.Text),
                         MetodoPago = comboBoxMetodoPago.Text,
                         IdConsulta = int.Parse(txtIdConsulta.Text)
@@ -218,7 +214,7 @@ namespace CapaPresentación.SecondWindows
                     var pagoActualizado = new Pagos1
                     {
                         Id = editingPagoId,  // Usamos el id del pago que estamos editando
-                        FechaPago = txtFecha.Text,
+                        FechaPago = datePago.Value.Date.ToString("dd/MM/yyyy"),
                         Monto = double.Parse(txtMonto.Text),
                         MetodoPago = comboBoxMetodoPago.Text,
                         IdConsulta = int.Parse(txtIdConsulta.Text)
@@ -281,7 +277,6 @@ namespace CapaPresentación.SecondWindows
                     txtIdConsulta.Clear();
                     txtNumeroFactura.Clear();
                     txtMonto.Clear();
-                    txtFecha.Clear();
                     comboBoxMetodoPago.SelectedIndex = -1;
 
                     MessageBox.Show("Edición cancelada", "Info", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -335,7 +330,7 @@ namespace CapaPresentación.SecondWindows
                 txtIdConsulta.Text = pago.IdConsulta.ToString();
                 txtNumeroFactura.Text = pago.Id.ToString();
                 txtMonto.Text = pago.Monto.ToString();
-                txtFecha.Text = pago.FechaPago;
+                datePago.Text = pago.FechaPago;
                 comboBoxMetodoPago.Text = pago.MetodoPago;
 
 

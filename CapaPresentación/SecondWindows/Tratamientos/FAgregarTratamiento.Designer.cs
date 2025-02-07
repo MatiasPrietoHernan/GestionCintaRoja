@@ -32,15 +32,15 @@
             btnCancelar = new Button();
             btnGuardar = new Button();
             txtDescripcion = new TextBox();
-            txtFechaInicio = new TextBox();
             label4 = new Label();
             label3 = new Label();
             label2 = new Label();
             txtTratamiento = new TextBox();
             label1 = new Label();
             txtID = new TextBox();
-            txtFechaFin = new TextBox();
             label5 = new Label();
+            dateInicio = new DateTimePicker();
+            dateFin = new DateTimePicker();
             SuspendLayout();
             // 
             // btnSeleccionar
@@ -85,14 +85,6 @@
             txtDescripcion.Size = new Size(268, 104);
             txtDescripcion.TabIndex = 13;
             // 
-            // txtFechaInicio
-            // 
-            txtFechaInicio.Location = new Point(139, 84);
-            txtFechaInicio.Margin = new Padding(3, 2, 3, 2);
-            txtFechaInicio.Name = "txtFechaInicio";
-            txtFechaInicio.Size = new Size(110, 23);
-            txtFechaInicio.TabIndex = 11;
-            // 
             // label4
             // 
             label4.AutoSize = true;
@@ -116,7 +108,7 @@
             label2.AutoSize = true;
             label2.Location = new Point(62, 60);
             label2.Name = "label2";
-            label2.Size = new Size(71, 15);
+            label2.Size = new Size(70, 15);
             label2.TabIndex = 12;
             label2.Text = "Tratamiento";
             // 
@@ -145,14 +137,6 @@
             txtID.Size = new Size(110, 23);
             txtID.TabIndex = 7;
             // 
-            // txtFechaFin
-            // 
-            txtFechaFin.Location = new Point(139, 122);
-            txtFechaFin.Margin = new Padding(3, 2, 3, 2);
-            txtFechaFin.Name = "txtFechaFin";
-            txtFechaFin.Size = new Size(110, 23);
-            txtFechaFin.TabIndex = 11;
-            // 
             // label5
             // 
             label5.AutoSize = true;
@@ -162,17 +146,31 @@
             label5.TabIndex = 15;
             label5.Text = "Fecha fin";
             // 
+            // dateInicio
+            // 
+            dateInicio.Location = new Point(139, 86);
+            dateInicio.Name = "dateInicio";
+            dateInicio.Size = new Size(110, 23);
+            dateInicio.TabIndex = 18;
+            // 
+            // dateFin
+            // 
+            dateFin.Location = new Point(139, 124);
+            dateFin.Name = "dateFin";
+            dateFin.Size = new Size(110, 23);
+            dateFin.TabIndex = 18;
+            // 
             // FAgregarTratamiento
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(458, 329);
+            Controls.Add(dateFin);
+            Controls.Add(dateInicio);
             Controls.Add(btnSeleccionar);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(txtDescripcion);
-            Controls.Add(txtFechaFin);
-            Controls.Add(txtFechaInicio);
             Controls.Add(label4);
             Controls.Add(label5);
             Controls.Add(label3);
@@ -192,14 +190,14 @@
         private Button btnCancelar;
         private Button btnGuardar;
         private TextBox txtDescripcion;
-        private TextBox txtFechaInicio;
         private Label label4;
         private Label label3;
         private Label label2;
         private TextBox txtTratamiento;
         private Label label1;
         private TextBox txtID;
-        private TextBox txtFechaFin;
         private Label label5;
+        private DateTimePicker dateInicio;
+        private DateTimePicker dateFin;
     }
 }

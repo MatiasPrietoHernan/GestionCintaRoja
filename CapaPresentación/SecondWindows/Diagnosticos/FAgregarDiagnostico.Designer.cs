@@ -34,9 +34,9 @@
             txtDescripcion = new TextBox();
             label4 = new Label();
             label2 = new Label();
-            txtFecha = new TextBox();
             label1 = new Label();
             txtID = new TextBox();
+            dateDiagnostico = new DateTimePicker();
             SuspendLayout();
             // 
             // btnSeleccionar
@@ -99,14 +99,6 @@
             label2.TabIndex = 11;
             label2.Text = "Fecha";
             // 
-            // txtFecha
-            // 
-            txtFecha.Location = new Point(116, 74);
-            txtFecha.Margin = new Padding(3, 2, 3, 2);
-            txtFecha.Name = "txtFecha";
-            txtFecha.Size = new Size(110, 23);
-            txtFecha.TabIndex = 2;
-            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -124,18 +116,25 @@
             txtID.Size = new Size(110, 23);
             txtID.TabIndex = 0;
             // 
+            // dateDiagnostico
+            // 
+            dateDiagnostico.Location = new Point(116, 76);
+            dateDiagnostico.Name = "dateDiagnostico";
+            dateDiagnostico.Size = new Size(110, 23);
+            dateDiagnostico.TabIndex = 13;
+            // 
             // FAgregarDiagnostico
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(442, 354);
+            Controls.Add(dateDiagnostico);
             Controls.Add(btnSeleccionar);
             Controls.Add(btnCancelar);
             Controls.Add(btnGuardar);
             Controls.Add(txtDescripcion);
             Controls.Add(label4);
             Controls.Add(label2);
-            Controls.Add(txtFecha);
             Controls.Add(label1);
             Controls.Add(txtID);
             Name = "FAgregarDiagnostico";
@@ -152,8 +151,8 @@
         private TextBox txtDescripcion;
         private Label label4;
         private Label label2;
-        private TextBox txtFecha;
         private Label label1;
         private TextBox txtID;
+        private DateTimePicker dateDiagnostico;
     }
 }

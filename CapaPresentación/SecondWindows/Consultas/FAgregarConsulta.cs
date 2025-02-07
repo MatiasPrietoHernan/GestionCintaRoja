@@ -39,7 +39,7 @@ namespace CapaPresentación.SecondWindows.Consultas
             {
                 // Cargamos los datos para edición
                 txtDNI.Text = ConsultaEditar.idPaciente.ToString();
-                txtFecha.Text = ConsultaEditar.Fecha;
+                dateConsulta.Text = ConsultaEditar.Fecha;
                 txtMotivo.Text = ConsultaEditar.Motivo;
                 txtObservaciones.Text = ConsultaEditar.Observaciones;
 
@@ -62,7 +62,6 @@ namespace CapaPresentación.SecondWindows.Consultas
         {
             if (!ValidationHelper.AreFieldsNotEmpty(
                 txtDNI.Text,
-                txtFecha.Text,
                 txtMotivo.Text,
                 txtObservaciones.Text))
             {
@@ -72,11 +71,6 @@ namespace CapaPresentación.SecondWindows.Consultas
             if (!ValidationHelper.AreFieldsNumeric(txtDNI.Text))
             {
                 MessageBox.Show("El campo de ID Pciente deben contener solo números.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
-            if (!ValidationHelper.IsValidDate(txtFecha.Text))
-            {
-                MessageBox.Show("La fecha no tiene un formato válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
 
@@ -94,7 +88,7 @@ namespace CapaPresentación.SecondWindows.Consultas
                 consulta = new Consutlas1
                 {
                     idPaciente = IdPaciente,
-                    Fecha = txtFecha.Text,
+                    Fecha = dateConsulta.Value.Date.ToString("dd/MM/yyyy"),
                     Motivo = txtMotivo.Text,
                     Observaciones = txtObservaciones.Text
                 };
@@ -110,7 +104,7 @@ namespace CapaPresentación.SecondWindows.Consultas
                 {
                     Id = ConsultaEditar.Id, // Mantener el mismo ID
                     idPaciente = ConsultaEditar.idPaciente,
-                    Fecha = txtFecha.Text,
+                    Fecha = dateConsulta.Value.Date.ToString("dd/MM/yyyy"),
                     Motivo = txtMotivo.Text,
                     Observaciones = txtObservaciones.Text
                 };

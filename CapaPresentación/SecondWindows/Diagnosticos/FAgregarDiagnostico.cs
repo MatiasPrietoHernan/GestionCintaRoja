@@ -34,7 +34,7 @@ namespace CapaPresentación.SecondWindows.Diagnosticos
             if (diagnosticosEditar != null)
             {
                 txtID.Text = diagnosticosEditar.Id.ToString();
-                txtFecha.Text = diagnosticosEditar.FechaDiagnostico.ToString();
+                dateDiagnostico.Text = diagnosticosEditar.FechaDiagnostico.ToString();
                 txtDescripcion.Text = diagnosticosEditar.Descripcion;
                 txtID.Enabled = false;
                 btnSeleccionar.Enabled = false;
@@ -67,7 +67,7 @@ namespace CapaPresentación.SecondWindows.Diagnosticos
 
         private async void btnGuardar_Click(object sender, EventArgs e)
         {
-            if (!ValidationHelper.AreFieldsNotEmpty(txtID.Text, txtFecha.Text, txtDescripcion.Text))
+            if (!ValidationHelper.AreFieldsNotEmpty(txtID.Text, txtDescripcion.Text))
             {
                 MessageBox.Show("Todos los campos deben estar llenos.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
@@ -77,18 +77,13 @@ namespace CapaPresentación.SecondWindows.Diagnosticos
                 MessageBox.Show("El campo ID debe ser numerico.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
             }
-            if (!ValidationHelper.IsValidDate(txtFecha.Text))
-            {
-                MessageBox.Show("La fecha no tiene un formato válido.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
 
             if (diagnosticosEditar == null)
             {
                 Diagnosticos1 diagnostico = new Diagnosticos1
                 {
                     IdConsulta = int.Parse(txtID.Text),
-                    FechaDiagnostico = DateTime.Parse(txtFecha.Text),
+                    FechaDiagnostico = dateDiagnostico.Value.Date,
                     Descripcion = txtDescripcion.Text
                 };
                 await diagnosticosServices.AddDiagnosticoAsync(diagnostico);
@@ -97,7 +92,7 @@ namespace CapaPresentación.SecondWindows.Diagnosticos
             }
             else
             {
-                diagnosticosEditar.FechaDiagnostico = DateTime.Parse(txtFecha.Text);
+                diagnosticosEditar.FechaDiagnostico = dateDiagnostico.Value.Date;
                 diagnosticosEditar.Descripcion = txtDescripcion.Text;
                 await diagnosticosServices.UpdateDiagnosticoAsync(diagnosticosEditar);
                 MessageBox.Show("Diagnostico actualizado correctamente.", "Diagnostico actualizado", MessageBoxButtons.OK, MessageBoxIcon.Information);

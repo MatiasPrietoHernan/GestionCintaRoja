@@ -23,7 +23,7 @@ namespace CapaPresentación.SecondWindows
         public FConsultas(IConsultasServices _consultasServices)
         {
             InitializeComponent();
-            AggStyles.ApplyPlaceholder(txtBuscarConsulta, "Ingrese DNI");
+            AggStyles.ApplyPlaceholder(txtBuscarConsulta, "Ingrese Nombre o Apellido");
             consultasServices = _consultasServices;
         }
         private void pictureBox1_Click_1(object sender, EventArgs e)
