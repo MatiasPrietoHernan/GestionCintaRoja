@@ -21,6 +21,7 @@ namespace CapaPresentación.SecondWindows.Diagnosticos
     {
         private readonly IDiagnosticosServices diagnosticosServices;
         private readonly Diagnosticos1 diagnosticosEditar;
+        public int IdConsulta1 { get; set; }
         public FAgregarDiagnostico(IDiagnosticosServices _diganosticosServices, Diagnosticos1 diagnosticosEditar = null)
         {
             InitializeComponent();
@@ -56,9 +57,10 @@ namespace CapaPresentación.SecondWindows.Diagnosticos
                 var globalPacientes = factory.Crear(ModoFormularioPacientes.Diagnostico);
                 globalPacientes.Owner = this;
 
-                globalPacientes.PacienteSeleccionado += (id, idPaciente) =>
+                globalPacientes.PacienteSeleccionado += (idPaciente, idConsulta) =>
                 {
-                    txtID.Text = id.ToString(); // Mostrar el ID en el textbox
+                    txtID.Text = idPaciente.ToString(); // Mostrar el ID en el textbox
+                    IdConsulta1 = idConsulta ?? 0;
                 };
 
                 globalPacientes.ShowDialog();
@@ -80,9 +82,14 @@ namespace CapaPresentación.SecondWindows.Diagnosticos
 
             if (diagnosticosEditar == null)
             {
+                if(IdConsulta1 == 0)
+                {
+                    MessageBox.Show("Debe seleccionar una consulta.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
                 Diagnosticos1 diagnostico = new Diagnosticos1
                 {
-                    IdConsulta = int.Parse(txtID.Text),
+                    IdConsulta = IdConsulta1,
                     FechaDiagnostico = dateDiagnostico.Value.Date,
                     Descripcion = txtDescripcion.Text
                 };

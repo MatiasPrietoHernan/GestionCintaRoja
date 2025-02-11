@@ -8,10 +8,10 @@ using Microsoft.EntityFrameworkCore;
 
 namespace CapaDatos.Repository
 {
-    public class GenericRepository<T> : IGenericRepository<T> where T : class
+    public class GenericRepository<T> : IGenericRepository<T> where T : class, IEntity
     {
         private readonly AppDbContext _context;
-        
+
         private readonly DbSet<T> _dbSet;
         public GenericRepository(AppDbContext context)
         {
@@ -21,13 +21,14 @@ namespace CapaDatos.Repository
 
         public async Task<IEnumerable<T>> GetAllasync()
         {
-            return await _dbSet.ToListAsync();
+            // Utilizamos AsNoTracking para operaciones de solo lectura
+            return await _dbSet.AsNoTracking().ToListAsync();
         }
 
         public async Task<T> GetByIdAsync(int id)
         {
-            //Al usar esto EF no sigue al objeto cuando lo trae.
-            return await _dbSet.AsNoTracking().FirstOrDefaultAsync(e => EF.Property<int>(e, "Id") == id);
+            // Buscamos la entidad sin seguimiento para evitar conflictos al modificar
+            return await _dbSet.AsNoTracking().FirstOrDefaultAsync(e => e.Id == id);
         }
 
         public async Task AddAsync(T entity)
@@ -38,25 +39,17 @@ namespace CapaDatos.Repository
 
         public async Task UpdateAsync(T entity)
         {
-            var existingEntity = await _dbSet.FindAsync(GetId(entity));
-
+            var existingEntity = await _dbSet.FindAsync(entity.Id);
             if (existingEntity != null)
             {
-                // Copiar valores a la entidad rastreada
+                // Copiamos los valores actualizados a la entidad rastreada
                 _context.Entry(existingEntity).CurrentValues.SetValues(entity);
+                await _context.SaveChangesAsync();
             }
             else
             {
-                // Adjuntar y marcar como modificado
-                _dbSet.Update(entity);
+                throw new InvalidOperationException($"No se encontró la entidad con Id {entity.Id} para actualizar, culiao.");
             }
-
-            await _context.SaveChangesAsync();
-        }
-
-        private int GetId(T entity)
-        {
-            return (int)entity.GetType().GetProperty("Id").GetValue(entity);
         }
 
         public async Task DeleteAsync(int id)
@@ -67,13 +60,17 @@ namespace CapaDatos.Repository
                 _dbSet.Remove(entity);
                 await _context.SaveChangesAsync();
             }
-        }
+            else
+            {
+                throw new InvalidOperationException($"No se encontró la entidad con Id {id} para eliminar, petiso.");
+            }
 
-        //public async Task DeleteAsync(int id)
-        //{
-        //    var entity = await GetByIdAsync(id);
-        //    _dbSet.Remove(entity);
-        //    await _context.SaveChangesAsync();
-        //}
+            //public async Task DeleteAsync(int id)
+            //{
+            //    var entity = await GetByIdAsync(id);
+            //    _dbSet.Remove(entity);
+            //    await _context.SaveChangesAsync();
+            //}
+        }
     }
 }

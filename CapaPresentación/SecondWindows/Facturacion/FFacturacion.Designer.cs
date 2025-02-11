@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             panelClose = new Panel();
             pictureBox1 = new PictureBox();
             panelFacturacion = new Panel();
@@ -43,6 +44,7 @@
             btnEditar = new Button();
             btnAgregar = new Button();
             panel3 = new Panel();
+            datePago = new DateTimePicker();
             comboBoxMetodoPago = new ComboBox();
             label9 = new Label();
             txtIdConsulta = new TextBox();
@@ -62,7 +64,7 @@
             label2 = new Label();
             btnSeleccionar = new Button();
             label1 = new Label();
-            datePago = new DateTimePicker();
+            toolTip1 = new ToolTip(components);
             panelClose.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             panelFacturacion.SuspendLayout();
@@ -199,7 +201,7 @@
             btnEliminar.ImageAlign = ContentAlignment.MiddleLeft;
             btnEliminar.Location = new Point(5, 101);
             btnEliminar.Name = "btnEliminar";
-            btnEliminar.Padding = new Padding(4, 4, 4, 4);
+            btnEliminar.Padding = new Padding(4);
             btnEliminar.Size = new Size(122, 33);
             btnEliminar.TabIndex = 4;
             btnEliminar.Text = "       Eliminar";
@@ -214,7 +216,7 @@
             btnEditar.ImageAlign = ContentAlignment.MiddleLeft;
             btnEditar.Location = new Point(5, 62);
             btnEditar.Name = "btnEditar";
-            btnEditar.Padding = new Padding(4, 4, 4, 4);
+            btnEditar.Padding = new Padding(4);
             btnEditar.Size = new Size(122, 33);
             btnEditar.TabIndex = 5;
             btnEditar.Text = "       Editar";
@@ -229,7 +231,7 @@
             btnAgregar.ImageAlign = ContentAlignment.MiddleLeft;
             btnAgregar.Location = new Point(5, 23);
             btnAgregar.Name = "btnAgregar";
-            btnAgregar.Padding = new Padding(4, 4, 4, 4);
+            btnAgregar.Padding = new Padding(4);
             btnAgregar.Size = new Size(122, 33);
             btnAgregar.TabIndex = 6;
             btnAgregar.Text = "       Agregar";
@@ -265,6 +267,13 @@
             panel3.Name = "panel3";
             panel3.Size = new Size(800, 133);
             panel3.TabIndex = 2;
+            // 
+            // datePago
+            // 
+            datePago.Location = new Point(270, 101);
+            datePago.Name = "datePago";
+            datePago.Size = new Size(102, 23);
+            datePago.TabIndex = 12;
             // 
             // comboBoxMetodoPago
             // 
@@ -351,6 +360,7 @@
             txtNumeroFactura.Name = "txtNumeroFactura";
             txtNumeroFactura.Size = new Size(100, 23);
             txtNumeroFactura.TabIndex = 7;
+            toolTip1.SetToolTip(txtNumeroFactura, "Si no hay numero de factura se autogenera.");
             // 
             // label6
             // 
@@ -432,12 +442,11 @@
             label1.TabIndex = 4;
             label1.Text = "Facturacion";
             // 
-            // datePago
+            // toolTip1
             // 
-            datePago.Location = new Point(270, 101);
-            datePago.Name = "datePago";
-            datePago.Size = new Size(102, 23);
-            datePago.TabIndex = 12;
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 200;
+            toolTip1.ReshowDelay = 100;
             // 
             // FFacturacion
             // 
@@ -499,5 +508,6 @@
         private TextBox txtIdConsulta;
         private Label idConsulta;
         private DateTimePicker datePago;
+        private ToolTip toolTip1;
     }
 }
