@@ -7,6 +7,8 @@
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
     <ApplicationIcon>Resources\Icons\cinta-de-cancer-de-mama.ico</ApplicationIcon>
+    <Product>GestiónCintaRosa</Product>
+    <Description>Aplicación de escritorio para la gestión de consultorios y clinicas medianos-pequeños.</Description>
   </PropertyGroup>
 
   <ItemGroup>

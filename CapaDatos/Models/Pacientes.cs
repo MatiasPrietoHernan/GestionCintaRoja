@@ -3,10 +3,11 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using CapaDatos.Interfaces;
 
 namespace CapaDatos.Models
 {
-    public class Pacientes
+    public class Pacientes : IEntity
     {
         public int Id { get; set; }
         public string Nombre { get; set; }

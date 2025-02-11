@@ -44,7 +44,7 @@ namespace CapaPresentación.SecondWindows
                     var factory = scope.ServiceProvider.GetRequiredService<GlobalPacientesFactory>();
                     var globalPacientes = factory.Crear(ModoFormularioPacientes.Diagnostico);
                     globalPacientes.Owner = this;
-                    globalPacientes.PacienteSeleccionado += async (idConsulta, idPaciente) =>
+                    globalPacientes.PacienteSeleccionado += async (idPaciente, idConsulta) =>
                     {
                         txtID.Text = idPaciente.ToString(); // Mostrar el ID en el textbox
                         txtIdConsulta.Text = idConsulta.ToString();
@@ -79,6 +79,8 @@ namespace CapaPresentación.SecondWindows
                 txtID.Text = datos.Id.ToString();
                 txtDNI.Text = datos.DNI.ToString();
 
+                txtIdConsulta.Enabled = false;
+
             }
             catch (Exception ex)
             {
@@ -107,7 +109,7 @@ namespace CapaPresentación.SecondWindows
                 // Creá y agregá cada columna con el alias que quieras
                 var colId = new DataGridViewTextBoxColumn();
                 colId.Name = "Id";
-                colId.HeaderText = "ID de Pago";
+                colId.HeaderText = "N° Factura";
                 colId.DataPropertyName = "Id";
                 dataGridPagos.Columns.Add(colId);
 
@@ -176,11 +178,7 @@ namespace CapaPresentación.SecondWindows
                     return;
                 }
                 
-                else if (string.IsNullOrEmpty(txtNumeroFactura.Text))
-                {
-                    MessageBox.Show("Debe ingresar un número de factura", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+             
                 else if (string.IsNullOrEmpty(txtIdConsulta.Text))
                 {
                     MessageBox.Show("Debe ingresar un ID de consulta", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -189,23 +187,39 @@ namespace CapaPresentación.SecondWindows
                 if (!isEditing)
                 {
                     // Si no estamos en modo edición, creamos un nuevo pago.
-                    var idPagos = await pagosServices.GetPagoAsync(int.Parse(txtNumeroFactura.Text));
-                    if (idPagos != null)
+                  
+                    if (string.IsNullOrEmpty(txtNumeroFactura.Text))
                     {
-                        MessageBox.Show("El número de factura ya existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                        return;
+                        var nuevoPago = new Pagos1
+                        {
+                            FechaPago = datePago.Value.Date.ToString("dd/MM/yyyy"),
+                            Monto = double.Parse(txtMonto.Text),
+                            MetodoPago = comboBoxMetodoPago.Text,
+                            IdConsulta = int.Parse(txtIdConsulta.Text)
+                        };
+
+                        await pagosServices.AddPagoAsync(nuevoPago);
+                    }
+                    else
+                    {
+                        var idPagos = await pagosServices.GetPagoAsync(int.Parse(txtNumeroFactura.Text));
+                        if (idPagos != null)
+                        {
+                            MessageBox.Show("El número de factura ya existe", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            return;
+                        }
+                        var nuevoPago = new Pagos1
+                        {
+                            Id = int.Parse(txtNumeroFactura.Text),
+                            FechaPago = datePago.Value.Date.ToString("dd/MM/yyyy"),
+                            Monto = double.Parse(txtMonto.Text),
+                            MetodoPago = comboBoxMetodoPago.Text,
+                            IdConsulta = int.Parse(txtIdConsulta.Text)
+                        };
+
+                        await pagosServices.AddPagoAsync(nuevoPago);
                     }
 
-                    var nuevoPago = new Pagos1
-                    {
-                        Id = int.Parse(txtNumeroFactura.Text),
-                        FechaPago = datePago.Value.Date.ToString("dd/MM/yyyy"),
-                        Monto = double.Parse(txtMonto.Text),
-                        MetodoPago = comboBoxMetodoPago.Text,
-                        IdConsulta = int.Parse(txtIdConsulta.Text)
-                    };
-
-                    await pagosServices.AddPagoAsync(nuevoPago);
                     MessageBox.Show("Pago agregado exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
                 else
