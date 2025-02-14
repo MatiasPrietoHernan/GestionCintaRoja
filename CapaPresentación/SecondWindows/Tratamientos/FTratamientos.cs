@@ -105,8 +105,7 @@ namespace CapaPresentación.SecondWindows
                 {
                     t.Id,
                     t.NombreTratamiento,
-                    t.Paciente.Nombre,
-                    t.Paciente.Apellido,
+                    Paciente = $"{t.Paciente.Nombre} {t.Paciente.Apellido}",
                     t.FechaInicio,
                     t.FechaFin,
                     t.Detalles
@@ -114,10 +113,9 @@ namespace CapaPresentación.SecondWindows
 
                 dataGridView1.DataSource = tratamientos;
 
-                dataGridView1.Columns["Id"].HeaderText = "ID Tratamiento";
+                dataGridView1.Columns["Id"].Visible = false;
                 dataGridView1.Columns["NombreTratamiento"].HeaderText = "Nombre del Tratamiento";
-                dataGridView1.Columns["Nombre"].HeaderText = "Nombre";
-                dataGridView1.Columns["Apellido"].HeaderText = "Apellido";
+                dataGridView1.Columns["Paciente"].HeaderText = "Paciente";
                 dataGridView1.Columns["FechaInicio"].HeaderText = "Fecha de Inicio";
                 dataGridView1.Columns["FechaFin"].HeaderText = "Fecha de Fin";
                 dataGridView1.Columns["Detalles"].HeaderText = "Detalles";
@@ -143,8 +141,7 @@ namespace CapaPresentación.SecondWindows
                 {
                     t.Id,
                     t.NombreTratamiento,
-                    t.Paciente.Nombre,
-                    t.Paciente.Apellido,
+                    Paciente = $"{t.Paciente.Nombre} {t.Paciente.Apellido}",
                     t.FechaInicio,
                     t.FechaFin,
                     t.Detalles
@@ -152,10 +149,9 @@ namespace CapaPresentación.SecondWindows
 
                 dataGridView1.DataSource = tratamientos;
 
-                dataGridView1.Columns["Id"].HeaderText = "ID Tratamiento";
+                dataGridView1.Columns["Id"].Visible = false;
                 dataGridView1.Columns["NombreTratamiento"].HeaderText = "Nombre del Tratamiento";
-                dataGridView1.Columns["Nombre"].HeaderText = "Nombre";
-                dataGridView1.Columns["Apellido"].HeaderText = "Apellido";
+                dataGridView1.Columns["Paciente"].HeaderText = "Paciente";
                 dataGridView1.Columns["FechaInicio"].HeaderText = "Fecha de Inicio";
                 dataGridView1.Columns["FechaFin"].HeaderText = "Fecha de Fin";
                 dataGridView1.Columns["Detalles"].HeaderText = "Detalles";
