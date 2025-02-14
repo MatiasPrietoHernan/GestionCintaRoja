@@ -199,6 +199,14 @@ namespace CapaPresentación.SecondWindows
                         };
 
                         await pagosServices.AddPagoAsync(nuevoPago);
+                        txtID.Clear();
+                        txtApellido.Clear();
+                        txtNombre.Clear();
+                        txtDNI.Clear();
+                        txtIdConsulta.Clear();
+                        txtNumeroFactura.Clear();
+                        txtMonto.Clear();
+                        comboBoxMetodoPago.SelectedIndex = 0;
                     }
                     else
                     {
@@ -218,6 +226,14 @@ namespace CapaPresentación.SecondWindows
                         };
 
                         await pagosServices.AddPagoAsync(nuevoPago);
+                        txtID.Clear();
+                        txtApellido.Clear();
+                        txtNombre.Clear();
+                        txtDNI.Clear();
+                        txtIdConsulta.Clear();
+                        txtNumeroFactura.Clear();
+                        txtMonto.Clear();
+                        comboBoxMetodoPago.SelectedIndex = 0;
                     }
 
                     MessageBox.Show("Pago agregado exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
@@ -233,8 +249,16 @@ namespace CapaPresentación.SecondWindows
                         MetodoPago = comboBoxMetodoPago.Text,
                         IdConsulta = int.Parse(txtIdConsulta.Text)
                     };
-
+                    
                     await pagosServices.UpdatePagoAsync(pagoActualizado);
+                    txtID.Clear();
+                    txtApellido.Clear();
+                    txtNombre.Clear();
+                    txtDNI.Clear();
+                    txtIdConsulta.Clear();
+                    txtNumeroFactura.Clear();
+                    txtMonto.Clear();
+                    comboBoxMetodoPago.SelectedIndex = 0;
                     MessageBox.Show("Pago actualizado exitosamente", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
                     // Salimos del modo edición
@@ -248,6 +272,7 @@ namespace CapaPresentación.SecondWindows
                     txtDNI.Enabled = true;
                     txtIdConsulta.Enabled = true;
                     btnSeleccionar.Enabled = true;
+                    txtNumeroFactura.Enabled = true;
                 }
 
                 await GetPagosAsync();
