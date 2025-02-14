@@ -164,7 +164,7 @@ namespace CapaLogica.Servicios
                     return (headersTratamientos, dataTratamientos);
 
                 case "Pagos":
-                    var pagos = await pagosServices.GetPagosWithRealtionsAsync();
+                    var pagos = await pagosServices.GetPagosConsultasPacientesAsync();
                     var headersPagos = new List<string> {
                         "ID", "Paciente", "Fecha de Pago", "Fecha de Consulta", "Metodo de Pago", "Monto"
                     };

@@ -94,7 +94,6 @@ namespace CapaLogica.Servicios
                             t.FechaInicio,
                             t.FechaFin,
                             t.Detalles,
-                            t.Consulta.Fecha
                         });
                         worksheet.Cells[1, 1].Value = "ID Tratamiento";
                         worksheet.Cells[1, 2].Value = "Nombre";
@@ -102,7 +101,6 @@ namespace CapaLogica.Servicios
                         worksheet.Cells[1, 4].Value = "Fecha Inicio";
                         worksheet.Cells[1, 5].Value = "Fecha Fin";
                         worksheet.Cells[1, 6].Value = "Detalles";
-                        worksheet.Cells[1, 7].Value = "Fecha de Consulta";
                         foreach(var tratamiento in datos)
                         {
                             worksheet.Cells[row, 1].Value = tratamiento.Id;
@@ -111,7 +109,6 @@ namespace CapaLogica.Servicios
                             worksheet.Cells[row, 4].Value = tratamiento.FechaInicio;
                             worksheet.Cells[row, 5].Value = tratamiento.FechaFin;
                             worksheet.Cells[row, 6].Value = tratamiento.Detalles;
-                            worksheet.Cells[row, 7].Value = tratamiento.Fecha;
                             row++;
                         }
                         break;
